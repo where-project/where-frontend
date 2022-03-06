@@ -4,6 +4,7 @@ import "./App.css";
 import Helloworld from "../abis/Helloworld.json";
 import Navbar from "./Navbar";
 import Main from "./Main";
+import Login from "./Login/Login";
 
 class App extends Component {
   async componentWillMount() {
@@ -62,7 +63,7 @@ class App extends Component {
                   <p className="text-center">Loading...</p>
                 </div>
               ) : (
-                <Main greeting={this.state.greeting} />
+                <Login />
               )}
             </main>
           </div>
