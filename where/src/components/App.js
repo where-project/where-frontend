@@ -1,10 +1,9 @@
 import React, { Component } from "react";
 import Web3 from "web3";
 import "./App.css";
-import Helloworld from "../abis/Helloworld.json";
+import Reservation from "../abis/Reservation.json";
 import Navbar from "./Navbar";
 import Main from "./Main";
-import Login from "./Login/Login";
 
 class App extends Component {
   async componentWillMount() {
@@ -31,24 +30,61 @@ class App extends Component {
     this.setState({ account: accounts[0] });
     //create contract
     const networkId = await web3.eth.net.getId(); //5777
-    const networkData = Helloworld.networks[networkId];
+    const networkData = Reservation.networks[networkId];
     if (networkData) {
-      const helloworld = web3.eth.Contract(Helloworld.abi, networkData.address);
-      this.setState({ helloworld });
-      const greeting = await helloworld.methods.greeting().call();
-      this.setState({ greeting });
+      const reservation = web3.eth.Contract(
+        Reservation.abi,
+        networkData.address
+      );
+      this.setState({ reservation });
+      const reservationCount = await reservation.methods
+        .reservationCount()
+        .call();
+      this.setState({ reservationCount });
+      //Load products
+      for (var i = 1; i <= reservationCount; i++) {
+        const reservationInformation = await reservation.methods
+          .reservations(i)
+          .call();
+        this.setState({
+          reservations: [...this.state.reservations, reservationInformation],
+        });
+      }
       this.setState({ loading: false });
     } else {
-      window.alert("Marketplace contract not deployed to detected network.");
+      window.alert("Reservation contract not deployed to detected network.");
     }
   }
   constructor(props) {
     super(props);
     this.state = {
       account: "",
-      greeting: "",
+      reservationCount: 0,
+      reservations: [],
       loading: true,
     };
+    this.createReservation = this.createReservation.bind(this);
+    this.bookedReservation = this.bookedReservation.bind(this);
+  }
+
+  createReservation(name, price) {
+    this.setState({ loading: true });
+    this.state.reservation.methods
+      .createReservation(name, price)
+      .send({ from: this.state.account })
+      .once("receipt", (receipt) => {
+        this.setState({ loading: false });
+      });
+  }
+
+  bookedReservation(id, price) {
+    this.setState({ loading: true });
+    this.state.reservation.methods
+      .bookedReservation(id)
+      .send({ from: this.state.account, value: price })
+      .once("receipt", (receipt) => {
+        this.setState({ loading: false });
+      });
   }
 
   render() {
@@ -63,7 +99,11 @@ class App extends Component {
                   <p className="text-center">Loading...</p>
                 </div>
               ) : (
-                <Login />
+                <Main
+                  reservations={this.state.reservations}
+                  createReservation={this.createReservation}
+                  bookedReservation={this.bookedReservation}
+                />
               )}
             </main>
           </div>

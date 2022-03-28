@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import LoginService from '../../service/LoginService';
 const Login = () => {
     const [data, setData] = useState();
-    const [flag, setFlag] = useState(0);
+    const [flag, setFlag] = useState(false);
 
     useEffect(() => {
         let loginService = new LoginService();
@@ -20,7 +20,7 @@ const Login = () => {
                     <label htmlFor="psw"><b>Password</b></label>
                     <input type="password" placeholder="Enter Password" name="psw" required />
                 </div>
-                <button type="submit" onClick={setFlag(1)}>Login</button>
+                <button type="submit" onClick={setFlag(true)}>Login</button>
             </form>
         </div>
     )

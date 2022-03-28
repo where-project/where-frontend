@@ -1,3 +1,4 @@
+//const { artifacts } = require("truffle");
 const Helloworld = artifacts.require('./Helloworld.sol')
 require('chai')
 .use(require('chai-as-promised'))
@@ -19,7 +20,7 @@ contract('Helloworld',()=>{
 		})
 
 		it('has a name',async ()=>{
-			const name = await helloworld.getGreeting()
+			const name = await helloworld.greeting()
 			assert.equal(name,'Hello World')
 		})
 	})
