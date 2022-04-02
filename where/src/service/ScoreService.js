@@ -1,30 +1,22 @@
-import axios from "axios";
+import axiosInstance from "./AxiosInstance";
 
 export default class ScoreService {
   getAll() {
-    return axios.get(`http://localhost:8080/api/v1/scores/getAll`);
+    return axiosInstance.get(`/scores/getAll`);
   }
 
   getById(id) {
-    return axios.get(
-      `http://localhost:8080/api/v1/scores/getById/{id}?id=${id}`
-    );
+    return axiosInstance.get(`/scores/getById/{id}?id=${id}`);
   }
 
   add(score) {
-    return axios.post(`http://localhost:8080/api/v1/scores/add`, score);
+    return axiosInstance.post(`/scores/add`, score);
   }
 
   update(id, score) {
-    return axios.put(
-      `http://localhost:8080/api/v1/scores/update/{id}?id=${id}`,
-      score
-    );
+    return axiosInstance.put(`/scores/update/{id}?id=${id}`, score);
   }
   deleteById(id) {
-    return axios.delete(
-      `http://localhost:8080/api/v1/scores/{id}?id=${id}`
-    );
+    return axiosInstance.delete(`/scores/{id}?id=${id}`);
   }
-  
 }

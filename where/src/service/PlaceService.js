@@ -1,24 +1,19 @@
-import axios from "axios";
+import axiosInstance from "./AxiosInstance";
 
 export default class PlaceService {
   add(place) {
-    return axios.post(`http://localhost:8080/api/v1/places/add`, place);
+    return axiosInstance.post(`/places/add`, place);
   }
   getAll() {
-    return axios.get(`http://localhost:8080/api/v1/places/getAll`);
+    return axiosInstance.get(`/places/getAll`);
   }
   getById(id) {
-    return axios.get(
-      `http://localhost:8080/api/v1/places/getById/{id}?id=${id}`
-    );
+    return axiosInstance.get(`/places/getById/{id}?id=${id}`);
   }
   deleteById(id) {
-    return axios.delete(`http://localhost:8080/api/v1/places/{id}?id=${id}`);
+    return axiosInstance.delete(`/places/{id}?id=${id}`);
   }
   updateById(updatePlaceDto) {
-    return axios.put(
-      `http://localhost:8080/api/v1/places/update`,
-      updatePlaceDto
-    );
+    return axiosInstance.put(`/places/update`, updatePlaceDto);
   }
 }
