@@ -1,4 +1,4 @@
-import axiosInstance from "../service/AxiosInstance";
+import axiosInstance from "./AxiosInstance";
 
 export default class UserService {
   refreshToken() {
