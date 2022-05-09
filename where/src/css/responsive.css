@@ -1,0 +1,44 @@
+@media (max-width: 1680px) {
+  .login-contentarea {
+    padding: 30px;
+  }
+  .tabs {
+    padding: 0 15%;
+  }
+}
+@media (max-width:1024px){
+
+}
+@media (max-width: 900px) {
+}
+@media (max-width: 800px) {
+  .login-contentarea {
+    padding: 20px;
+  }
+}
+@media (max-width: 768px) {
+}
+@media (max-width: 767px) {
+  .loginsingupimg {
+    z-index: 1;
+    width: 100%;
+    position: absolute;
+  }
+  .login-contentarea {
+    z-index: 2;
+    width: 100%;
+    padding: 30px;
+    position: relative;
+    background: rgba(255, 255, 255, 0.8);
+  }
+}
+@media (max-width: 640px) {
+}
+@media (max-width: 568px) {
+}
+@media (max-width: 480px) {
+}
+@media (max-width: 479px) {
+}
+@media (max-width: 359px) {
+}
