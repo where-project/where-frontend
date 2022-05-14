@@ -1,0 +1,119 @@
+.contactuserarea {
+  width: 100%;
+  float: left;
+  overflow: hidden;
+  background: #fff;
+  margin: -150px 0 100px;
+  box-shadow: 0 0 15px 0 rgb(0 0 0 / 10%);
+}
+.container {
+  margin-right: auto;
+  margin-left: auto;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+.content {
+  width: 100%;
+  float: left;
+}
+.formtheme {
+  width: 100%;
+  float: left;
+}
+.formtheme fieldset {
+  border: 0;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  float: left;
+  position: relative;
+}
+.formcontactus {
+  width: 100%;
+  float: left;
+  padding: 30px;
+}
+.formcontactus h2 {
+  color: #000;
+  margin: 0 0 30px;
+  font-size: 32px;
+  line-height: 24px;
+}
+.formcontactus .form-control {
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+}
+.contactinfo {
+  width: 100%;
+  float: left;
+  padding: 41px;
+  position: relative;
+  background: #2457cf;
+}
+.contactinfo:before {
+  content: "";
+  right: -60px;
+  bottom: -60px;
+  width: 183px;
+  height: 317px;
+  position: absolute;
+  background: url("../images/icons/location.png") no-repeat;
+}
+.contactinfo h2 {
+  color: #fff;
+  margin: 0 0 30px;
+  font-size: 32px;
+  line-height: 24px;
+}
+.contactinfo .description {
+  color: #fff;
+  padding: 0 0 30px;
+}
+.contactinfo .description p {
+  margin: 0;
+}
+.contactinfolist {
+  width: 100%;
+  float: left;
+  color: #fff;
+  font-size: 14px;
+  line-height: 18px;
+  list-style: none;
+  padding: 30px 0 60px;
+}
+.contactinfolist li {
+  width: 100%;
+  float: left;
+  list-style: none;
+  line-height: inherit;
+}
+.contactinfolist li + li {
+  margin: 30px 0 0;
+}
+.contactinfolist li i {
+  width: 40px;
+  min-height: 18px;
+  font-size: 18px;
+  line-height: 18px;
+}
+.contactinfolist li i,
+.contactinfolist li span {
+  color: #fff;
+  float: left;
+}
+.contactinfolist li span a {
+  color: #fff;
+}
+.locationmap {
+  width: 100%;
+  float: left;
+  height: 600px;
+  background: url("../images/login.png");
+}
+.btn {
+  color: #fff !important;
+  background-color: #6fbf17 !important;
+}
+input[type="email"] {
+  text-transform: none !important;
+}
