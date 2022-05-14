@@ -116,7 +116,7 @@ input[type="color"],
   vertical-align: middle;
   text-transform: capitalize;
   -webkit-box-shadow: none;
-  box-shadow: none;
+  box-shadow: none !important;
   -o-text-overflow: ellipsis;
   text-overflow: ellipsis;
   -webkit-border-radius: 50px;
@@ -145,7 +145,7 @@ input:focus,
 .form-control:focus,
 .btngreen,
 .btngreen:hover {
-  border-color: #6fbf17;
+  border-color: #6fbf17 !important;
 }
 label {
   color: #666;
@@ -154,8 +154,7 @@ label {
   margin-bottom: 10px;
   max-width: 100%;
 }
-@import url(
-  https://fonts.googleapis.com/css?family=Saira:300,400,500,600,700);
+@import url(https://fonts.googleapis.com/css?family=Saira:300,400,500,600,700);
 @font-face {
   font-family: "saginaw_medium";
   src: url("../fonts/saginawmedium-webfont.woff2") format("woff2"),
@@ -164,26 +163,15 @@ label {
   font-style: normal;
 }
 
-body.listar-hidescroll {
-  overflow: hidden;
+.form-group {
+  width: 100%;
+  float: left;
+  margin: 0 0 20px;
 }
-.listar-btnclose {
-  top: 25px;
-  opacity: 1;
-  z-index: 3;
-  right: 25px;
-  color: #fff;
-  outline: 0;
-  width: 40px;
-  height: 40px;
-  display: block;
-  font-size: 18px;
-  font-weight: 300;
-  line-height: 40px;
-  background: #1e1e1e;
-  position: absolute;
-  text-align: center;
-  -webkit-border-radius: 50%;
-  border-radius: 50%;
-  font-family: "Saira", Arial, Helvetica, sans-serif;
+textarea.form-control.contact-textarea {
+  resize: none;
+  height: 210px;
+}
+a {
+  text-decoration: none;
 }
