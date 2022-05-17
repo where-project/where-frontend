@@ -126,12 +126,12 @@ function Listing() {
 										return (
 											<div className="themepost placespost">
 												<figure className="featuredimg">
-													<a href="detail.html">
+													<a href="">
 														<img src="https://media-cdn.tripadvisor.com/media/photo-s/10/e5/73/92/photo1jpg.jpg" alt="image description" className="mCS_img_loaded" />
 													</a>
 												</figure>
 												<div className="postcontent">
-													<h3><a href="detail.html">{place.placeName}</a></h3>
+													<h3><a href="">{place.placeName}</a></h3>
 													<div className="description">
 														<p>{place.phoneNumber}</p>
 													</div>
@@ -140,7 +140,7 @@ function Listing() {
 															<span className="stars"><span></span></span>
 															<em>(3 Review)</em>
 														</div>
-														<a href="javascript:void(0);" className="category">
+														<a href="" className="category">
 															{(place.placeCategories).map(category => {
 																return (
 																	<div>
@@ -152,7 +152,7 @@ function Listing() {
 														</a>
 													</div>
 													<div className="themepostfoot">
-														<a className="location" href="javascript:void(0);">
+														<a className="location" href="">
 															<i className="icon-icons74"></i>
 															<em>{place.locationCityName}</em>
 														</a>
@@ -163,11 +163,11 @@ function Listing() {
 									})}
 									<nav className="pagination">
 										<ul>
-											<li className="prevpage"><a href="javascript:void(0);"><i className="fa fa-angle-left"></i></a></li>
-											<li className="active"><a href="javascript:void(0);">1</a></li>
-											<li><a href="javascript:void(0);">2</a></li>
-											<li><a href="javascript:void(0);">3</a></li>
-											<li className="nextpage"><a href="javascript:void(0);"><i className="fa fa-angle-right"></i></a></li>
+											<li className="prevpage"><a href=""><i className="fa fa-angle-left"></i></a></li>
+											<li className="active"><a href="">1</a></li>
+											<li><a href="">2</a></li>
+											<li><a href="">3</a></li>
+											<li className="nextpage"><a href=""><i className="fa fa-angle-right"></i></a></li>
 										</ul>
 									</nav>
 								</div>
