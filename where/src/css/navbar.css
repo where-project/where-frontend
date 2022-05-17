@@ -1,0 +1,239 @@
+.where-header {
+  top: 0;
+  left: 0;
+  z-index: 999;
+  position: fixed;
+  background: transparent;
+  transform: translateZ(0);
+  text-align: center;
+  will-change: transform;
+  transition: transform 0.5s;
+  padding: 15px 0;
+}
+.darkheader {
+  background: rgba(0, 0, 0, 0.8);
+}
+.hide-header {
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 999;
+  position: fixed;
+  transform: translateZ(0);
+  will-change: transform;
+  transition: transform 0.5s;
+}
+.is-hidden {
+  transform: translateY(-100%);
+}
+.logo {
+  float: left;
+}
+.logo a,
+.logo a img {
+  display: block;
+  height: 46px;
+  width: fit-content;
+}
+.nav {
+  padding: 3px 0;
+  vertical-align: top;
+  display: inline-block;
+  text-transform: capitalize;
+  font: 400 16px/30px "Saira", Arial, Helvetica, sans-serif;
+}
+.addnav {
+  float: right;
+  padding: 3px 0;
+}
+.addnav ul {
+  width: 100%;
+  float: left;
+  list-style: none;
+  line-height: inherit;
+}
+.addnav ul li {
+  float: left;
+  padding: 0 0 0 10px;
+  line-height: inherit;
+  list-style-type: none;
+}
+.navbar-toggle {
+  border: 0;
+  margin: 3px 0;
+  border-radius: 0;
+  padding: 10px 12px;
+  position: relative;
+  float: right;
+}
+.navbar-toggle .icon-bar {
+  display: block;
+  width: 22px;
+  height: 2px;
+  border-radius: 1px;
+  background: #fff;
+}
+.btn {
+  color: #fff;
+  padding: 0 30px;
+  position: relative;
+  text-align: center;
+  border-radius: 22px;
+  display: inline-block;
+  vertical-align: middle;
+  text-transform: capitalize;
+  font: 400 14px/42px "Saira", Arial, Helvetica, sans-seri;
+}
+.btnOrange {
+  background-color: #f9b42b !important;
+}
+.btn i,
+.btn span {
+  float: left;
+  font-size: inherit;
+  line-height: inherit;
+}
+.btn i + span {
+  padding: 0 0 0 10px;
+}
+.btn .icon-smiling-face {
+  font-size: 24px;
+}
+.btn .icon-plus {
+  font-size: 14px;
+  font-style: normal;
+}
+.btn:hover,
+.btngreen:hover {
+  color: #fff;
+  border-color: #6fbf17;
+  outline: none;
+  box-shadow: none;
+}
+.btnOrange:hover {
+  color: #fff;
+  border-color: #f9b42b;
+  outline: none;
+  box-shadow: none;
+  background-color: #f9b42b !important;
+}
+.btn:focus {
+  outline: none;
+  box-shadow: none;
+}
+.navigation {
+  padding: 0;
+  width: 100%;
+  float: left;
+}
+.navigation ul {
+  list-style: none;
+  line-height: inherit;
+}
+.navigation > ul {
+  width: 100%;
+  float: left;
+  list-style: none;
+  line-height: 30px;
+  text-align: center;
+}
+.navigation ul li {
+  line-height: inherit;
+  list-style-type: none;
+}
+.navigation > ul > li {
+  width: auto;
+  padding: 7px 25px;
+  vertical-align: top;
+  display: inline-block;
+}
+.navigation ul li a {
+  color: #222;
+  display: block;
+}
+.navigation > ul > li > a {
+  color: #fff;
+}
+.menu-item-has-children {
+  position: relative;
+}
+.sub-menu {
+  left: 0;
+  top: 150px;
+  opacity: 0;
+  margin: 0;
+  width: 230px;
+  padding: 10px 10px;
+  text-align: left;
+  font-size: 14px;
+  line-height: 20px;
+  background: #fff;
+  visibility: hidden;
+  position: absolute;
+  box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.2);
+}
+.sub-menu li {
+  padding: 5px 10px;
+}
+.navigation .sub-menu li a {
+  color: #5c5c5c;
+}
+.sub-menu .sub-menu {
+  left: 100%;
+}
+.menu-item-has-children:hover > .sub-menu {
+  top: 100%;
+  opacity: 1;
+  visibility: visible;
+}
+.menu-item-has-children > a {
+  position: relative;
+  padding: 0 12px 0 0;
+}
+.menu-item-has-children > a:before {
+  top: 0;
+  right: 0;
+  font-size: 13px;
+  content: "\f0d7";
+  position: absolute;
+  line-height: inherit;
+  font-family: "FontAwesome";
+}
+.menu-item-has-children .menu-item-has-children > a:before {
+  color: #bebebe;
+  content: "\f0da";
+}
+.sub-menu li:hover > .sub-menu {
+  top: 0;
+}
+.dropdowarrow {
+  top: 9px;
+  right: 15px;
+  z-index: 2;
+  color: #fff;
+  width: 20px;
+  height: 20px;
+  display: none;
+  cursor: pointer;
+  font-size: 16px;
+  line-height: 20px;
+  position: absolute;
+  text-align: center;
+}
+.dropdowarrow i {
+  display: block;
+  font-size: inherit;
+  line-height: inherit;
+}
+.dropdowarrow i:before {
+  content: "\f106";
+}
+.menu-item-has-children > a:before {
+  top: 0;
+  right: 0;
+  font-size: 13px;
+  content: "\f0d7";
+  position: absolute;
+  line-height: inherit;
+  font-family: "FontAwesome";
+}

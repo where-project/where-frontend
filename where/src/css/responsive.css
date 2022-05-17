@@ -6,8 +6,7 @@
     padding: 0 15%;
   }
 }
-@media (max-width:1024px){
-
+@media (max-width: 1024px) {
 }
 @media (max-width: 900px) {
 }
@@ -41,4 +40,17 @@
 @media (max-width: 479px) {
 }
 @media (max-width: 359px) {
+}
+@media (min-width: 768px) {
+  .navbar-collapse.collapse {
+    display: block !important;
+    height: auto !important;
+    padding-bottom: 0;
+    overflow: visible !important;
+  }
+}
+@media only screen and (min-width: 1024px) {
+  .hide-header {
+    height: 80px;
+  }
 }

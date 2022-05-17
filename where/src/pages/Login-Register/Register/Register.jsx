@@ -42,10 +42,6 @@ const Register = (props) => {
               <input type="email" name="emailaddress" className="form-control" placeholder="Email Address" />
             </div>
             <div className="form-group inputwithicon">
-              <i className="icon-user3"></i>
-              <input type="text" name="username" className="form-control" placeholder="Username" />
-            </div>
-            <div className="form-group inputwithicon">
               <i className="icon-lock-stripes"></i>
               <input type="password" name="password" className="form-control" placeholder="Password" />
             </div>
