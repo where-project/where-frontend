@@ -1,16 +1,15 @@
 import React, { useEffect, useState } from 'react'
-import LoginService from '../../services/LoginService';
-import "../../css/login.css";
-import "../../css/icon.css";
-import "../../css/responsive.css";
-import LocalStorageService from '../../services/LocalStorageService';
-import CategoryService from '../../services/CategoryService';
-const Login = () => {
+import "../../../css/login_register.css"
+import "../../../css/icon.css";
+import "../../../css/responsive.css";
+import leftImage from '../../../images/login.png'
+import LocalStorageService from '../../../services/LocalStorageService';
+import LoginService from '../../../services/LoginService';
+const Login = (props) => {
 
-    const login = (event) => {
+    const handleClick = (event) => {
         event.preventDefault();
         let loginService = new LoginService();
-        let categoryService = new CategoryService();
         let localStorageService = new LocalStorageService();
         loginService
             .login("onurakkepenek", "123")
@@ -21,26 +20,20 @@ const Login = () => {
                 err => {
                     console.log(err.response)
                 });
-        categoryService.getAll().then((result) => {
-            console.log(result)
-        }, err => {
-            console.log(err.response.data.error_message);
-        });
-                
     }
 
     return (
         <div id="loginsingup" className="loginsingup">
             <button type="button" className="btnclose">x</button>
-            <img className="loginsingupimg" style={{ position: "50% 50%" }}  src={require("/public/Screenshot_1.png")} alt="Merhabaa" />
+            <img className="loginsingupimg" style={{ position: "50% 50%" }} src={leftImage} alt="Merhabaa" />
             <div className="login-contentarea">
                 <div className="themetabs">
                     <ul className="tabnavloginregistered">
-                        <li role="presentation" className="active"><a href="#listar-loging" data-toggle="tab">Log in</a></li>
-                        <li role="presentation"><a href="#listar-register" data-toggle="tab">Register</a></li>
+                        <button style={{ color: "#6fbf17" }} role="presentation" onClick={() => props.setValidPage('Login')}>Login</button>
+                        <button role="presentation" onClick={() => props.setValidPage('Register')} >Create Account</button>
                     </ul>
                 </div>
-                <form className="formtheme formlogin" onSubmit={login}>
+                <form className="formtheme formlogin" onSubmit={handleClick}>
                     <fieldset>
                         <div className="form-group inputwithicon">
                             <i className="icon-profile-male"></i>

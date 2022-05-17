@@ -19,6 +19,9 @@
   font-family: "Saira", Arial, Helvetica, sans-serif;
 }
 
+button:focus {
+  outline: none;
+}
 .loginsingupimg {
   margin: 0;
   width: 50%;
@@ -70,7 +73,7 @@
   display: block;
   color: #5c5c5c;
 }
-.formlogin .listar-btn {
+.formlogin .btn {
   width: 100%;
 }
 
@@ -152,15 +155,11 @@
   box-shadow: none;
   background-color: #74bb28;
 }
-.login-btn:focus{
+.login-btn:focus {
   outline: none;
 }
 .login-btn-lg {
   width: 100%;
-}
-.listar-btnround {
-  padding: 0;
-  width: 44px;
 }
 .loginsingup {
   top: 0px;
@@ -247,34 +246,23 @@
   float: left;
 }
 .tabnavloginregistered {
-  width: 100%;
-  float: left;
+  display: flex;
+  justify-content: space-between;
   font-size: 20px;
   line-height: 23px;
-  list-style: none;
-  display: table;
-  table-layout: fixed;
   border-bottom: 1px solid #e7e8e9;
 }
-.tabnavloginregistered li {
-  display: table-cell;
-  vertical-align: top;
-  line-height: inherit;
-  list-style-type: none;
-}
-.tabnavloginregistered li a {
-  color: #222;
+.tabnavloginregistered button:after {
+  content: "";
   display: block;
   padding: 0 0 15px;
-  position: relative;
 }
-.tabnavloginregistered li a:before {
-  left: 0;
-  top: 100%;
-  width: 0;
-  height: 1px;
-  content: "";
-  position: absolute;
+.tabnavloginregistered button {
+  cursor: pointer;
+  background-color: transparent;
+}
+.tabnavloginregistered button:hover {
+  color: #6fbf17;
 }
 .checkbox {
   margin: 0;
@@ -330,4 +318,13 @@
 .checkbox label {
   float: left;
   position: relative;
+}
+*:after,
+*:before,
+button{
+	-webkit-transition: all 300ms ease-in-out;
+	-moz-transition: all 300ms ease-in-out;
+	-ms-transition: all 300ms ease-in-out;
+	-o-transition: all 300ms ease-in-out;
+	transition: all 400ms ease-in-out;
 }
