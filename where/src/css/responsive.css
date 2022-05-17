@@ -42,3 +42,15 @@
 }
 @media (max-width: 359px) {
 }
+@media (max-width:1680px){
+	.listar-contentarea {padding: 30px;}
+	.listar-themetabs{padding: 0 15%;}
+	.listar-signinloginwithsocialaccount{text-align: center;}
+	.listar-postfirstlisting figure {padding: 103px 57px;}
+	.listar-newsletteroverlay {padding: 100px 50px;}
+	.listar-select select{
+		height: 60px;
+		line-height: 28px;
+		padding: 15px 15px 15px 45px;
+	}
+}
