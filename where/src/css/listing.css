@@ -1,0 +1,553 @@
+.searchstatus {
+	width: 100%;
+	float: left;
+	padding: 0 0 30px;
+}
+
+.searchstatus h1 {
+	margin: 0;
+	font-size: 24px;
+	line-height: 24px;
+}
+
+.searchstatus h1 span {
+	color: #908f8f;
+}
+
+.listingarea {
+	overflow: hidden;
+}
+
+.listingarea .innersearch {
+	background: none;
+}
+
+.listingarea .innerpagesearch {
+	z-index: auto;
+	background: #fff;
+	padding: 40px 15px 30px;
+}
+
+.listingarea .innersearch {
+	background: none;
+}
+
+.listingarea .innersearch .formsearchlisting {
+	padding: 0;
+}
+
+.inputwithicon {
+	position: relative;
+}
+
+.listingarea .formsearchlisting fieldset {
+	padding: 0;
+	height: auto;
+}
+
+.listingarea .formsearchlisting fieldset:after,
+.listingarea .formsearchlisting fieldset:before {
+	clear: both;
+	content: '';
+	display: block;
+}
+
+.listingarea .formsearchlisting fieldset:first-child {
+	width: auto;
+	float: none;
+	clear: both;
+	margin: 0 -10px;
+}
+
+.listingarea .formsearchlisting fieldset:first-child .form-group {
+	padding: 0 10px;
+	border: 0 !important;
+}
+
+.listingarea .formsearchlisting fieldset:first-child .form-group i {
+	left: 10px;
+}
+
+.listingarea .formsearchlisting fieldset:nth-child(3) {
+	padding: 0 0 30px;
+}
+
+.listingarea .formsearchlisting .form-group .form-control {
+	height: 60px;
+	padding: 15px 15px 15px 50px
+}
+
+.listingarea .placesposts {
+	width: auto;
+	float: none;
+	clear: both;
+	margin: 0 -15px;
+	overflow: hidden;
+	background: #fafafa;
+	padding: 15px 15px 100px;
+}
+
+.listingarea .formsearchlisting fieldset:nth-child(3) .selection {
+	float: none;
+	width: 200px;
+	vertical-align: top;
+	display: inline-block;
+}
+
+.listingarea .formsearchlisting fieldset:nth-child(3) .selection select {
+	height: 40px;
+	padding: 0 20px;
+	line-height: 38px;
+}
+
+.innerpagesearch {
+	z-index: 11;
+	width: 100%;
+	float: left;
+	position: relative;
+}
+
+.innersearch {
+	width: 100%;
+	float: left;
+}
+
+.innersearch .formsearchlisting {
+	padding: 33px 8%;
+}
+
+.formtheme {
+	width: 100%;
+	float: left;
+}
+
+.formtheme fieldset {
+	border: 0;
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	float: left;
+	position: relative;
+}
+
+.formsearchlisting {
+	padding: 0 8%;
+}
+
+.formsearchlisting fieldset {
+	height: 60px;
+	background: #fff;
+	position: relative;
+	-webkit-border-radius: 30px;
+	border-radius: 30px;
+	padding: 0 200px 0 0;
+}
+
+.formsearchlisting .form-group {
+	margin: 0;
+	float: left;
+	width: 33.33%;
+}
+
+.formsearchlisting .form-group+.form-group {
+	border-left: 1px solid #cacaca;
+}
+
+.formsearchlisting .form-group i {
+	padding: 0;
+	width: 45px;
+	height: 60px;
+	font-size: 20px;
+	line-height: 60px;
+}
+
+.formsearchlisting .form-group .selection:after {
+	display: none;
+}
+
+.formsearchlisting .form-group .selectlocation:after {
+	display: block;
+	line-height: 60px;
+}
+
+.formsearchlisting .form-group .selection select {
+	border: "0.5px"
+}
+
+.formsearchlisting .form-group:nth-child(3) {
+	padding: 0 10px 0 45px;
+}
+
+.formsearchlisting .form-group p {
+	margin: 0;
+	float: left;
+	width: auto;
+	line-height: 60px;
+	text-transform: capitalize;
+}
+
+.haslayout {
+	width: 100%;
+	float: left;
+}
+
+.inputwithicon .form-control {
+	z-index: 1;
+	position: relative;
+	padding: 12px 20px 12px 50px;
+}
+
+.form-group {
+	width: 100%;
+	float: left;
+	margin: 0 0 20px;
+}
+
+.pagination {
+	width: 100%;
+	float: left;
+	padding: 30px 0 0;
+	text-align: center;
+	font: 14px/38px 'Saira', Arial, Helvetica, sans-serif;
+}
+
+.pagination ul {
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	float: right;
+	list-style: none;
+	text-align: center;
+	line-height: inherit;
+}
+
+.pagination ul li {
+	margin: 0 2px;
+	line-height: inherit;
+	list-style-type: none;
+	vertical-align: top;
+	display: inline-block;
+}
+
+.pagination ul li.prevpage {
+	margin-left: 0;
+}
+
+.pagination ul li.nextpage {
+	margin-right: 0;
+}
+
+.pagination ul li a {
+	width: 40px;
+	display: block;
+	color: #484848;
+	background: #fff;
+	text-align: center;
+	position: relative;
+	line-height: inherit;
+	border: 1px solid #ddd;
+	-webkit-border-radius: 50%;
+	border-radius: 50%;
+}
+
+.pagination ul li a i {
+	display: block;
+	line-height: inherit;
+}
+
+.pagination ul li a:hover,
+.pagination ul li a:hover i,
+.pagination ul li.active a,
+.pagination ul li.active a i {
+	background-color: #6fbf17;
+}
+
+.inputwithicon i {
+	top: 0;
+	left: 0;
+	z-index: 2;
+	width: 50px;
+	height: 50px;
+	font-size: 22px;
+	line-height: 50px;
+	position: absolute;
+	text-align: center;
+	padding: 0 0 0 10px;
+}
+
+.selection {
+	color: #666;
+	float: left;
+	width: 100%;
+	position: relative;
+	text-transform: uppercase;
+}
+
+.selection:after {
+	top: 0;
+	right: 15px;
+	z-index: 2;
+	color: #666;
+	display: block;
+	content: '\f107';
+	position: absolute;
+	text-align: center;
+	font-size: inherit;
+	line-height: 40px;
+	font-family: 'FontAwesome';
+}
+
+.selection select {
+	z-index: 1;
+	width: 100%;
+	position: relative;
+	appearance: none;
+	-moz-appearance: none;
+	-webkit-appearance: none;
+}
+
+.selection select option {
+	color: #666;
+}
+
+.content {
+	width: 100%;
+	float: left;
+}
+
+.listing {
+	overflow: hidden;
+}
+
+.mapclustring {
+	width: 50%;
+	float: right;
+	will-change: min-height;
+}
+
+.mapclustring.is_stuck {
+	top: 80px;
+}
+
+.maparea {
+	width: 100%;
+	float: left;
+	overflow: hidden;
+	position: relative;
+}
+
+.listingmap {
+	margin: 0;
+	z-index: 1;
+	position: relative;
+	height: -webkit-calc(100vh - 80px);
+	height: calc(100vh - 80px);
+}
+
+.listingmap div[title=""] {
+	padding: 0 2px 0 0;
+	width: 59px !important;
+	height: 59px !important;
+	font-size: 15px !important;
+	line-height: 59px !important;
+	-webkit-background-size: auto auto !important;
+	background-size: auto !important;
+	background-position: center !important;
+	font: 400 16px/59px 'Saira', Arial, Helvetica, sans-serif;
+}
+
+.stars span,
+.stars {
+	width: 85px;
+	height: 14px;
+	float: left;
+	line-height: 14px;
+	position: relative;
+}
+
+.stars span:after,
+.stars:before {
+	top: 0;
+	left: 0;
+	font-size: 14px;
+	line-height: 14px;
+	position: absolute;
+	letter-spacing: 4px;
+	color: #ffa127 !important;
+	font-family: 'FontAwesome';
+	color: rgba(218, 218, 218, .8);
+	content: '\f006 \f006 \f006 \f006 \f006';
+}
+
+.stars span {
+	width: 75%;
+	overflow: hidden;
+}
+
+.stars span:after {
+	content: '\f005 \f005 \f005 \f005 \f005';
+}
+
+.reviewcategory {
+	width: 100%;
+	float: left;
+	padding: 0 0 30px;
+}
+
+.review {
+	float: left;
+	color: #5c5c5c;
+	padding: 3px 0;
+	font-size: 12px;
+	line-height: 14px;
+}
+
+.review span,
+.review em {
+	float: left;
+	font-style: normal;
+}
+
+.review em {
+	padding: 0 0 0 5px;
+}
+
+.reviewcategory .review {
+	width: auto;
+	float: none;
+	padding-bottom: 0;
+	vertical-align: top;
+	display: inline-block;
+}
+
+.themeposts {
+	width: 100%;
+	float: left;
+	margin: -15px 0;
+}
+
+.themepost {
+	width: 100%;
+	float: left;
+	margin: 15px 0;
+}
+
+.featuredimg {
+	margin: 0;
+	width: 100%;
+	float: left;
+	overflow: hidden;
+	position: relative;
+	-webkit-border-radius: 10px;
+	border-radius: 10px;
+}
+
+.featuredimg>a {
+	color: #fff;
+	display: block;
+}
+
+.featuredimg>a:hover {
+	color: #fff;
+}
+
+.featuredimg img {
+	z-index: 1;
+	width: 100%;
+	height: auto;
+	display: block;
+	position: relative;
+}
+
+.placesposts {
+	margin: -15px 0 20px;
+}
+
+.placespost .featuredimg {
+	-webkit-border-radius: 10px 10px 0 0;
+	border-radius: 10px 10px 0 0;
+}
+
+.placespost .postcontent {
+	background: #fff;
+	padding: 30px 20px 0;
+}
+
+.placespost .postcontent .description {
+	padding: 20px 0;
+}
+
+.placespost .postcontent .description p {
+	margin: 0;
+}
+
+.placesposts.gridview .placespost {
+	width: 50%;
+	float: left;
+	padding: 15px;
+}
+
+.category {
+	float: right;
+	color: #5c5c5c;
+	font-size: 12px;
+	line-height: 20px;
+}
+
+.category i,
+.category span {
+	float: left;
+}
+
+.category i {
+	font-size: 20px;
+	margin: 0 10px 0 0;
+}
+
+.themepostfoot a {
+	color: #212121;
+}
+
+.themepostfoot i,
+.themepostfoot span {
+	vertical-align: top;
+	display: inline-block;
+	line-height: inherit;
+}
+
+.themepostfoot i {
+	font-size: 22px;
+	padding: 0 5px 0 0;
+}
+
+.themepostfoot {
+	clear: both;
+	margin: 0 -20px;
+	font-size: 12px;
+	line-height: 44px;
+	border-top: 1px solid #ddd;
+}
+
+.themepostfoot:after {
+	content: '';
+	clear: both;
+	display: block;
+}
+
+.location {
+	float: left;
+	color: #5c5c5c;
+	padding: 0 0 0 15px;
+}
+
+.location i,
+.location em {
+	float: left;
+	color: #5c5c5c;
+	font-style: normal;
+	line-height: inherit;
+}
+
+.location i {
+	font-size: 26px;
+}
