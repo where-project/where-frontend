@@ -5,7 +5,7 @@
 body {
   color: #5c5c5c;
   background: #fff;
-  font: 400 14px/24px "Saira", Arial, Helvetica, sans-serif;
+  font: 400 14px/24px "Saira", Arial, Helvetica, sans-serif !important;
 }
 body h1,
 body h2,
@@ -174,4 +174,9 @@ textarea.form-control.contact-textarea {
 }
 a {
   text-decoration: none;
+}
+
+.btn:focus {
+  outline: none;
+  box-shadow: none;
 }
