@@ -203,65 +203,6 @@
 	margin: 0 0 20px;
 }
 
-.pagination {
-	width: 100%;
-	float: left;
-	padding: 30px 0 0;
-	text-align: center;
-	font: 14px/38px 'Saira', Arial, Helvetica, sans-serif;
-}
-
-.pagination ul {
-	margin: 0;
-	padding: 0;
-	width: 100%;
-	float: right;
-	list-style: none;
-	text-align: center;
-	line-height: inherit;
-}
-
-.pagination ul li {
-	margin: 0 2px;
-	line-height: inherit;
-	list-style-type: none;
-	vertical-align: top;
-	display: inline-block;
-}
-
-.pagination ul li.prevpage {
-	margin-left: 0;
-}
-
-.pagination ul li.nextpage {
-	margin-right: 0;
-}
-
-.pagination ul li a {
-	width: 40px;
-	display: block;
-	color: #484848;
-	background: #fff;
-	text-align: center;
-	position: relative;
-	line-height: inherit;
-	border: 1px solid #ddd;
-	-webkit-border-radius: 50%;
-	border-radius: 50%;
-}
-
-.pagination ul li a i {
-	display: block;
-	line-height: inherit;
-}
-
-.pagination ul li a:hover,
-.pagination ul li a:hover i,
-.pagination ul li.active a,
-.pagination ul li.active a i {
-	background-color: #6fbf17;
-}
-
 .inputwithicon i {
 	top: 0;
 	left: 0;
