@@ -17,6 +17,6 @@ export default class CommentService {
     return axiosInstance.put(`/comments/update`, updateCommentDto);
   }
   getCommentsByPlaceId(id) {
-    return axiosInstance.get(`/comments/getByPlaceId/{id}?id=${id}`);
+    return axiosInstance.get(`/comments/getByPlaceId/${id}`);
   }
 }
