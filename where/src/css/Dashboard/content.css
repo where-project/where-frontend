@@ -1,0 +1,134 @@
+.content {
+  width: 100%;
+  float: left;
+}
+.formtheme {
+  width: 100%;
+  float: left;
+}
+.formaddlisting.formwishlist fieldset {
+  padding: 0 30px 0;
+}
+.formaddlisting fieldset {
+  overflow: hidden;
+  background: #fff;
+  border-radius: 15px;
+  padding: 30px 30px 0;
+}
+.formtheme fieldset {
+  border: 0;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  float: left;
+  position: relative;
+}
+.formwishlist .boxtitle h3 {
+  padding: 7px 0;
+}
+.formwishlist .boxtitle {
+  margin: 0 -30px 0;
+  padding: 18px 30px;
+}
+.boxtitle h3 {
+  margin: 0;
+  color: #222;
+  float: left;
+  font-size: 24px;
+  line-height: 24px;
+}
+.boxtitle {
+  clear: both;
+  overflow: hidden;
+  margin: 0 -30px 30px;
+  padding: 0 30px 30px;
+  border-bottom: 1px solid #dadada;
+}
+.dashboardwishlists {
+  clear: both;
+  margin: 0 -30px;
+  overflow: hidden;
+}
+.dashboardwishlists .themepost {
+  margin: 0;
+  width: 50%;
+  padding: 30px;
+  position: relative;
+  border-bottom: 1px solid #dddddd;
+  border-left: 1px solid #dddddd;
+}
+.themepost {
+  width: 100%;
+  float: left;
+  margin: 15px 0;
+}
+.btndelpost {
+  top: 50%;
+  z-index: 9;
+  opacity: 0;
+  right: 30px;
+  width: 34px;
+  height: 34px;
+  color: #5c5c5c;
+  font-size: 15px;
+  line-height: 32px;
+  margin: -17px 0 0;
+  position: absolute;
+  visibility: hidden;
+  border-radius: 50%;
+  text-align: center;
+  border: 1px solid #bcbcbc;
+}
+.dashboardwishlists .themepost .featuredimg {
+  width: auto;
+  margin: 0 20px 0 0;
+  border-radius: 10px;
+}
+.lfeaturedimg > a {
+  color: #fff;
+  display: block;
+}
+.featuredimg {
+  margin: 0;
+  width: 100%;
+  float: left;
+  overflow: hidden;
+  position: relative;
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+}
+.featuredimg img {
+  z-index: 1;
+  width: 100%;
+  display: block;
+  position: relative;
+  height: 137px;
+  max-height: 137px;
+  max-width: 161px;
+}
+.placespost .postcontent {
+  background: #fff;
+  padding: 30px 20px 0;
+}
+.dashboardwishlists .postcontent {
+  width: auto;
+  float: none;
+  padding: 29px 0;
+  overflow: hidden;
+}
+.postcontent {
+  width: 100%;
+  float: left;
+  position: relative;
+}
+.dashboardwishlists .themepost:hover .btndelpost,
+.dashboardwishlists .themepost:hover .btnedite {
+  opacity: 1;
+  visibility: visible;
+}
+
+.btndelpost:hover {
+  border-color: #6fbf17;
+  color: #fff !important;
+  background-color: #6fbf17;
+}
