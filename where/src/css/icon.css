@@ -20,60 +20,87 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
 .icon-lock-stripes:before {
   content: "\ea34";
 }
+
 .icon-profile-male:before {
   content: "\e040";
 }
+
 .icon-icons185:before {
   content: "\e911";
 }
+
 .icon-global:before {
   content: "\e052";
 }
+
 .icon-layers:before {
   content: "\e031";
 }
+
 .icon-nightlife:before {
   content: "\efdb";
 }
+
 .icon-nightlife:before {
   content: "\efdb";
 }
+
 .icon-education:before {
   content: "\efd6";
 }
+
 .icon-shopping:before {
   content: "\efdc";
 }
+
 .icon-coffee2:before {
   content: "\efe3";
 }
+
 .icon-icons74:before {
   content: "\e908";
 }
+
 .icon-icons208:before {
   content: "\e904";
 }
+
 .icon-user3:before {
   content: "\edb1";
 }
+
 .icon-phone2:before {
   content: "\e935";
 }
+
 .icon-phone3:before {
   content: "\e004";
 }
+
 .icon-world:before {
   content: "\e94d";
 }
+
 .icon-icons74:before {
   content: "\e908";
 }
+
 .icon-smiling-face:before {
   content: "\eb7e";
 }
+
 .icon-plus:before {
   content: "\eef0";
+}
+
+.icon-thumb-up2:before {
+  content: "\ebfc";
+}
+
+.icon-alarmclock:before {
+  content: "\e914";
 }

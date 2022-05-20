@@ -10,6 +10,7 @@ import 'font-awesome/css/font-awesome.min.css';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import L from 'leaflet';
+import Pagination from "../../components/Pagination/Pagination";
 delete L.Icon.Default.prototype._getIconUrl;
 
 L.Icon.Default.mergeOptions({
@@ -60,7 +61,7 @@ function Listing() {
 
 	return (
 		<main className="haslayout">
-			<div id="listar-content" className="content">
+			<div id="content" className="content">
 				<div className="listing">
 					<div id="mapclustring" className="mapclustring">
 						<div className="maparea">
@@ -161,15 +162,7 @@ function Listing() {
 											</div>
 										);
 									})}
-									<nav className="pagination">
-										<ul>
-											<li className="prevpage"><a href=""><i className="fa fa-angle-left"></i></a></li>
-											<li className="active"><a href="">1</a></li>
-											<li><a href="">2</a></li>
-											<li><a href="">3</a></li>
-											<li className="nextpage"><a href=""><i className="fa fa-angle-right"></i></a></li>
-										</ul>
-									</nav>
+									<Pagination />
 								</div>
 							</div>
 						</div>

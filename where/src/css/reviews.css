@@ -1,0 +1,346 @@
+.comments {
+    width: 100%;
+    float: left;
+    font-size: 14px;
+    line-height: 24px;
+    list-style: none;
+}
+
+.comments li {
+    width: 100%;
+    float: left;
+    list-style-type: none;
+}
+
+.comments>li {
+    margin: 0 0 50px;
+    padding: 0 0 50px;
+    border-bottom: 1px solid #e5e5e5;
+    width: 100%;
+    float: left;
+    list-style-type: none;
+}
+
+.comments+.pagination,
+.comments+.pagination ul {
+    text-align: left;
+}
+
+.comments {
+    width: 100%;
+    float: left;
+    list-style: none;
+}
+
+.comments h2 {
+    margin: 0 0 40px;
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 24px;
+}
+
+.comment {
+    width: 100%;
+    float: left;
+}
+
+.comment>figure {
+    float: left;
+    margin: 0 25px 0 0;
+    border-radius: 50%;
+}
+
+.comment>figure>img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 50%;
+}
+
+.commentauthorbox {
+    float: left;
+    padding: 20px;
+    border: 1px solid #e5e5e5;
+}
+
+.commentauthorbox figure {
+    margin: 0;
+    float: left;
+    overflow: hidden;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+}
+
+.commentauthorbox figure,
+.commentauthorbox figure a,
+.commentauthorbox figure a img {
+    overflow: hidden;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+    height: 75px;
+    width: 75px;
+}
+
+.commentauthorbox figure a,
+.commentauthorbox figure a img {
+    display: block;
+}
+
+
+.authorinfo {
+    overflow: hidden;
+    padding: 7px 0 7px 20px;
+}
+
+.authorinfo h3 {
+    margin: 0;
+    color: #000;
+    font-size: 16px;
+    line-height: 16px;
+}
+
+.authorinfo em {
+    clear: both;
+    display: block;
+    font-size: 12px;
+    line-height: 16px;
+    font-style: normal;
+    padding: 5px 0 10px;
+}
+
+.stars span,
+.stars {
+    width: 85px;
+    height: 14px;
+    float: left;
+    line-height: 14px;
+    position: relative;
+}
+
+.stars span:after,
+.stars:before {
+    top: 0;
+    left: 0;
+    font-size: 14px;
+    line-height: 14px;
+    position: absolute;
+    letter-spacing: 4px;
+    color: #ffa127 !important;
+    font-family: 'FontAwesome';
+    color: rgba(218, 218, 218, .8);
+    content: '\f006 \f006 \f006 \f006 \f006';
+}
+
+.stars span {
+    width: 75%;
+    overflow: hidden;
+}
+
+.stars span:after {
+    content: '\f005 \f005 \f005 \f005 \f005';
+}
+
+.helpful {
+    float: right;
+    color: #5c5c5c;
+    font-size: 12px;
+    line-height: 30px;
+    padding: 5px 15px;
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+    border: 1px solid #e5e5e5;
+}
+
+.helpful i,
+.helpful span {
+    float: left;
+    line-height: inherit;
+}
+
+.helpful i {
+    font-size: 16px;
+    padding-right: 5px;
+}
+
+.helpful span+span {
+    padding-left: 15px;
+    margin-left: 15px;
+    border-left: 1px solid #e5e5e5;
+}
+
+.helpful:hover,
+.helpful:hover i,
+.helpful:hover span {
+    color: #5c5c5c;
+}
+
+.commentcontent .helpful {
+    float: left;
+}
+
+.commentcontent {
+    padding: 0 30px;
+    overflow: hidden;
+}
+
+.commentcontent time {
+    width: 100%;
+    float: left;
+    font-size: 12px;
+    line-height: 20px;
+    padding: 0 0 15px;
+}
+
+.commentcontent time i,
+.commentcontent time span {
+    float: left;
+}
+
+.commentcontent time i {
+    font-size: 18px;
+    padding-right: 5px;
+}
+
+.description {
+    width: 100%;
+    float: left;
+}
+
+.formreviewarea {
+    width: 60%;
+    float: left;
+    padding: 100px 0 0;
+}
+
+.formreviewarea h3 {
+    margin: 0 0 40px;
+    font-size: 24px;
+    line-height: 24px;
+}
+
+.formtheme {
+    width: 100%;
+    float: left;
+}
+
+.formtheme fieldset {
+    border: 0;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    float: left;
+    position: relative;
+}
+
+.formaddreview .form-control,
+.formaddreview .selection select {
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+}
+
+.formaddreview .selection:after {
+    line-height: 50px;
+}
+
+.rating {
+    float: left;
+    margin: 0 0 30px;
+}
+
+.rating p {
+    margin: 0 0 8px;
+    font-size: 14px;
+    line-height: 14px;
+}
+
+.rating .stars,
+.rating .stars:before {
+    height: 20px;
+    font-size: 20px;
+    line-height: 20px;
+}
+
+.form-group {
+    width: 100%;
+    float: left;
+    margin: 0 0 20px;
+}
+
+.selection {
+    color: #666;
+    float: left;
+    width: 100%;
+    position: relative;
+    text-transform: uppercase;
+}
+
+.selection:after {
+    top: 0;
+    right: 15px;
+    z-index: 2;
+    color: #666;
+    display: block;
+    content: '\f107';
+    position: absolute;
+    text-align: center;
+    font-size: inherit;
+    line-height: 40px;
+    font-family: 'FontAwesome';
+}
+
+.selection select {
+    z-index: 1;
+    width: 100%;
+    position: relative;
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+}
+
+.selection select option {
+    color: #666;
+}
+
+.form-control::-webkit-input-placeholder {
+    color: #666;
+}
+
+.btn {
+    color: #fff;
+    padding: 0 30px;
+    position: relative;
+    text-align: center;
+    -webkit-border-radius: 22px;
+    border-radius: 22px;
+    display: inline-block;
+    vertical-align: middle;
+    border: 1px solid #fff;
+    text-transform: capitalize;
+    font: 400 14px/42px 'Saira', Arial, Helvetica, sans-serif;
+}
+
+.btn:hover,
+.btngreen:hover,
+.btn:focus,
+.btngreen:focus,
+.btn:active,
+.btngreen:active {
+    color: #fff;
+}
+
+input:focus,
+.select select:focus,
+.form-control:focus,
+.btngreen,
+.btngreen:hover {
+    border-color: #6fbf17;
+}
+
+.btngreen,
+.btngreen:hover {
+    background: #6fbf17;
+}
+
+.email-text {
+    text-transform: none !important;
+}
