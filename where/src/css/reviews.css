@@ -16,6 +16,9 @@
     margin: 0 0 50px;
     padding: 0 0 50px;
     border-bottom: 1px solid #e5e5e5;
+    width: 100%;
+    float: left;
+    list-style-type: none;
 }
 
 .comments+.pagination,
@@ -34,12 +37,6 @@
     font-size: 24px;
     font-weight: 400;
     line-height: 24px;
-}
-
-.comments>li {
-    width: 100%;
-    float: left;
-    list-style-type: none;
 }
 
 .comment {
