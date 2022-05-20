@@ -60,8 +60,5 @@
 .pagination ul li a:hover,
 .pagination ul li.active a {
     border-color: #6fbf17;
-}
-.pagination ul li a:hover,
-.pagination ul li.active a {
     background-color: #6fbf17;
 }
