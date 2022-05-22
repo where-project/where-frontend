@@ -9,7 +9,6 @@ import Tooltip from 'react-bootstrap/Tooltip';
 
 const PlaceDetail = () => {
     const changeActive = () => {
-        document.getElementById("reviews").classList.add("active")
     }
     return (
         <main className="main haslayout">
