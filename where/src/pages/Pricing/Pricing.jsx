@@ -4,68 +4,68 @@ const Pricing = () => {
     return (
         <div role="tabpanel" className="tab-pane" id="reviews">
 
-            <ul class="prices">
+            <ul className="prices">
                 <li>
-                    <div class="pricebox">
+                    <div className="pricebox">
                         <h3>Chicken Corn Soup</h3>
                         <p>Served with Fish Crackers (Individual)</p>
-                        <span class="price">$12</span>
+                        <span className="price">$12</span>
                     </div>
                 </li>
                 <li>
-                    <div class="pricebox">
+                    <div className="pricebox">
                         <h3>Chicken Corn Soup</h3>
                         <p>Served with Fish Crackers (Individual)</p>
-                        <span class="price">$12</span>
+                        <span className="price">$12</span>
                     </div>
                 </li>
                 <li>
-                    <div class="pricebox">
+                    <div className="pricebox">
                         <h3>Masala Fries</h3>
                         <p>Served with Fish Crackers (Individual)</p>
-                        <span class="price">$5</span>
+                        <span className="price">$5</span>
                     </div>
                 </li>
                 <li>
-                    <div class="pricebox">
+                    <div className="pricebox">
                         <h3>Chicken Corn Soup</h3>
                         <p>Served with Fish Crackers (Individual)</p>
-                        <span class="price">$12</span>
+                        <span className="price">$12</span>
                     </div>
                 </li>
                 <li>
-                    <div class="pricebox">
+                    <div className="pricebox">
                         <h3>Inside Out Sandwich</h3>
                         <p>Served with Fish Crackers (Individual)</p>
-                        <span class="price">$54</span>
+                        <span className="price">$54</span>
                     </div>
                 </li>
                 <li>
-                    <div class="pricebox">
+                    <div className="pricebox">
                         <h3>Chicken Corn Soup</h3>
                         <p>Served with Fish Crackers (Individual)</p>
-                        <span class="price">$12</span>
+                        <span className="price">$12</span>
                     </div>
                 </li>
                 <li>
-                    <div class="pricebox">
+                    <div className="pricebox">
                         <h3>Chicken Corn Soup</h3>
                         <p>Served with Fish Crackers (Individual)</p>
-                        <span class="price">$12</span>
+                        <span className="price">$12</span>
                     </div>
                 </li>
                 <li>
-                    <div class="pricebox">
+                    <div className="pricebox">
                         <h3>Chicken Corn Soup</h3>
                         <p>Served with Fish Crackers (Individual)</p>
-                        <span class="price">$12</span>
+                        <span className="price">$12</span>
                     </div>
                 </li>
                 <li>
-                    <div class="pricebox">
+                    <div className="pricebox">
                         <h3>Chicken Corn Soup</h3>
                         <p>Served with Fish Crackers (Individual)</p>
-                        <span class="price">$12</span>
+                        <span className="price">$12</span>
                     </div>
                 </li>
             </ul>
