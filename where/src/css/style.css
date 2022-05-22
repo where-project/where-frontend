@@ -87,7 +87,7 @@ button {
 }
 textarea,
 select,
-.listar-select select,
+.select select,
 .form-control,
 input[type="text"],
 input[type="password"],
@@ -181,7 +181,6 @@ a {
   outline: none;
   box-shadow: none;
 }
-
 .haslayout {
   width: 100%;
   float: left;
@@ -203,7 +202,7 @@ a {
   content: "\f006 \f006 \f006 \f006 \f006";
 }
 .stars span:after {
-  content: "\f005 \f005 \f005 \f005 \f005";
+	content: '\f005 \f005 \f005 \f005 \f005';
 }
 .themepostfoot {
   clear: both;
