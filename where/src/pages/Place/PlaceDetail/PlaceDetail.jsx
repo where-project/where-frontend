@@ -4,6 +4,8 @@ import "../../../css/icon.css"
 import "../../../css/Place/placeDetail.css"
 import image from "../../../images/1.jpg"
 import Reviews from '../../../pages/Reviews/Reviews'
+import OverlayTrigger from 'react-bootstrap/OverlayTrigger'
+import Tooltip from 'react-bootstrap/Tooltip';
 
 const PlaceDetail = () => {
     const changeActive = () => {
@@ -17,7 +19,17 @@ const PlaceDetail = () => {
                     <div className="row">
                         <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                             <div className="postcontent">
-                                <h1>Salt &amp; Pepper Emporium<i className="icon-checkmark postverified themetooltip" data-toggle="tooltip" data-placement="top" title="" data-original-title="Verified"></i></h1>
+                                <h1>Salt &amp; Pepper Emporium
+                                    <OverlayTrigger
+                                        delay={{ hide: 450, show: 300 }}
+                                        overlay={(props) => (
+                                            <Tooltip style={{ top: "-19.5px", left: "359.281px", display: "block", color: "#fff", backgroundColor: "#2457cf" }} {...props}>
+                                                Verified
+                                            </Tooltip>
+                                        )}
+                                        placement="top"
+                                    ><i className="icon-checkmark postverified themetooltip" data-toggle="tooltip" data-placement="top" title="" data-original-title="Verified"></i>
+                                    </OverlayTrigger> </h1>
                                 <div className="reviewcategory">
                                     <div className="review">
                                         <span className="stars"><span></span></span>
@@ -31,7 +43,6 @@ const PlaceDetail = () => {
                                                     <i className="icon-share3"></i>
                                                     <span>share</span>
                                                 </a>
-
                                             </div>
                                         </li>
                                         <li><span className="tagviews"><i className="icon-eye2"></i><span>52</span></span></li>
