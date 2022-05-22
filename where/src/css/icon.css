@@ -104,3 +104,27 @@
 .icon-alarmclock:before {
   content: "\e914";
 }
+.icon-checkmark:before {
+  content: "\eef6";
+}
+.icon-heart2:before {
+  content: "\e91e";
+}
+.icon-share3:before {
+  content: "\e91c";
+}
+.icon-eye2:before {
+  content: "\e931";
+}
+.icon-telephone114:before {
+  content: "\e907";
+}
+.icon-icons74:before {
+  content: "\e908";
+}
+.icon-icons20:before {
+  content: "\e90f";
+}
+.icon-global:before {
+  content: "\e052";
+}
