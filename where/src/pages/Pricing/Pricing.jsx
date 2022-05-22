@@ -3,7 +3,6 @@ import "../../css/style.css"
 const Pricing = () => {
     return (
         <div role="tabpanel" className="tab-pane" id="reviews">
-
             <ul className="prices">
                 <li>
                     <div className="pricebox">
