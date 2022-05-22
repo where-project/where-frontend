@@ -181,3 +181,106 @@ a {
   outline: none;
   box-shadow: none;
 }
+<<<<<<< Updated upstream
+=======
+.haslayout {
+  width: 100%;
+  float: left;
+}
+.detail .review span {
+  width: 100px;
+}
+.stars span:after,
+.stars:before {
+  top: 0;
+  left: 0;
+  font-size: 14px;
+  line-height: 14px;
+  position: absolute;
+  letter-spacing: 4px;
+  color: #ffa127 !important;
+  font-family: "FontAwesome";
+  color: rgba(218, 218, 218, 0.8);
+  content: "\f006 \f006 \f006 \f006 \f006";
+}
+.stars span:after {
+  content: "\f005 \f005 \f005 \f005 \f005";
+}
+.themepostfoot {
+  clear: both;
+  margin: 0 -20px;
+  font-size: 12px;
+  line-height: 44px;
+  border-top: 1px solid #ddd;
+}
+/*
+Pricing Page
+*/
+.prices {
+  width: 100%;
+  float: left;
+  color: #5c5c5c;
+  font-size: 14px;
+  line-height: 20px;
+  list-style: none;
+  position: relative;
+}
+.price {
+  top: 50%;
+  right: 0;
+  color: #212121;
+  font-size: 20px;
+  line-height: 24px;
+  position: absolute;
+  margin: -12px 0 0 0;
+}
+.prices:before {
+  top: 0;
+  left: 50%;
+  width: 1px;
+  height: 100%;
+  content: "";
+  position: absolute;
+  background: #e5e5e5;
+}
+.prices li:nth-child(odd) {
+  padding-right: 40px;
+}
+.prices li:nth-child(even) {
+    padding-left: 40px;
+}
+.prices li {
+  width: 50%;
+  float: left;
+  list-style: none;
+  line-height: inherit;
+}
+.prices li:nth-child(1) .pricebox,
+.prices li:nth-child(2) .pricebox {
+  padding-top: 0;
+}
+.prices li:nth-child(1) .price,
+.prices li:nth-child(2) .price {
+  margin: -27px 0 0 0;
+}
+.pricebox {
+  width: 100%;
+  float: left;
+  position: relative;
+  padding: 30px 50px 30px 0;
+  border-bottom: 1px solid #e5e5e5;
+}
+.pricebox h3 {
+  margin: 0;
+  color: #212121;
+  font-size: 20px;
+  line-height: 23px;
+  position: relative;
+  vertical-align: top;
+  display: inline-block;
+  padding: 0 30px 0 0;
+}
+.pricebox p {
+  margin: 0;
+}
+>>>>>>> Stashed changes
