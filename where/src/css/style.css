@@ -181,8 +181,7 @@ a {
   outline: none;
   box-shadow: none;
 }
-<<<<<<< Updated upstream
-=======
+
 .haslayout {
   width: 100%;
   float: left;
@@ -283,4 +282,4 @@ Pricing Page
 .pricebox p {
   margin: 0;
 }
->>>>>>> Stashed changes
+
