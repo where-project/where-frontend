@@ -1,0 +1,277 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.mainpage {
+    top: 0;
+    left: 0;
+    z-index: 2;
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    flex-direction: column;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    align-items: center;
+    align-content: center;
+    background-image: url(https://user-images.githubusercontent.com/76701603/170037058-01d4bc83-ef7a-4c53-ad20-01c67db7d03e.jpg);
+}
+
+.banner-content {
+    width: 100%;
+    height: 200px;
+    float: left;
+}
+
+.banner-content h1 {
+    margin: 0;
+    color: #fff;
+    font-size: 56px;
+    font-weight: 500;
+    line-height: 46px;
+    text-align: center;
+}
+
+.banner-content .description {
+    color: #fff;
+    font-size: 20px;
+    line-height: 23px;
+    text-align: center;
+    padding: 20px 0 120px
+}
+
+.banner-content .description p {
+    line-height: 0;
+    margin: 0;
+    letter-spacing: normal;
+}
+
+.form-theme {
+    padding: 0 8%;
+    width: 100%;
+    float: left;
+}
+
+.mainpage .form-theme fieldset {
+    height: 60px;
+    border: 1px solid #cacaca;
+    background: rgba(255, 255, 255, 0.20);
+    height: 60px;
+    position: relative;
+    border-radius: 30px;
+    margin: 0;
+    width: 100%;
+    float: left;
+    display: flex;
+}
+
+.mainpage .form-theme .banner-formgroup {
+    margin: 0;
+    float: left;
+    border-right: 1px solid #cacaca;
+}
+
+.mainpage .form-theme .banner-inputwithicon {
+    position: relative;
+}
+
+.mainpage .form-theme .banner-inputwithicon i {
+    color: #fff;
+    height: 60px;
+    line-height: 58px;
+    padding: 0;
+    width: 45px;
+    font-size: 20px;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    position: absolute;
+    text-align: center;
+}
+
+.icon-layers:before {
+    content: "\e031";
+}
+
+.banner-select {
+    color: #666;
+    float: left;
+    width: 100%;
+    position: relative;
+    text-transform: uppercase;
+}
+
+#banner-categorieschosen {
+    display: block;
+    float: left;
+    border-style: none;
+    padding: 0 0 0 45px;
+    height: 60px;
+    border-radius: 50px 0 0 50px;
+    background: rgba(255, 255, 255, 0.08);
+    color: white;
+}
+
+#banner-locationchosen {
+    display: block;
+    float: left;
+    border-style: none;
+    padding: 0 65px 0 45px;
+    height: 60px;
+    border-radius: 0;
+    background: rgba(255, 255, 255, 0.08);
+    border-top: 1px solid rgba(255, 255, 255, 0.3);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    color: white;
+}
+
+.icon-global:before {
+    content: "\e052";
+}
+
+.banner-button {
+    background-color: #f84a47;
+    width: 180px;
+    height: 50px;
+    border-radius: 50px;
+    color: white;
+}
+
+.banner-button-style {
+    width: 236px;
+    float: left;
+    border-radius: 50px;
+    line-height: 48px;
+    position: relative;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+.banner-footer {
+    width: 100%;
+    float: left;
+    padding: 150px 8% 0;
+}
+
+.banner-best-title {
+    float: left;
+    padding: 0 30px 0 0;
+}
+
+.banner-best-title h2 {
+    margin: 0;
+    color: #fff;
+    font: 48px/72px 'saginaw_medium';
+}
+
+.banner-footer ul {
+    color: #fff;
+    padding: 18px 0;
+    overflow: hidden;
+    list-style: none;
+    font-size: 14px;
+    line-height: 17px;
+    text-align: center;
+}
+
+.banner-footer ul li {
+    float: left;
+    padding: 10px;
+    width: 16.666%;
+    line-height: inherit;
+    list-style-type: none;
+}
+
+.banner-footer ul li i {
+    width: 100%;
+    float: left;
+    font-size: 60px;
+    line-height: 60px;
+    padding: 0 0 10px;
+}
+
+.icon-food:before {
+    content: "\efd8";
+}
+
+.banner-footer ul li h3 {
+    margin: 0;
+    color: #fff;
+    font-size: 14px;
+    line-height: 17px;
+    font-weight: 400;
+    font-style: normal;
+    text-transform: capitalize;
+    font-family: 'Saira', Arial, Helvetica, sans-serif;
+}
+
+.icon-nightlife:before {
+    content: "\efdb";
+}
+
+.icon-entertainment:before {
+    content: "\efd7";
+}
+
+.icon-localservice:before {
+    content: "\efda";
+}
+
+.icon-healthfitness:before {
+    content: "\efd9";
+}
+
+.icon-tourism:before {
+    content: "\efdd";
+}
+
+.icon-money:before {
+    content: "\e93b";
+}
+
+.banner-select p {
+    margin: 0;
+    float: left;
+    width: auto;
+    text-transform: capitalize;
+    color: #fff;
+    margin-left: 6px;
+}
+
+.banner-range {
+    float: left;
+    border-style: none;
+    display: flex;
+    padding: 0 40px 0 45px;
+    justify-content: center;
+    align-content: center;
+}
+
+.a {
+    width: 150px;
+}
+
+.banner-button:focus {
+    border-style: none;
+    border: none;
+    outline: none;
+}
+
+option {
+    margin: 0;
+    color: black;
+    font-size: 13px;
+}
+
+#ab {
+    border-right: none;
+}
