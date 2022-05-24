@@ -2,8 +2,6 @@ import React, { useState, useEffect } from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "../../css/mainpage.css";
 import "../../css/style.css";
-//import "../../css/chosen.css";
-import { Slider, Switch } from 'antd';
 import CategoryService from '../../services/CategoryService';
 import CityService from "../../services/CityService";
 
