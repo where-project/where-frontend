@@ -4,11 +4,15 @@ import "./App.css";
 import Reservation from "../abis/Reservation.json";
 import Navbar from "./Navbar";
 import Main from "./Main";
+import MainPage from "../pages/MainPage/MainPage";
+import Sidebar from "./Sidebar/Sidebar";
+
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 class App extends Component {
   async componentWillMount() {
-    await this.loadWeb3();
-    await this.loadBlockchainData();
+    //await this.loadWeb3();
+    //await this.loadBlockchainData();
   }
 
   async loadWeb3() {
@@ -90,24 +94,13 @@ class App extends Component {
   render() {
     return (
       <div>
-        <Navbar account={this.state.account} />
-        <div className="container-fluid mt-5">
-          <div className="row">
-            <main role="main" className="col-lg-12 d-flex">
-              {this.state.loading ? (
-                <div id="loader" className="text-center">
-                  <p className="text-center">Loading...</p>
-                </div>
-              ) : (
-                <Main
-                  reservations={this.state.reservations}
-                  createReservation={this.createReservation}
-                  bookedReservation={this.bookedReservation}
-                />
-              )}
-            </main>
-          </div>
-        </div>
+        <Router>
+        <Navbar />
+        <Sidebar />
+        <Switch>
+          <Route path='/' />
+        </Switch>
+        </Router>
       </div>
     );
   }
