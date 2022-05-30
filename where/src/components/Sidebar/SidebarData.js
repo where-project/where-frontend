@@ -1,12 +1,9 @@
-import React from 'react';
-
 export const SidebarData = [
   {
     title: 'Dashboard',
     path: '/dashboard',
     cName: 'nav-text',
     cIcon: 'icon-speedometer2'
-    
   },
   {
     title: 'Users List',
