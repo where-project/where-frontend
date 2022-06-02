@@ -143,12 +143,15 @@ const Register = (props) => {
                     </Alert>
                   ) : null}
                 </div>
+                <div className="form-group">
+                {error !== '' && errorWhereAlert}
+                </div>
                 <button type='submit' className="login-btn btngreen">Register</button>
               </fieldset>
             </Form>
           )}
         </Formik>
-        {error !== '' && errorWhereAlert}
+        
       </div>
     </div>
   )

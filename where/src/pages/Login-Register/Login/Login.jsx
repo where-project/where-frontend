@@ -9,19 +9,18 @@ import LoginService from '../../../services/LoginService';
 import { Alert, Form } from 'react-bootstrap'
 import { Formik } from 'formik';
 import * as yup from 'yup';
+import WhereAlert from '../../../components/WhereAlert/WhereAlert';
 
 const schema = yup.object().shape({
     username: yup.string().required("Please provide a valid title."),
     password: yup.string().required("Please provide a valid description."),
 });
 const Login = (props) => {
-
-    // const handleClick = (event) => {
-    //     event.preventDefault();
-    //     console.log(event.target);
-    //     
-    // }
-
+    const [error, setError] = useState('');
+    let errorWhereAlert = '';
+    if (error !== '') {
+        errorWhereAlert = <WhereAlert variant="danger" message="Error" description={error} />
+    }
     return (
         <div id="loginsingup" className="loginsingup">
             <button type="button" className="btnclose">x</button>
@@ -48,6 +47,7 @@ const Login = (props) => {
                                 console.log(result);
                             },
                                 err => {
+                                    setError("Username or password is wrong");
                                     console.log(err.response)
                                 });
                     }}
@@ -92,6 +92,9 @@ const Login = (props) => {
                                         <label htmlFor="rememberpass2">Remember me</label>
                                     </div>
                                     <span><a href="#1">Lost your Password?</a></span>
+                                </div>
+                                <div className="form-group">
+                                    {error !== '' && errorWhereAlert}
                                 </div>
                                 <button type='submit' className="login-btn btngreen" disabled={isSubmitting}>Login</button>
                             </fieldset>
