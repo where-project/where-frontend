@@ -58,7 +58,6 @@ const Register = (props) => {
                 }
               ],
             }
-            console.log(userInformation);
             let loginService = new LoginService();
             loginService.register(userInformation).then((result) => {
               console.log(result)
