@@ -44,11 +44,9 @@ const Login = (props) => {
                             .then((result) => {
                                 localStorageService.setLocalStorage('accessToken', result.data.access_token);
                                 localStorageService.setLocalStorage('refreshToken', result.data.refresh_token);
-                                console.log(result);
                             },
                                 err => {
                                     setError("Username or password is wrong");
-                                    console.log(err.response)
                                 });
                     }}
                     initialValues={{
