@@ -5,22 +5,22 @@ import "../../../css/responsive.css";
 import leftImage from '../../../images/login.png'
 import LocalStorageService from '../../../services/LocalStorageService';
 import LoginService from '../../../services/LoginService';
+
+import { Alert, Form } from 'react-bootstrap'
+import { Formik } from 'formik';
+import * as yup from 'yup';
+
+const schema = yup.object().shape({
+    username: yup.string().required("Please provide a valid title."),
+    password: yup.string().required("Please provide a valid description."),
+});
 const Login = (props) => {
 
-    const handleClick = (event) => {
-        event.preventDefault();
-        let loginService = new LoginService();
-        let localStorageService = new LocalStorageService();
-        loginService
-            .login("onurakkepenek", "123")
-            .then((result) => {
-                localStorageService.setLocalStorage('accessToken', result.data.access_token);
-                localStorageService.setLocalStorage('refreshToken', result.data.refresh_token);
-            },
-                err => {
-                    console.log(err.response)
-                });
-    }
+    // const handleClick = (event) => {
+    //     event.preventDefault();
+    //     console.log(event.target);
+    //     
+    // }
 
     return (
         <div id="loginsingup" className="loginsingup">
@@ -33,26 +33,71 @@ const Login = (props) => {
                         <button role="presentation" onClick={() => props.setValidPage('Register')} >Create Account</button>
                     </ul>
                 </div>
-                <form className="formtheme formlogin" onSubmit={handleClick}>
-                    <fieldset>
-                        <div className="form-group inputwithicon">
-                            <i className="icon-profile-male"></i>
-                            <input type="text" name="username" className="form-control" placeholder="Username" />
-                        </div>
-                        <div className="form-group inputwithicon">
-                            <i className="icon-lock-stripes"></i>
-                            <input type="password" name="password" className="form-control" placeholder="Password" />
-                        </div>
-                        <div className="form-group">
-                            <div className="checkbox">
-                                <input type="checkbox" name="remember" id="rememberpass2" />
-                                <label htmlFor="rememberpass2">Remember me</label>
-                            </div>
-                            <span><a href="#1">Lost your Password?</a></span>
-                        </div>
-                        <button type='submit' className="login-btn btngreen">Login</button>
-                    </fieldset>
-                </form>
+                <Formik
+                    validationSchema={schema}
+                    onSubmit={(values, { resetForm, setSubmitting }) => {
+                        console.log(values);
+                        setSubmitting(false);
+                        let loginService = new LoginService();
+                        let localStorageService = new LocalStorageService();
+                        loginService
+                            .login(values.username, values.password)
+                            .then((result) => {
+                                localStorageService.setLocalStorage('accessToken', result.data.access_token);
+                                localStorageService.setLocalStorage('refreshToken', result.data.refresh_token);
+                                console.log(result);
+                            },
+                                err => {
+                                    console.log(err.response)
+                                });
+                    }}
+                    initialValues={{
+                        username: '',
+                        password: '',
+                    }}
+                >
+                    {({
+                        values,
+                        errors,
+                        touched,
+                        handleSubmit,
+                        handleChange,
+                        handleBlur,
+                        dirty,
+                        isSubmitting,
+                    }) => (
+                        <Form className="formtheme formlogin" onSubmit={handleSubmit}>
+                            <fieldset>
+                                <div className="form-group inputwithicon">
+                                    <i className="icon-profile-male"></i>
+                                    <input type="text" name="username" className="form-control text-transform_none" placeholder="Username" onChange={handleChange} />
+                                    {touched.username && errors.username ? (
+                                        <Alert style={{ marginTop: "10px", borderRadius: "10px" }} key="danger" variant="danger">
+                                            {errors.username}
+                                        </Alert>
+                                    ) : null}
+                                </div>
+                                <div className="form-group inputwithicon">
+                                    <i className="icon-lock-stripes"></i>
+                                    <input type="password" name="password" className="form-control" placeholder="Password" onChange={handleChange} />
+                                    {touched.password && errors.password ? (
+                                        <Alert style={{ marginTop: "10px", borderRadius: "10px" }} key="danger" variant="danger">
+                                            {errors.password}
+                                        </Alert>
+                                    ) : null}
+                                </div>
+                                <div className="form-group">
+                                    <div className="checkbox">
+                                        <input type="checkbox" name="remember" id="rememberpass2" />
+                                        <label htmlFor="rememberpass2">Remember me</label>
+                                    </div>
+                                    <span><a href="#1">Lost your Password?</a></span>
+                                </div>
+                                <button type='submit' className="login-btn btngreen" disabled={isSubmitting}>Login</button>
+                            </fieldset>
+                        </Form>
+                    )}
+                </Formik>
             </div>
         </div>
 
