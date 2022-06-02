@@ -35,7 +35,6 @@ const Login = (props) => {
                 <Formik
                     validationSchema={schema}
                     onSubmit={(values, { resetForm, setSubmitting }) => {
-                        console.log(values);
                         setSubmitting(false);
                         let loginService = new LoginService();
                         let localStorageService = new LocalStorageService();
