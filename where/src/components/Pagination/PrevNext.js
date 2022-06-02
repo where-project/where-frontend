@@ -21,8 +21,6 @@ const PrevNext = ({ currentPage, setCurrentPage, ...props }) => {
   };
 
   const finishPage = () => {
-    console.log("finish");
-    console.log(currentPage);
   };
   return (
     <div className="actions clearfix" style={{ marginTop: "20px" }}>
