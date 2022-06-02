@@ -31,7 +31,6 @@ const Register = (props) => {
   let errorWhereAlert = '';
   if (error !== '') {
     errorWhereAlert = <WhereAlert variant="danger" message="Error" description={error} />
-    console.log("hello");
   }
   return (
     <div className="loginsingup">
@@ -47,7 +46,6 @@ const Register = (props) => {
         <Formik
           validationSchema={schema}
           onSubmit={(values, { resetForm, setSubmitting }) => {
-            console.log(values);
             const userInformation = {
               username: values.username,
               firstName: values.firstName,
@@ -67,7 +65,6 @@ const Register = (props) => {
             })
               .catch(err => {
                 setError(err.response.data.error);
-                console.log(err.response.data.error)
               });
           }}
           initialValues={{
