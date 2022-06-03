@@ -1,0 +1,36 @@
+.mapclustring {
+	width: 50%;
+	float: right;
+	will-change: min-height;
+}
+
+.mapclustring.is_stuck {
+	top: 80px;
+}
+
+.maparea {
+	width: 100%;
+	float: left;
+	overflow: hidden;
+	position: relative;
+}
+
+.listingmap {
+	margin: 0;
+	z-index: 1;
+	position: relative;
+	height: -webkit-calc(100vh - 80px);
+	height: calc(100vh - 80px);
+}
+
+.listingmap div[title=""] {
+	padding: 0 2px 0 0;
+	width: 59px !important;
+	height: 59px !important;
+	font-size: 15px !important;
+	line-height: 59px !important;
+	-webkit-background-size: auto auto !important;
+	background-size: auto !important;
+	background-position: center !important;
+	font: 400 16px/59px 'Saira', Arial, Helvetica, sans-serif;
+}
