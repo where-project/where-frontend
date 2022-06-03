@@ -6,9 +6,15 @@ import image from "../../../images/1.jpg"
 import Reviews from '../../../pages/Reviews/Reviews'
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger'
 import Tooltip from 'react-bootstrap/Tooltip';
+import ReservationPage from '../../ReservationPage/ReservationPage'
+import Pricing from '../../../pages/Pricing/Pricing'
 
 const PlaceDetail = () => {
     const changeActive = () => {
+    }
+    const place = {
+        name: "Restaurant",
+        id: 1
     }
     return (
         <main className="main haslayout">
@@ -77,7 +83,9 @@ const PlaceDetail = () => {
                                     <li role="presentation"><a href="#gallery" role="tab" data-toggle="tab" onClick={changeActive}>Reservation</a></li>
                                 </ul>
                                 <div class="themetabcontent">
-                                    <Reviews placeId={1} />
+                                    {/* <Pricing /> */}
+                                    {/* <Reviews placeId={2} /> */}
+                                    <ReservationPage place={place} />
                                 </div>
                             </div>
                         </div>
