@@ -1,0 +1,90 @@
+.addlistingsteps .steps {
+  width: 100%;
+  float: left;
+}
+.addlistingsteps .steps ul {
+  width: 100%;
+  float: left;
+  color: #222;
+  list-style: none;
+  font-size: 16px;
+  line-height: 20px;
+  position: relative;
+}
+.addlistingsteps .steps ul:before {
+  top: 17px;
+  left: 0;
+  content: "";
+  width: 100%;
+  height: 16px;
+  background: #fff;
+  border-radius: 8px;
+  position: absolute;
+}
+.addlistingsteps .steps ul li:before {
+  top: 17px;
+  left: 0;
+  width: 0;
+  height: 16px;
+  z-index: -1;
+  content: "";
+  background: #ccc;
+  position: absolute;
+}
+.addlistingsteps .steps ul li {
+  float: left;
+  z-index: 1;
+  width: 24.666%;
+  position: relative;
+  list-style-type: none;
+}
+.addlistingsteps .steps ul li.done:before,
+.addlistingsteps .steps ul li.current:before {
+  width: 100%;
+}
+.addlistingsteps .steps ul li:first-child:before {
+  border-radius: 8px 0 0 8px;
+}
+.addlistingsteps .steps ul li a {
+  cursor: text;
+  color: #222;
+  display: block;
+}
+.addlistingsteps .steps ul .number {
+  width: 50px;
+  height: 50px;
+  color: #fff;
+  display: block;
+  margin: 0 auto;
+  overflow: hidden;
+  font-size: 16px;
+  line-height: 38px;
+  border-radius: 50%;
+  text-align: center;
+  background: #909090;
+  border: 6px solid #fff;
+}
+
+.addlistingsteps .steps ul li em {
+  width: 100%;
+  float: left;
+  font-style: normal;
+  text-align: center;
+  color: #fff;
+}
+.addlistingsteps .steps ul li.done span + em {
+  color: #2457cf !important;
+}
+.addlistingsteps .steps ul li:before {
+  background: #2457cf;
+}
+.addlistingsteps .steps ul li.done:before,
+.addlistingsteps .steps ul li.current:before {
+  width: 100%;
+}
+.addlistingsteps .steps ul li:first-child:before {
+  border-radius: 8px 0 0 8px;
+}
+.background-blue {
+  background: #2457cf !important;
+}

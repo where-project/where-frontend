@@ -1,0 +1,166 @@
+.detail-themetabcontent .tab-pane {
+    width: 100%;
+    float: left;
+}
+
+.detail-overview:before {
+    top: 0;
+    left: 50%;
+    width: 1px;
+    height: 100%;
+    content: '';
+    position: absolute;
+    background: #e5e5e5;
+}
+
+.detail-overview .detail-leftbox {
+    width: 50%;
+    padding-right: 40px;
+}
+
+.detail-leftbox {
+    float: left;
+}
+
+p {
+    margin: 0 0 20px;
+    line-height: 24px;
+    letter-spacing: normal;
+}
+
+.detail-overview .detail-leftbox .detail-videobox {
+    height: 350px;
+    padding: 50px 0 0;
+}
+
+.detail-videobox {
+    width: 100%;
+    float: left;
+}
+
+.detail-overview .detail-leftbox .detail-videobox iframe {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+iframe {
+    width: 100%;
+    float: left;
+    border: none;
+}
+
+.detail-overview .detail-rightbox {
+    width: 50%;
+    padding-left: 40px;
+}
+
+.detail-rightbox {
+    float: right;
+}
+
+.detail-amenitiesarea {
+    margin: 0 0 40px;
+    padding: 0 0 40px;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.detail-amenitiesarea,
+.detail-openinghoursarea {
+    width: 100%;
+    float: left;
+}
+
+.detail-title {
+    width: 100%;
+    float: left;
+    padding: 0 0 20px;
+}
+
+.detail-title h3 {
+    margin: 0;
+    font-size: 24px;
+    line-height: 27px;
+}
+
+.detail-amenities,
+.detail-openinghoursarea .detail-openinghours {
+    padding: 0;
+    width: 100%;
+    float: left;
+    color: #5c5c5c;
+    font-size: 14px;
+    line-height: 18px;
+    list-style: none;
+}
+
+.detail-amenities li {
+    width: 50%;
+    padding: 0 0 0 20px;
+}
+
+.detail-amenities li:before {
+    top: 0;
+    left: 0;
+    font-size: 12px;
+    content: '\eef6';
+    position: absolute;
+    line-height: inherit;
+    font-family: 'icomoon';
+    color: #2457cf;
+}
+
+.detail-amenitiesarea,
+.detail-openinghoursarea {
+    width: 100%;
+    float: left;
+}
+
+.detail-title {
+    width: 100%;
+    float: left;
+    padding: 0 0 20px;
+}
+
+.detail-title h3 {
+    margin: 0;
+    font-size: 24px;
+    line-height: 27px;
+}
+
+.detail-amenities,
+.detail-openinghoursarea .detail-openinghours {
+    padding: 0;
+    width: 100%;
+    float: left;
+    color: #5c5c5c;
+    font-size: 14px;
+    line-height: 18px;
+    list-style: none;
+}
+
+.detail-amenities li {
+    float: left;
+    margin: 10px 0;
+    position: relative;
+    line-height: inherit;
+    list-style-type: none;
+}
+
+.detail-openinghoursarea .detail-openinghours li {
+    float: left;
+    margin: 10px 0;
+    position: relative;
+    line-height: inherit;
+    list-style-type: none;
+    padding: 0;
+    width: 100%;
+}
+
+.detail-openinghoursarea .detail-openinghours li span {
+    float: left;
+}
+
+.detail-openinghoursarea .detail-openinghours li span+span {
+    float: right;
+}

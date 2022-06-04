@@ -64,7 +64,7 @@ a:focus,
 a:active {
   outline: none !important;
   text-decoration: none !important;
-  color: #6fbf17 !important;
+  color: #6fbf17;
 }
 ul {
   margin: 0;
@@ -86,7 +86,7 @@ button {
   border: none;
 }
 textarea,
-select,
+select[type="text"],
 .select select,
 .form-control,
 input[type="text"],
@@ -202,7 +202,7 @@ a {
   content: "\f006 \f006 \f006 \f006 \f006";
 }
 .stars span:after {
-	content: '\f005 \f005 \f005 \f005 \f005';
+  content: "\f005 \f005 \f005 \f005 \f005";
 }
 .themepostfoot {
   clear: both;
@@ -245,7 +245,7 @@ Pricing Page
   padding-right: 40px;
 }
 .prices li:nth-child(even) {
-    padding-left: 40px;
+  padding-left: 40px;
 }
 .prices li {
   width: 50%;
@@ -281,4 +281,3 @@ Pricing Page
 .pricebox p {
   margin: 0;
 }
-
