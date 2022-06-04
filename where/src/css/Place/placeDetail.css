@@ -318,18 +318,6 @@ img {
   max-height: 16px !important;
 }
 
-/* .jmGDmh {
-  font-size: 11px !important;
-  border: 1px solid rgba(255,255,255,0.8) !important;
-  min-height: 21px;
-  border-radius: 8px;
-}
-.dPgQZl {
-  text-align: left;
-  font-size: 11px !important;
-  border: 1px solid rgba(255,255,255,0.8);
-} */
-
 .bQsNRS {
   font-size: 40px !important;
   font-weight: 200 !important;
@@ -355,10 +343,12 @@ img {
 .eVdBiY {
   font-size: 40px !important;
   font-weight: 200 !important;
-  text-transform: uppercase !important;; 
-  color: rgba(1,182,245,1) !important;
+  text-transform: uppercase !important;
+  ;
+  color: rgba(1, 182, 245, 1) !important;
   border: none !important;
-  width: 82px !important;; 
+  width: 82px !important;
+  ;
   background-color: transparent !important;
   border-radius: 4px !important;
   height: 100% !important;
