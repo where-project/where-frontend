@@ -25,7 +25,7 @@
 
 .banner-content {
     width: 100%;
-    height: 200px;
+    height: 300px;
     float: left;
 }
 
@@ -95,10 +95,6 @@
     text-align: center;
 }
 
-.icon-layers:before {
-    content: "\e031";
-}
-
 .banner-select {
     color: #666;
     float: left;
@@ -131,13 +127,9 @@
     color: white;
 }
 
-.icon-global:before {
-    content: "\e052";
-}
-
 .banner-button {
     background-color: #f84a47;
-    width: 180px;
+    width: 156px;
     height: 50px;
     border-radius: 50px;
     color: white;
@@ -199,9 +191,7 @@
     padding: 0 0 10px;
 }
 
-.icon-food:before {
-    content: "\efd8";
-}
+
 
 .banner-footer ul li h3 {
     margin: 0;
@@ -212,30 +202,6 @@
     font-style: normal;
     text-transform: capitalize;
     font-family: 'Saira', Arial, Helvetica, sans-serif;
-}
-
-.icon-nightlife:before {
-    content: "\efdb";
-}
-
-.icon-entertainment:before {
-    content: "\efd7";
-}
-
-.icon-localservice:before {
-    content: "\efda";
-}
-
-.icon-healthfitness:before {
-    content: "\efd9";
-}
-
-.icon-tourism:before {
-    content: "\efdd";
-}
-
-.icon-money:before {
-    content: "\e93b";
 }
 
 .banner-select p {

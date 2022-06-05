@@ -281,3 +281,7 @@ Pricing Page
 .pricebox p {
   margin: 0;
 }
+.content {
+  width: 100%;
+  float: left;
+}

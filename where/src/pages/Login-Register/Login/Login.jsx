@@ -23,7 +23,8 @@ const Login = (props) => {
     }
     return (
         <div id="loginsingup" className="loginsingup">
-            <button type="button" className="btnclose">x</button>
+            <button type="button" className="btnclose">
+                <a href='/mainpage'>x</a></button>
             <img className="loginsingupimg" style={{ position: "50% 50%" }} src={leftImage} alt="Merhabaa" />
             <div className="login-contentarea">
                 <div className="themetabs">
@@ -43,6 +44,7 @@ const Login = (props) => {
                             .then((result) => {
                                 localStorageService.setLocalStorage('accessToken', result.data.access_token);
                                 localStorageService.setLocalStorage('refreshToken', result.data.refresh_token);
+                                window.location.href = '/mainpage';
                             },
                                 err => {
                                     setError("Username or password is wrong");
