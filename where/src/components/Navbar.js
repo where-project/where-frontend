@@ -5,16 +5,22 @@ import "../css/icon.css";
 import "../css/responsive.css";
 import "../css/transitions.css";
 import logo from "../images/logo/WHERE_.png";
-
+import { Link, useLocation } from "react-router-dom";
 const Navbar = () => {
   const [navbar, setNavbar] = useState(false);
   const [scrollDir, setScrollDir] = useState();
+  const location = useLocation();
+
+  // const checkLocation = () => {
+  //   if (location.pathname === "/listing") {
+  //     setNavbar(true);
+  //   }
+  // };
 
   useEffect(() => {
     const threshold = 0;
     let lastScrollY = window.pageYOffset;
     let ticking = false;
-
     const updateScrollDir = () => {
       const scrollY = window.pageYOffset;
       if (Math.abs(scrollY - lastScrollY) < threshold) {
@@ -55,24 +61,28 @@ const Navbar = () => {
           <div className="row">
             <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12">
               <strong className="logo">
-                <a href="index.html">
+                <a href="/mainpage">
                   <img src={logo} alt="company logo here" />
                 </a>
               </strong>
               <nav className="addnav">
                 <ul>
-                  <li>
-                    <a className="btn " href="#">
-                      <i className="icon-smiling-face"></i>
-                      <span>Join Now</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a className="btn btnOrange" href="#as">
-                      <i className="icon-plus"></i>
-                      <span>Add Listing</span>
-                    </a>
-                  </li>
+                  <Link to={`/login`}>
+                    <li>
+                      <a className="btn" href="#">
+                        <i className="icon-smiling-face"></i>
+                        <span>Join Now</span>
+                      </a>
+                    </li>
+                  </Link>
+                  <Link to={`/dashboard`}>
+                    <li>
+                      <a className="btn btnOrange" href="#as">
+                        <i className="icon-plus"></i>
+                        <span>Add Listing</span>
+                      </a>
+                    </li>
+                  </Link>
                 </ul>
               </nav>
               <nav className="nav">
@@ -82,7 +92,7 @@ const Navbar = () => {
                       <span className="dropdowarrow">
                         <i className="fa fa-angle-down"></i>
                       </span>
-                      <a href="">Home</a>
+                      <a href="/">Home</a>
                     </li>
                     <li className="menu-item-has-children">
                       <span className="dropdowarrow">
@@ -90,22 +100,24 @@ const Navbar = () => {
                       </span>
                       <a href="">Explore</a>
                       <ul className="sub-menu">
+                        <Link to={`/listing`}>
+                          <li>
+                            <a href="">All Listings</a>
+                          </li>
+                        </Link>
                         <li>
-                          <a href="">All Listings</a>
-                        </li>
-                        <li className="menu-item-has-children">
                           <a href="">Food</a>
                         </li>
-                        <li className="menu-item-has-children">
+                        <li>
                           <a href="">Entertainment</a>
                         </li>
-                        <li className="menu-item-has-children">
+                        <li>
                           <a href="">Educational</a>
                         </li>
-                        <li className="menu-item-has-children">
+                        <li>
                           <a href="">Nightlife</a>
                         </li>
-                        <li className="menu-item-has-children">
+                        <li>
                           <a href="">Outdoors</a>
                         </li>
                       </ul>
@@ -114,15 +126,12 @@ const Navbar = () => {
                       <a href="">Pages</a>
                       <ul className="sub-menu">
                         <li>
-                          <a href="">Contact</a>
+                          <a href="/contact">Contact</a>
                         </li>
                       </ul>
                     </li>
-                    <li className="menu-item-has-children">
-                      <a href="">News</a>
-                    </li>
                     <li>
-                      <a href="">Dasboard</a>
+                      <a href="/dashboard">Dasboard</a>
                     </li>
                   </ul>
                 </div>

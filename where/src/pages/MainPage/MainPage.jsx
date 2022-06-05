@@ -36,7 +36,6 @@ const MainPage = () => {
 		<div>
 			<div className='mainpage'>
 				<div className='container'>
-
 					<div>
 						<div className='col-xs-12 col-sm-12 col-md-12 col-lg-12'>
 							<div className='banner-content'>
@@ -56,7 +55,6 @@ const MainPage = () => {
 															<option className='deneme' key={index} value={category.id}>{category.categoryName}</option>
 														);
 													})}
-
 												</select>
 											</div>
 										</div>
@@ -66,10 +64,10 @@ const MainPage = () => {
 												<select id="banner-locationchosen" className="banner-locationchosen">
 													<option>Choose a Location</option>
 													{cities.map((city, index) => {
-																return (
-																	<option key={index} value={city.id}>{city.name}</option>
-																);
-															})}
+														return (
+															<option key={index} value={city.id}>{city.name}</option>
+														);
+													})}
 												</select>
 											</div>
 										</div>
@@ -121,9 +119,6 @@ const MainPage = () => {
 										</li>
 									</ul>
 								</div>
-
-
-
 							</div>
 						</div>
 					</div>
