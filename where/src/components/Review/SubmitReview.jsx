@@ -44,7 +44,7 @@ function SubmitReview({ categories, user, ...props }) {
                             </div>
                         </div>
                         <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                            <button className="btn btngreen" type="button">Submit Review</button>
+                            <button className="btn btngreen border_white" type="button">Submit Review</button>
                         </div>
                     </div>
                 </fieldset>
