@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const PrevNext = ({ currentPage, setCurrentPage, ...props }) => {
+const PrevNext = ({ currentPage, setCurrentPage,setSendData, ...props }) => {
   const [finish, setFinish] = useState(false);
   const previousPage = () => {
     if (currentPage === 1) {
@@ -21,6 +21,7 @@ const PrevNext = ({ currentPage, setCurrentPage, ...props }) => {
   };
 
   const finishPage = () => {
+    setSendData(true);
   };
   return (
     <div className="actions clearfix" style={{ marginTop: "20px" }}>
