@@ -11,6 +11,7 @@ import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import L from 'leaflet';
 import Pagination from "../../components/Pagination/Pagination";
+import { Link } from "react-router-dom";
 delete L.Icon.Default.prototype._getIconUrl;
 
 L.Icon.Default.mergeOptions({
@@ -60,10 +61,10 @@ function Listing() {
 	}, []);
 
 	return (
-		<main className="haslayout">
+		<main className="haslayout listing">
 			<div id="content" className="content">
 				<div className="listing">
-					<div id="mapclustring" className="mapclustring">
+					<div id="mapclustring" className="mapclustring" style={{ position: "fixed", width: "932px", height: "859px", display: "block", float: "right", right: 0, verticalAlign: "baseline" }}>
 						<div className="maparea">
 							<div id="listingmap" className="listingmap">
 								<MapContainer center={position} zoom={13} scrollWheelZoom={false} style={{ width: '100%', height: '100%' }}>
@@ -125,41 +126,41 @@ function Listing() {
 								<div className="themeposts placesposts gridview">
 									{places.map((place, index) => {
 										return (
-											<div className="themepost placespost">
-												<figure className="featuredimg">
-													<a href="">
-														<img src="https://media-cdn.tripadvisor.com/media/photo-s/10/e5/73/92/photo1jpg.jpg" alt="image description" className="mCS_img_loaded" />
-													</a>
-												</figure>
-												<div className="postcontent">
-													<h3><a href="">{place.placeName}</a></h3>
-													<div className="description">
-														<p>{place.phoneNumber}</p>
-													</div>
-													<div className="reviewcategory">
-														<div className="review">
-															<span className="stars"><span></span></span>
-															<em>(3 Review)</em>
+											<Link to={`/listing/${2}`}>
+												<div className="themepost placespost" onClick>
+													<figure className="featuredimg">
+														<img src="https://media-cdn.tripadvisor.com/media/photo-s/10/e5/73/92/photo1jpg.jpg" alt="image description" className="detail" />
+													</figure>
+													<div className="postcontent">
+														<h3><a href="">{place.placeName}</a></h3>
+														<div className="description">
+															<p>{place.phoneNumber}</p>
 														</div>
-														<a href="" className="category">
-															{(place.placeCategories).map(category => {
-																return (
-																	<div>
-																		<i className="icon-nightlife"></i>
-																		<span>{category.categoryCategoryName}</span>
-																	</div>
-																);
-															})}
-														</a>
-													</div>
-													<div className="themepostfoot">
-														<a className="location" href="">
-															<i className="icon-icons74"></i>
-															<em>{place.locationCityName}</em>
-														</a>
+														<div className="reviewcategory">
+															<div className="review">
+																<span className="stars"><span></span></span>
+																<em>(3 Review)</em>
+															</div>
+															<a href="" className="category">
+																{(place.placeCategories).map(category => {
+																	return (
+																		<div>
+																			<i className="icon-nightlife"></i>
+																			<span>{category.categoryCategoryName}</span>
+																		</div>
+																	);
+																})}
+															</a>
+														</div>
+														<div className="themepostfoot">
+															<a className="location" href="">
+																<i className="icon-icons74"></i>
+																<em>{place.locationCityName}</em>
+															</a>
+														</div>
 													</div>
 												</div>
-											</div>
+											</Link>
 										);
 									})}
 									<Pagination />
