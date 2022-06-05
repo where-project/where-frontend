@@ -8,6 +8,8 @@ import Pricing from '../../../pages/Pricing/Pricing'
 import Overview from '../../../components/Overview'
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger'
 import Tooltip from 'react-bootstrap/Tooltip';
+import ReservationPage from '../../ReservationPage/ReservationPage'
+import Pricing from '../../../pages/Pricing/Pricing'
 
 const PlaceDetail = () => {
     const [currentPage, setCurrentPage] = useState(1);
@@ -30,6 +32,10 @@ const PlaceDetail = () => {
         else if (currentPage === 5) {
             return
         }
+    }
+    const place = {
+        name: "Restaurant",
+        id: 1
     }
     return (
         <main className="main haslayout">
