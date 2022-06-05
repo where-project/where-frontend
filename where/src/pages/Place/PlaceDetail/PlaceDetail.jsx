@@ -3,13 +3,12 @@ import "../../../css/style.css"
 import "../../../css/icon.css"
 import "../../../css/Place/placeDetail.css"
 import image from "../../../images/1.jpg"
-import Reviews from '../../../pages/Reviews/Reviews'
 import Pricing from '../../../pages/Pricing/Pricing'
+import Reviews from '../../../pages/Reviews/Reviews'
 import Overview from '../../../components/Overview'
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger'
 import Tooltip from 'react-bootstrap/Tooltip';
 import ReservationPage from '../../ReservationPage/ReservationPage'
-import Pricing from '../../../pages/Pricing/Pricing'
 
 const PlaceDetail = () => {
     const [currentPage, setCurrentPage] = useState(1);
