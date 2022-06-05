@@ -1,16 +1,37 @@
-import React from 'react'
+import React, { useState } from 'react'
 import "../../../css/style.css"
 import "../../../css/icon.css"
 import "../../../css/Place/placeDetail.css"
 import image from "../../../images/1.jpg"
 import Reviews from '../../../pages/Reviews/Reviews'
+import Pricing from '../../../pages/Pricing/Pricing'
+import Overview from '../../../components/Overview'
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger'
 import Tooltip from 'react-bootstrap/Tooltip';
 import ReservationPage from '../../ReservationPage/ReservationPage'
 import Pricing from '../../../pages/Pricing/Pricing'
 
 const PlaceDetail = () => {
-    const changeActive = () => {
+    const [currentPage, setCurrentPage] = useState(1);
+    const changeActive = (id) => {
+        setCurrentPage(id);
+    }
+    const activeComponent = () => {
+        if (currentPage === 1) {
+            return <Overview />
+        }
+        else if (currentPage === 2) {
+            return <Pricing />
+        }
+        else if (currentPage === 3) {
+            return
+        }
+        else if (currentPage === 4) {
+            return <Reviews />
+        }
+        else if (currentPage === 5) {
+            return
+        }
     }
     const place = {
         name: "Restaurant",
@@ -76,16 +97,16 @@ const PlaceDetail = () => {
                             </div>
                             <div className="themetabs">
                                 <ul className="themetabnav" role="tablist">
-                                    <li role="presentation" ><a href="#overview" aria-controls="overview" role="tab" data-toggle="tab">Overview</a></li>
-                                    <li role="presentation" ><a href="#pricing" role="tab" data-toggle="tab" onClick={changeActive}>Pricing</a></li>
-                                    <li role="presentation"><a href="#location" role="tab" data-toggle="tab" onClick={changeActive}>Location</a></li>
-                                    <li role="presentation" className="active"><a href="#reviews" role="tab" data-toggle="tab" onClick={changeActive}>Reviews</a></li>
-                                    <li role="presentation"><a href="#gallery" role="tab" data-toggle="tab" onClick={changeActive}>Reservation</a></li>
+                                    <li role="presentation" className={currentPage === 1 && "active"}><a href="#overview" aria-controls="overview" role="tab" data-toggle="tab" onClick={() => changeActive(1)}>Overview</a></li>
+                                    <li role="presentation" className={currentPage === 2 && "active"}><a href="#pricing" role="tab" data-toggle="tab" onClick={() => changeActive(2)}>Pricing</a></li>
+                                    <li role="presentation" className={currentPage === 3 && "active"}><a href="#location" role="tab" data-toggle="tab" onClick={() => changeActive(3)}>Location</a></li>
+                                    <li role="presentation" className={currentPage === 4 && "active"}><a href="#reviews" role="tab" data-toggle="tab" onClick={() => changeActive(4)}>Reviews</a></li>
+                                    <li role="presentation" className={currentPage === 5 && "active"}><a href="#gallery" role="tab" data-toggle="tab" onClick={() => changeActive(5)}>Reservation</a></li>
                                 </ul>
-                                <div class="themetabcontent">
-                                    {/* <Pricing /> */}
-                                    {/* <Reviews placeId={2} /> */}
-                                    <ReservationPage place={place} />
+                                <div className="themetabcontent">
+                                    {
+                                        activeComponent()
+                                    }
                                 </div>
                             </div>
                         </div>

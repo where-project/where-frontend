@@ -10,6 +10,7 @@ import { Alert, Form } from 'react-bootstrap'
 import { Formik } from 'formik';
 import * as yup from 'yup';
 import WhereAlert from '../../../components/WhereAlert/WhereAlert';
+import { Link } from 'react-router-dom';
 
 const schema = yup.object().shape({
     username: yup.string().required("Please provide a valid title."),
@@ -23,7 +24,10 @@ const Login = (props) => {
     }
     return (
         <div id="loginsingup" className="loginsingup">
-            <button type="button" className="btnclose">x</button>
+            <Link to="/mainpage">
+                <button type="button" className="btnclose">
+                    <a href='/mainpage' style={{ color: "white" }}>x</a></button>
+            </Link>
             <img className="loginsingupimg" style={{ position: "50% 50%" }} src={leftImage} alt="Merhabaa" />
             <div className="login-contentarea">
                 <div className="themetabs">
@@ -43,6 +47,7 @@ const Login = (props) => {
                             .then((result) => {
                                 localStorageService.setLocalStorage('accessToken', result.data.access_token);
                                 localStorageService.setLocalStorage('refreshToken', result.data.refresh_token);
+                                window.location.href = '/mainpage';
                             },
                                 err => {
                                     setError("Username or password is wrong");
