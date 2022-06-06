@@ -6,10 +6,13 @@ import "../css/responsive.css";
 import "../css/transitions.css";
 import logo from "../images/logo/WHERE_.png";
 import { Link, useLocation } from "react-router-dom";
+import LocalStorageService from "../services/LocalStorageService";
+
 const Navbar = () => {
   const [navbar, setNavbar] = useState(false);
   const [scrollDir, setScrollDir] = useState();
   const location = useLocation();
+  let localStorageService = new LocalStorageService();
 
   // const checkLocation = () => {
   //   if (location.pathname === "/listing") {
@@ -67,14 +70,18 @@ const Navbar = () => {
               </strong>
               <nav className="addnav">
                 <ul>
-                  <Link to={`/login`}>
-                    <li>
-                      <a className="btn" href="#">
-                        <i className="icon-smiling-face"></i>
-                        <span>Join Now</span>
-                      </a>
-                    </li>
-                  </Link>
+                  {localStorageService.getLocalStorage("accessToken") ===
+                    undefined && (
+                    <Link to={`/login`}>
+                      <li>
+                        <a className="btn" href="#">
+                          <i className="icon-smiling-face"></i>
+                          <span>Join Now</span>
+                        </a>
+                      </li>
+                    </Link>
+                  )}
+
                   <Link to={`/dashboard`}>
                     <li>
                       <a className="btn btnOrange" href="#as">

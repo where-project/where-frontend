@@ -4,12 +4,15 @@ import "../../css/mainpage.css";
 import "../../css/style.css";
 import CategoryService from '../../services/CategoryService';
 import CityService from "../../services/CityService";
+import LocalStorageService from "../../services/LocalStorageService";
+import jwt_decode from "jwt-decode";
+import UserService from "../../services/UserService";
 import { Link } from 'react-router-dom';
 
 const MainPage = () => {
-
 	const [categories, setCategories] = useState([]);
 	const [cities, setCities] = useState([]);
+	const [currentUser, setCurrentUser] = useState({});
 	const [selectedCityId, setSelectedCityId] = useState(0);
 	const [selectedCategoryId, setSelectedCategoryId] = useState(0);
 
@@ -30,6 +33,14 @@ const MainPage = () => {
 		});
 	};
 
+	const getCurrentUser = () => {
+		var decoded = jwt_decode(localStorage.getItem("accessToken"));
+		let username = decoded.sub;
+		const userService = new UserService();
+		userService.getUserByUsername(username).then((res) => {
+			setCurrentUser(res.data);
+		});
+	};
 	const handleLocation = (event) => {
 		setSelectedCityId(event.target.value);
 	}
@@ -41,6 +52,9 @@ const MainPage = () => {
 	useEffect(() => {
 		getCategories();
 		getCities();
+		if (localStorage.getItem("accessToken")) {
+			getCurrentUser();
+		}
 	}, []);
 
 	return (
