@@ -1,5 +1,4 @@
 import React from 'react'
-import BusinessHourService from '../../../services/BusinessHourService';
 const hours = [
     {
         hour: "Closed"
@@ -80,31 +79,85 @@ const hours = [
         hour: "24:00"
     }
 ];
+let tmp = [{
+    day: "Monday",
+    status: "string",
+    startTime: "08:00",
+    closingTime: "23:00"
+}, {
+    day: "Tuesday",
+    status: "string",
+    startTime: "08:00",
+    closingTime: "23:00"
+}, {
+    day: "Wednesday",
+    status: "string",
+    startTime: "08:00",
+    closingTime: "23:00"
+}, {
+    day: "Thursday",
+    status: "string",
+    startTime: "08:00",
+    closingTime: "23:00"
+}, {
+    day: "Friday",
+    status: "string",
+    startTime: "08:00",
+    closingTime: "23:00"
+}, {
+    day: "Saturday",
+    status: "string",
+    startTime: "08:00",
+    closingTime: "23:00"
+}, {
+    day: "Sunday",
+    status: "string",
+    startTime: "08:00",
+    closingTime: "23:00"
+}]
+const BusinessHour = ({ businessHour, setBusinessHour, ...props }) => {
 
-const BusinessHour = ({ businessHour, setBusinessHour, setHello, ...props }) => {
     const handleChange = (value, day, status) => {
-        console.log(value, day, status);
-        /*setBusinessHour([...businessHour], {
-            [businessHour.day]: {
-                [businessHour.status]: status,
-                [businessHour.hour]: value
-            }
-        })*/
+        if (day === "Monday") {
+            if (status === "Opening") {
+                tmp[0].startTime = value;
+            } else
+                tmp[0].closingTime = value;
 
-        setBusinessHour([...businessHour, {
-            day: day,
-            status: status,
-            hour: value,
-            placeId: 2
-        }]);
+        } else if (day === "Tuesday") {
+            if (status === "Opening") {
+                tmp[1].startTime = value;
+            } else
+                tmp[1].closingTime = value;
+        } else if (day === "Wednesday") {
+            if (status === "Opening") {
+                tmp[2].startTime = value;
+            } else
+                tmp[2].closingTime = value;
+        } else if (day === "Thursday") {
+            if (status === "Opening") {
+                tmp[3].startTime = value;
+            } else
+                tmp[3].closingTime = value;
+        } else if (day === "Friday") {
+            if (status === "Opening") {
+                tmp[4].startTime = value;
+            } else
+                tmp[4].closingTime = value;
+        } else if (day === "Saturday") {
+            if (status === "Opening") {
+                tmp[5].startTime = value;
+            } else
+                tmp[5].closingTime = value;
+        } else if (day === "Sunday") {
+            if (status === "Opening") {
+                tmp[6].startTime = value;
+            } else
+                tmp[6].closingTime = value;
+        }
+        setBusinessHour(tmp);
     }
 
-    const sendData = () => {
-        let businessHourService = new BusinessHourService();
-        businessHourService.add(businessHour).then(res => {
-            console.log(res);
-        });
-    }
     return (
         <section>
             <fieldset className='listing'>
@@ -128,7 +181,7 @@ const BusinessHour = ({ businessHour, setBusinessHour, setHello, ...props }) => 
                                 </select>
                             </div>
                             <div className="select">
-                                <select onChange={(event) => handleChange(event.target.value, "Monday", "Closed")}>
+                                <select onChange={(event) => handleChange(event.target.value, "Monday", "Closing")}>
                                     <option>Please select time</option>
                                     {hours.map((hour, i) => {
                                         return (
@@ -155,7 +208,7 @@ const BusinessHour = ({ businessHour, setBusinessHour, setHello, ...props }) => 
                                 </select>
                             </div>
                             <div className="select">
-                                <select onChange={(event) => handleChange(event.target.value, "Tuesday", "Closed")}>
+                                <select onChange={(event) => handleChange(event.target.value, "Tuesday", "Closing")}>
                                     <option>Please select time</option>
                                     {hours.map((hour, i) => {
                                         return (
@@ -182,7 +235,7 @@ const BusinessHour = ({ businessHour, setBusinessHour, setHello, ...props }) => 
                                 </select>
                             </div>
                             <div className="select">
-                                <select onChange={(event) => handleChange(event.target.value, "Wednesday", "Closed")}>
+                                <select onChange={(event) => handleChange(event.target.value, "Wednesday", "Closing")}>
                                     <option>Please select time</option>
                                     {hours.map((hour, i) => {
                                         return (
@@ -209,7 +262,7 @@ const BusinessHour = ({ businessHour, setBusinessHour, setHello, ...props }) => 
                                 </select>
                             </div>
                             <div className="select">
-                                <select onChange={(event) => handleChange(event.target.value, "Thursday", "Closed")}>
+                                <select onChange={(event) => handleChange(event.target.value, "Thursday", "Closing")}>
                                     <option>Please select time</option>
                                     {hours.map((hour, i) => {
                                         return (
@@ -236,7 +289,7 @@ const BusinessHour = ({ businessHour, setBusinessHour, setHello, ...props }) => 
                                 </select>
                             </div>
                             <div className="select">
-                                <select onChange={(event) => handleChange(event.target.value, "Friday", "Closed")}>
+                                <select onChange={(event) => handleChange(event.target.value, "Friday", "Closing")}>
                                     <option>Please select time</option>
                                     {hours.map((hour, i) => {
                                         return (
@@ -263,7 +316,7 @@ const BusinessHour = ({ businessHour, setBusinessHour, setHello, ...props }) => 
                                 </select>
                             </div>
                             <div className="select">
-                                <select onChange={(event) => handleChange(event.target.value, "Saturday", "Closed")}>
+                                <select onChange={(event) => handleChange(event.target.value, "Saturday", "Closing")}>
                                     <option>Please select time</option>
                                     {hours.map((hour, i) => {
                                         return (
@@ -290,7 +343,7 @@ const BusinessHour = ({ businessHour, setBusinessHour, setHello, ...props }) => 
                                 </select>
                             </div>
                             <div className="select">
-                                <select onChange={(event) => handleChange(event.target.value, "Sunday", "Closed")}>
+                                <select onChange={(event) => handleChange(event.target.value, "Sunday", "Closing")}>
                                     <option>Please select time</option>
                                     {hours.map((hour, i) => {
                                         return (
@@ -300,13 +353,6 @@ const BusinessHour = ({ businessHour, setBusinessHour, setHello, ...props }) => 
                                         );
                                     })}
                                 </select>
-                            </div>
-                            <div className="col-xs-12 col-sm-6 col-md-6 col-lg-3">
-                                <div className="btnarea">
-                                    <div className="form-group dashboardfield">
-                                        <button className='btnadd' type="button" onClick={sendData}>+</button>
-                                    </div>
-                                </div>
                             </div>
                         </li>
                     </ul>
