@@ -26,10 +26,10 @@ const App = () => {
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="*" element={<Error />} />
-        <Route path="/listing/searchByCategoryId/:categoryId" element={<Listing />} />
-        <Route path="/listing/searchByCityId/:cityId" element={<Listing />} />
+        <Route path="/listing/search/:categoryId" element={<Listing />} />
+        <Route path="/listing/search/:cityId" element={<Listing />} />
         <Route
-          path="/listing/searchByCityIdAndCategoryId/:cityId/:categoryId"
+          path="/listing/search/:cityId/:categoryId"
           element={<Listing />}
         />
         <Route path="/listing" element={<Listing />} />
