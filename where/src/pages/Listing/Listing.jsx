@@ -122,6 +122,22 @@ function Listing() {
 										attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 										url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
 									/>
+									{places.length > 0 && places.map((place, index) => {
+										return (
+											<Marker key={index} position={[place.locationLat, place.locationLng]}>
+												<Popup>
+													<div className="popup-content">
+														<h3>{place.placeName}</h3>
+														<p>{place.description}</p>
+														<a href={`/listing/${place.id}`}>
+															<button className="btn btn-primary">View</button>
+														</a>
+													</div>
+												</Popup>
+											</Marker>
+										)
+									})
+									}
 									<Marker position={position}>
 										<Popup>
 											A pretty CSS3 popup. <br /> Easily customizable.
