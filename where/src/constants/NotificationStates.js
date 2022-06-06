@@ -1,0 +1,6 @@
+export const NOTIFICATION_STATES = {
+  SUCCESS: "SUCCESS",
+  ERROR: "ERROR",
+  INFO: "INFO",
+  WARNING: "WARNING",
+};
