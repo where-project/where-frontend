@@ -26,6 +26,13 @@ const App = () => {
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="*" element={<Error />} />
+        <Route path="/listing/search/:categoryId" element={<Listing />} />
+        <Route path="/listing/search/:cityId" element={<Listing />} />
+        <Route
+          path="/listing/search/:cityId/:categoryId"
+          element={<Listing />}
+        />
+        <Route path="/listing" element={<Listing />} />
       </Routes>
     </>
   );

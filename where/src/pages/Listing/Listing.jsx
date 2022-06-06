@@ -11,7 +11,8 @@ import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import L from 'leaflet';
 import Pagination from "../../components/Pagination/Pagination";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
+import WhereAlert from "../../components/WhereAlert/WhereAlert";
 delete L.Icon.Default.prototype._getIconUrl;
 
 L.Icon.Default.mergeOptions({
@@ -26,7 +27,7 @@ function Listing() {
 	const [categories, setCategories] = useState([]);
 	const [cities, setCities] = useState([]);
 	const [places, setPlaces] = useState([]);
-
+	let { cityId, categoryId } = useParams();
 	const getCategories = () => {
 		let categoryService = new CategoryService();
 		categoryService.getAll().then((result) => {
@@ -54,10 +55,48 @@ function Listing() {
 		});
 	};
 
+	const getPlaceFilteredByCityId = (cityId) => {
+		let placeService = new PlaceService();
+		placeService.getPlaceFilteredByCityId(cityId).then((result) => {
+			setPlaces(result.data)
+		}, err => {
+			console.log(err.response.data.error_message);
+		});
+	};
+
+	const getPlaceFilteredByCategoryId = (categoryId) => {
+		let placeService = new PlaceService();
+		placeService.getPlaceFilteredByCategoryId(categoryId).then((result) => {
+			setPlaces(result.data)
+		}, err => {
+			console.log(err.response.data.error_message);
+		});
+	};
+
+	const filterByCityIdAndCategoryId = (cityId, categoryId) => {
+		let placeService = new PlaceService();
+		placeService.filterByCityIdAndCategoryId(cityId, categoryId).then((result) => {
+			setPlaces(result.data)
+		}, err => {
+			console.log(err.response.data.error_message);
+		});
+	};
+
 	useEffect(() => {
 		getCategories();
 		getCities();
-		getPlaces();
+		if (cityId !== undefined && categoryId !== undefined) {
+			filterByCityIdAndCategoryId(cityId, categoryId);
+		}
+		else if (cityId !== undefined && categoryId === undefined) {
+			getPlaceFilteredByCityId(cityId);
+		}
+		else if (categoryId !== undefined && cityId === undefined) {
+			getPlaceFilteredByCategoryId(categoryId);
+		}
+		else {
+			getPlaces();
+		}
 	}, []);
 
 	return (
@@ -124,9 +163,9 @@ function Listing() {
 									</div>
 								</div>
 								<div className="themeposts placesposts gridview">
-									{places.map((place, index) => {
+									{places.length > 0 ? places.map((place, index) => {
 										return (
-											<Link to={`/listing/${2}`}>
+											<Link to={`/listing/${place.id}`}>
 												<div className="themepost placespost" onClick>
 													<figure className="featuredimg">
 														<img src="https://media-cdn.tripadvisor.com/media/photo-s/10/e5/73/92/photo1jpg.jpg" alt="image description" className="detail" />
@@ -162,7 +201,7 @@ function Listing() {
 												</div>
 											</Link>
 										);
-									})}
+									}) : <WhereAlert variant="danger" message="Error" description="No places found!" />}
 									<Pagination />
 								</div>
 							</div>

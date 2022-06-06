@@ -25,7 +25,6 @@ const ReservationPage = ({ place, ...args }) => {
   const connectWalletHandler = async () => {
     if (typeof window !== "undefined" && typeof window.ethereum !== "undefined") {
       try {
-        console.log("everyting is fine")
         await window.ethereum.request({ method: "eth_requestAccounts" });
         web3 = new Web3(window.ethereum);
       } catch (error) {
@@ -52,7 +51,6 @@ const ReservationPage = ({ place, ...args }) => {
       const reservationCount = await reservation.methods
         .reservationCount()
         .call();
-      console.log(reservationCount);
       //Load place's reservations
       for (var i = 1; i <= reservationCount; i++) {
         reservation.methods.reservations(i).call().then(res => {
@@ -116,7 +114,7 @@ const ReservationPage = ({ place, ...args }) => {
                   id="reservationName"
                   type="text"
                   className="form-control"
-                  placeholder={place.name}
+                  placeholder={place.placeName}
                   required
                   disabled
                 />
@@ -149,7 +147,7 @@ const ReservationPage = ({ place, ...args }) => {
         </Col>
         <Col>
           <div>
-            <PlaceReservationStatus reservations={reservations} />
+            <PlaceReservationStatus reservations={reservations} businessHours={place.businessHours} />
           </div>
         </Col>
       </Row>
