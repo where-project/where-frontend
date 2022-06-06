@@ -102,8 +102,7 @@ const PlaceDetail = () => {
                                                     const activeBusinessHourDay = activeBusinessHoursDay[0];
                                                     const activeDay = activeDays[0];
                                                     if (activeBusinessHourDay === activeDay) {
-                                                        return <span>Today <span> {businessHour.status} Now</span> {businessHour.startTime}.00 - {businessHour.closingTime}.00</span>
-
+                                                        return <span>Today <span> {businessHour.status} Now</span> {businessHour.startTime} - {businessHour.closingTime}</span>
                                                     }
                                                 })
                                             }

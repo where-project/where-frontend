@@ -35,7 +35,7 @@ function Overview({ amenities, description, businessHours, ...params }) {
                                         return (
                                             <li key={index}>
                                                 <span>{businessHour.day}</span>
-                                                <span>{businessHour.startTime}.00-{businessHour.closingTime}.00</span>
+                                                <span>{businessHour.startTime}-{businessHour.closingTime}</span>
                                             </li>
                                         )
                                     }
