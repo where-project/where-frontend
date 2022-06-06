@@ -93,26 +93,26 @@ const MainPage = () => {
 										</div>
 
 										{selectedCategoryId !== 0 && selectedCityId !== 0 &&
-											<Link to={`/searchByCityIdAndCategoryId/${selectedCityId}/${selectedCategoryId}`}>
+											<Link to={`/listing/searchByCityIdAndCategoryId/${selectedCityId}/${selectedCategoryId}`}>
 												<div className='banner-button-style'>
 													<button className='banner-button'>Search Places</button>
 												</div>
 											</Link>
 										}
 										{selectedCategoryId !== 0 && selectedCityId === 0 &&
-											<Link to={`/searchByCategoryId/${selectedCategoryId}`}>
+											<Link to={`/listing/searchByCategoryId/${selectedCategoryId}`}>
 												<div className='banner-button-style'>
 													<button className='banner-button'>Search Places</button>
 												</div>
 											</Link>}
 										{selectedCategoryId === 0 && selectedCityId !== 0 &&
-											<Link to={`/searchByCityId/${selectedCityId}`}>
+											<Link to={`/listing/searchByCityId/${selectedCityId}`}>
 												<div className='banner-button-style'>
 													<button className='banner-button'>Search Places</button>
 												</div>
 											</Link>}
 										{selectedCategoryId === 0 && selectedCityId === 0 &&
-											<Link to={`/search`}>
+											<Link to={`/listing`}>
 												<div className='banner-button-style'>
 													<button className='banner-button'>Search Places</button>
 												</div>

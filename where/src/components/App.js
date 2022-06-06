@@ -26,13 +26,13 @@ const App = () => {
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="*" element={<Error />} />
-        <Route path="/searchByCategoryId/:categoryId" element={<Listing />} />
-        <Route path="/searchByCityId/:cityId" element={<Listing />} />
+        <Route path="/listing/searchByCategoryId/:categoryId" element={<Listing />} />
+        <Route path="/listing/searchByCityId/:cityId" element={<Listing />} />
         <Route
-          path="/searchByCityIdAndCategoryId/:cityId/:categoryId"
+          path="/listing/searchByCityIdAndCategoryId/:cityId/:categoryId"
           element={<Listing />}
         />
-        <Route path="/search" element={<Listing />} />
+        <Route path="/listing" element={<Listing />} />
       </Routes>
     </>
   );
