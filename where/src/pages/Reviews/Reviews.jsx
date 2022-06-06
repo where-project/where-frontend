@@ -35,7 +35,7 @@ function Reviews({ placeId, ...props }) {
 
     useEffect(() => {
         getCategories();
-        getComments(2);
+        getComments(placeId);
     }, []);
 
     return (

@@ -126,7 +126,7 @@ function Listing() {
 								<div className="themeposts placesposts gridview">
 									{places.map((place, index) => {
 										return (
-											<Link to={`/listing/${2}`}>
+											<Link to={`/listing/${place.id}`}>
 												<div className="themepost placespost" onClick>
 													<figure className="featuredimg">
 														<img src="https://media-cdn.tripadvisor.com/media/photo-s/10/e5/73/92/photo1jpg.jpg" alt="image description" className="detail" />

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import "../../../css/style.css"
 import "../../../css/icon.css"
 import "../../../css/Place/placeDetail.css"
@@ -9,6 +9,8 @@ import Overview from '../../../components/Overview'
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger'
 import Tooltip from 'react-bootstrap/Tooltip';
 import ReservationPage from '../../ReservationPage/ReservationPage'
+import { useParams } from 'react-router-dom'
+import PlaceService from '../../../services/PlaceService'
 
 const PlaceDetail = () => {
     const [currentPage, setCurrentPage] = useState(1);
@@ -17,25 +19,33 @@ const PlaceDetail = () => {
     }
     const activeComponent = () => {
         if (currentPage === 1) {
-            return <Overview />
+            return <Overview amenities={place.placeAmenities} description={place.description} businessHours={place.businessHours} />
         }
         else if (currentPage === 2) {
-            return <Pricing />
+            return <Pricing menuItems={place.menuItems} />
         }
         else if (currentPage === 3) {
             return
         }
         else if (currentPage === 4) {
-            return <Reviews />
+            return <Reviews placeId={placeId} />
         }
         else if (currentPage === 5) {
-            return
+            return <ReservationPage place={place} />
         }
     }
-    const place = {
-        name: "Restaurant",
-        id: 1
-    }
+    let { placeId } = useParams();
+    const [place, setPlace] = useState({});
+
+    useEffect(() => {
+        let placeService = new PlaceService();
+        placeService.getById(placeId).then((result) => {
+            setPlace(result.data)
+        }, err => {
+            console.log(err.response.data.error_message);
+        });
+    }, [])
+
     return (
         <main className="main haslayout">
             <div className="themepost placespost detail detailvone">
@@ -44,7 +54,7 @@ const PlaceDetail = () => {
                     <div className="row">
                         <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                             <div className="postcontent">
-                                <h1>Salt &amp; Pepper Emporium
+                                <h1>{place.placeName}
                                     <OverlayTrigger
                                         delay={{ hide: 450, show: 300 }}
                                         overlay={(props) => (
@@ -77,15 +87,26 @@ const PlaceDetail = () => {
                                     <ul>
                                         <li>
                                             <i className="icon-telephone114"></i>
-                                            <span>+ 7890 456 133</span>
+                                            <span>{place.phoneNumber}</span>
                                         </li>
                                         <li>
                                             <i className="icon-icons74"></i>
-                                            <span>Manhattan Hall, London W1K 2EQ UK</span>
+                                            <span>{place.locationAddress} {place.locationCityName} {place.locationCountry}</span>
                                         </li>
                                         <li>
                                             <i className="icon-icons20"></i>
-                                            <span>Today <span>Closed Now</span> 10:00 AM - 5:00 PM</span>
+                                            {
+                                                place.businessHours !== undefined && place.businessHours.map((businessHour, index) => {
+                                                    const activeBusinessHoursDay = businessHour.day.match(/.{1,3}/g);
+                                                    const activeDays = new Date().toString().match(/.{1,3}/g);
+                                                    const activeBusinessHourDay = activeBusinessHoursDay[0];
+                                                    const activeDay = activeDays[0];
+                                                    if (activeBusinessHourDay === activeDay) {
+                                                        return <span>Today <span> {businessHour.status} Now</span> {businessHour.startTime}.00 - {businessHour.closingTime}.00</span>
+
+                                                    }
+                                                })
+                                            }
                                         </li>
                                         <li>
                                             <i className="icon-global"></i>

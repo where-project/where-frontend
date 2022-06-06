@@ -116,7 +116,7 @@ const ReservationPage = ({ place, ...args }) => {
                   id="reservationName"
                   type="text"
                   className="form-control"
-                  placeholder={place.name}
+                  placeholder={place.placeName}
                   required
                   disabled
                 />
@@ -149,7 +149,7 @@ const ReservationPage = ({ place, ...args }) => {
         </Col>
         <Col>
           <div>
-            <PlaceReservationStatus reservations={reservations} />
+            <PlaceReservationStatus reservations={reservations} businessHours={place.businessHours} />
           </div>
         </Col>
       </Row>

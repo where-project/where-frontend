@@ -1,72 +1,20 @@
 import React from 'react'
 import "../../css/style.css"
-const Pricing = () => {
+const Pricing = ({ menuItems, ...params }) => {
     return (
         <div role="tabpanel" className="tab-pane" id="reviews">
             <ul className="prices">
-                <li>
-                    <div className="pricebox">
-                        <h3>Chicken Corn Soup</h3>
-                        <p>Served with Fish Crackers (Individual)</p>
-                        <span className="price">$12</span>
-                    </div>
-                </li>
-                <li>
-                    <div className="pricebox">
-                        <h3>Chicken Corn Soup</h3>
-                        <p>Served with Fish Crackers (Individual)</p>
-                        <span className="price">$12</span>
-                    </div>
-                </li>
-                <li>
-                    <div className="pricebox">
-                        <h3>Masala Fries</h3>
-                        <p>Served with Fish Crackers (Individual)</p>
-                        <span className="price">$5</span>
-                    </div>
-                </li>
-                <li>
-                    <div className="pricebox">
-                        <h3>Chicken Corn Soup</h3>
-                        <p>Served with Fish Crackers (Individual)</p>
-                        <span className="price">$12</span>
-                    </div>
-                </li>
-                <li>
-                    <div className="pricebox">
-                        <h3>Inside Out Sandwich</h3>
-                        <p>Served with Fish Crackers (Individual)</p>
-                        <span className="price">$54</span>
-                    </div>
-                </li>
-                <li>
-                    <div className="pricebox">
-                        <h3>Chicken Corn Soup</h3>
-                        <p>Served with Fish Crackers (Individual)</p>
-                        <span className="price">$12</span>
-                    </div>
-                </li>
-                <li>
-                    <div className="pricebox">
-                        <h3>Chicken Corn Soup</h3>
-                        <p>Served with Fish Crackers (Individual)</p>
-                        <span className="price">$12</span>
-                    </div>
-                </li>
-                <li>
-                    <div className="pricebox">
-                        <h3>Chicken Corn Soup</h3>
-                        <p>Served with Fish Crackers (Individual)</p>
-                        <span className="price">$12</span>
-                    </div>
-                </li>
-                <li>
-                    <div className="pricebox">
-                        <h3>Chicken Corn Soup</h3>
-                        <p>Served with Fish Crackers (Individual)</p>
-                        <span className="price">$12</span>
-                    </div>
-                </li>
+                {menuItems.map((item, index) => {
+                    return <li>
+                        <div className="pricebox" key={index}>
+                            <h3>{item.title}</h3>
+                            <p>{item.description}</p>
+                            <span className="price">${item.price}</span>
+                        </div>
+                    </li>
+
+                }
+                )}
             </ul>
         </div>
     )
