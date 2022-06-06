@@ -4,11 +4,14 @@ import "../../css/mainpage.css";
 import "../../css/style.css";
 import CategoryService from '../../services/CategoryService';
 import CityService from "../../services/CityService";
+import LocalStorageService from "../../services/LocalStorageService";
+import jwt_decode from "jwt-decode";
+import UserService from "../../services/UserService";
 
 const MainPage = () => {
-
 	const [categories, setCategories] = useState([]);
 	const [cities, setCities] = useState([]);
+	const [currentUser, setCurrentUser] = useState({});
 
 	const getCategories = () => {
 		let categoryService = new CategoryService();
@@ -27,9 +30,20 @@ const MainPage = () => {
 		});
 	};
 
+	const getCurrentUser = () => {
+		var decoded = jwt_decode(localStorage.getItem("accessToken"));
+		let username = decoded.sub;
+		const userService = new UserService();
+		userService.getUserByUsername(username).then((res) => {
+			setCurrentUser(res.data);
+		});
+	};
 	useEffect(() => {
 		getCategories();
 		getCities();
+		if (localStorage.getItem("accessToken")) {
+			getCurrentUser();
+		}
 	}, []);
 
 	return (
