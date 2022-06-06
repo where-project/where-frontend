@@ -176,7 +176,7 @@ const MainPage = () => {
 
 				</div>
 			</div>
-		</div >
+		</div>
 	)
 }
 
