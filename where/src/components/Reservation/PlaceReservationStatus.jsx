@@ -109,7 +109,6 @@ const PlaceReservationStatus = ({ reservations, businessHours, ...props }) => {
 
     return (
         <div className="rainbow-m-around_large">
-            {console.log(events)}
             <StyledCard>
                 <WeeklyCalendar
                     events={events}
