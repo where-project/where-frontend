@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import "../../css/Place/placeDetail.css"
 import { WeeklyCalendar, Card } from 'react-rainbow-components';
 
-const PlaceReservationStatus = ({ reservations, ...props }) => {
+const PlaceReservationStatus = ({ reservations, businessHours, ...props }) => {
 
     let counter = 100;
     const firstDay = new Date();
@@ -19,30 +19,48 @@ const PlaceReservationStatus = ({ reservations, ...props }) => {
 
     useEffect(() => {
         daysOfWeek.map(day => {
-            let event = {
-                id: counter,
-                title: 'Closed',
-                startDate: new Date(day.setHours(0, 0, 0, 0)),
-                endDate: new Date(day.setHours(9, 0, 0, 0)),
-                backgroundColor: 'rgba(254,72,73,1)',
+            businessHours !== undefined && businessHours.map((businessHour, index) => {
+                const activeBusinessHoursDay = businessHour.day.match(/.{1,3}/g);
+                const activeDays = day.toString().match(/.{1,3}/g);
+                const activeBusinessHourDay = activeBusinessHoursDay[0];
+                const activeDay = activeDays[0];
+                const startTime = Number(businessHour.startTime);
+                if (activeBusinessHourDay === activeDay) {
+                    let event = {
+                        id: counter,
+                        title: 'Closed',
+                        startDate: new Date(day.setHours(0, 0, 0, 0)),
+                        endDate: new Date(day.setHours(startTime, 0, 0, 0)),
+                        backgroundColor: 'rgba(254,72,73,1)',
 
-            }
-            counter++;
-            setEvents(events => [...events, event]);
+                    }
+                    counter++;
+                    setEvents(events => [...events, event]);
+                }
+            })
         })
 
         daysOfWeek.map((day => {
-            let event = {
-                id: counter,
-                title: 'Closed',
-                startDate: new Date(day.setHours(15, 0, 0, 0)),
-                endDate: new Date(day.setHours(24, 0, 0, 0)),
-                backgroundColor: 'rgba(254,72,73,1)',
-            }
-            setEvents(events => [...events, event]);
-            counter++;
-        }))
+            businessHours !== undefined && businessHours.map((businessHour, index) => {
+                const activeBusinessHoursDay = businessHour.day.match(/.{1,3}/g);
+                const activeDays = day.toString().match(/.{1,3}/g);
+                const activeBusinessHourDay = activeBusinessHoursDay[0];
+                const activeDay = activeDays[0];
+                const closingTime = Number(businessHour.closingTime);
+                if (activeBusinessHourDay === activeDay) {
+                    let event = {
+                        id: counter,
+                        title: 'Closed',
+                        startDate: new Date(day.setHours(closingTime, 0, 0, 0)),
+                        endDate: new Date(day.setHours(24, 0, 0, 0)),
+                        backgroundColor: 'rgba(254,72,73,1)',
 
+                    }
+                    counter++;
+                    setEvents(events => [...events, event]);
+                }
+            })
+        }))
     }, []);
 
     useEffect(() => {
@@ -103,6 +121,5 @@ const PlaceReservationStatus = ({ reservations, ...props }) => {
             </StyledCard>
         </div>
     );
-
 }
 export default PlaceReservationStatus;

@@ -8,7 +8,7 @@ export default class PlaceService {
     return axiosInstance().get(`/places/getAll`);
   }
   getById(id) {
-    return axiosInstance().get(`/places/getById/{id}?id=${id}`);
+    return axiosInstance().get(`/places/getById/${id}`);
   }
   deleteById(id) {
     return axiosInstance().delete(`/places/{id}?id=${id}`);
