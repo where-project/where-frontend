@@ -107,30 +107,33 @@ const MainPage = () => {
 										</div>
 
 										{selectedCategoryId !== 0 && selectedCityId !== 0 &&
-											<Link to={`/listing/search/${selectedCityId}/${selectedCategoryId}`}>
-												<div className='banner-button-style'>
+											<div className='banner-button-style'>
+												<Link to={`/listing/search/${selectedCityId}/${selectedCategoryId}`}>
 													<button className='banner-button'>Search Places</button>
-												</div>
-											</Link>
+												</Link>
+											</div>
 										}
 										{selectedCategoryId !== 0 && selectedCityId === 0 &&
-											<Link to={`/listing/search/${selectedCategoryId}`}>
-												<div className='banner-button-style'>
+											<div className='banner-button-style'>
+												<Link to={`/listing/search/category/${selectedCategoryId}`}>
 													<button className='banner-button'>Search Places</button>
-												</div>
-											</Link>}
+												</Link>
+											</div>
+										}
 										{selectedCategoryId === 0 && selectedCityId !== 0 &&
-											<Link to={`/listing/search/${selectedCityId}`}>
-												<div className='banner-button-style'>
+											<div className='banner-button-style'>
+												<Link to={`/listing/search/city/${selectedCityId}`}>
 													<button className='banner-button'>Search Places</button>
-												</div>
-											</Link>}
+												</Link>
+											</div>
+										}
 										{selectedCategoryId === 0 && selectedCityId === 0 &&
-											<Link to={`/listing`}>
-												<div className='banner-button-style'>
+											<div className='banner-button-style'>
+												<Link to={`/listing`}>
 													<button className='banner-button'>Search Places</button>
-												</div>
-											</Link>}
+												</Link>
+											</div>
+										}
 									</fieldset>
 								</form>
 								<div className='banner-footer'>
@@ -173,7 +176,7 @@ const MainPage = () => {
 
 				</div>
 			</div>
-		</div>
+		</div >
 	)
 }
 
