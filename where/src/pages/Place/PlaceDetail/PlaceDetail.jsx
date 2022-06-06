@@ -11,9 +11,12 @@ import Tooltip from 'react-bootstrap/Tooltip';
 import ReservationPage from '../../ReservationPage/ReservationPage'
 import { useParams } from 'react-router-dom'
 import PlaceService from '../../../services/PlaceService'
+import PlaceLocation from './Location/PlaceLocation'
 
 const PlaceDetail = () => {
     const [currentPage, setCurrentPage] = useState(1);
+    let { placeId } = useParams();
+    const [place, setPlace] = useState({});
     const changeActive = (id) => {
         setCurrentPage(id);
     }
@@ -25,7 +28,7 @@ const PlaceDetail = () => {
             return <Pricing menuItems={place.menuItems} />
         }
         else if (currentPage === 3) {
-            return
+            return <PlaceLocation place={place}/>
         }
         else if (currentPage === 4) {
             return <Reviews placeId={placeId} />
@@ -34,8 +37,6 @@ const PlaceDetail = () => {
             return <ReservationPage place={place} />
         }
     }
-    let { placeId } = useParams();
-    const [place, setPlace] = useState({});
 
     useEffect(() => {
         let placeService = new PlaceService();
