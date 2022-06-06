@@ -21,7 +21,6 @@ const MainPage = () => {
 		categoryService.getAll().then((result) => {
 			setCategories(result.data)
 		}, err => {
-			console.log(err);
 			console.log(err.response.data.error_message);
 		});
 	};
