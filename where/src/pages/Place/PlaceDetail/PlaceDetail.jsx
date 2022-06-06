@@ -29,7 +29,7 @@ const PlaceDetail = () => {
             return <Reviews />
         }
         else if (currentPage === 5) {
-            return
+            return <ReservationPage place={place} />
         }
     }
     const place = {

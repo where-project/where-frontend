@@ -4,11 +4,14 @@ import "../../css/mainpage.css";
 import "../../css/style.css";
 import CategoryService from '../../services/CategoryService';
 import CityService from "../../services/CityService";
+import { Link } from 'react-router-dom';
 
 const MainPage = () => {
 
 	const [categories, setCategories] = useState([]);
 	const [cities, setCities] = useState([]);
+	const [selectedCityId, setSelectedCityId] = useState(0);
+	const [selectedCategoryId, setSelectedCategoryId] = useState(0);
 
 	const getCategories = () => {
 		let categoryService = new CategoryService();
@@ -26,6 +29,14 @@ const MainPage = () => {
 			console.log(err.response.data.error_message);
 		});
 	};
+
+	const handleLocation = (event) => {
+		setSelectedCityId(event.target.value);
+	}
+
+	const handleCategory = (event) => {
+		setSelectedCategoryId(event.target.value);
+	}
 
 	useEffect(() => {
 		getCategories();
@@ -48,7 +59,7 @@ const MainPage = () => {
 										<div className='banner-formgroup banner-inputwithicon'>
 											<i className='icon-layers'></i>
 											<div className='banner-select'>
-												<select name="" id="banner-categorieschosen" className='banner-categorieschosen'>
+												<select name="" id="banner-categorieschosen" className='banner-categorieschosen' onChange={handleCategory}>
 													<option>Ex: Food, Retail, hotel, cinema</option>
 													{categories.map((category, index) => {
 														return (
@@ -61,7 +72,7 @@ const MainPage = () => {
 										<div className='banner-formgroup banner-inputwithicon'>
 											<i className="icon-global"></i>
 											<div className="banner-select">
-												<select id="banner-locationchosen" className="banner-locationchosen">
+												<select onChange={handleLocation} id="banner-locationchosen" className="banner-locationchosen">
 													<option>Choose a Location</option>
 													{cities.map((city, index) => {
 														return (
@@ -80,9 +91,32 @@ const MainPage = () => {
 												</div>
 											</div>
 										</div>
-										<div className='banner-button-style'>
-											<button className='banner-button'>Search Places</button>
-										</div>
+
+										{selectedCategoryId !== 0 && selectedCityId !== 0 &&
+											<Link to={`/searchByCityIdAndCategoryId/${selectedCityId}/${selectedCategoryId}`}>
+												<div className='banner-button-style'>
+													<button className='banner-button'>Search Places</button>
+												</div>
+											</Link>
+										}
+										{selectedCategoryId !== 0 && selectedCityId === 0 &&
+											<Link to={`/searchByCategoryId/${selectedCategoryId}`}>
+												<div className='banner-button-style'>
+													<button className='banner-button'>Search Places</button>
+												</div>
+											</Link>}
+										{selectedCategoryId === 0 && selectedCityId !== 0 &&
+											<Link to={`/searchByCityId/${selectedCityId}`}>
+												<div className='banner-button-style'>
+													<button className='banner-button'>Search Places</button>
+												</div>
+											</Link>}
+										{selectedCategoryId === 0 && selectedCityId === 0 &&
+											<Link to={`/search`}>
+												<div className='banner-button-style'>
+													<button className='banner-button'>Search Places</button>
+												</div>
+											</Link>}
 									</fieldset>
 								</form>
 								<div className='banner-footer'>
