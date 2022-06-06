@@ -13,6 +13,9 @@ import L from 'leaflet';
 import Pagination from "../../components/Pagination/Pagination";
 import { Link, useParams } from "react-router-dom";
 import WhereAlert from "../../components/WhereAlert/WhereAlert";
+import WhereNotification from "../../components/WhereNotification/WhereNotification";
+import { NOTIFICATION_STATES } from "../../constants/NotificationStates";
+import WhereModal from "../../components/WhereModal/WhereModal";
 delete L.Icon.Default.prototype._getIconUrl;
 
 L.Icon.Default.mergeOptions({
@@ -28,6 +31,7 @@ function Listing() {
 	const [cities, setCities] = useState([]);
 	const [places, setPlaces] = useState([]);
 	let { cityId, categoryId } = useParams();
+	const [isOpen, setIsOpen] = useState(false);
 	const getCategories = () => {
 		let categoryService = new CategoryService();
 		categoryService.getAll().then((result) => {
@@ -98,6 +102,13 @@ function Listing() {
 			getPlaces();
 		}
 	}, []);
+
+	useEffect(() => {
+		if (places.length <= 0) {
+			setIsOpen(true);
+		}
+	}, [places]);
+
 
 	return (
 		<main className="haslayout listing">
@@ -201,7 +212,9 @@ function Listing() {
 												</div>
 											</Link>
 										);
-									}) : <WhereAlert variant="danger" message="Error" description="No places found!" />}
+									}) :
+										<WhereModal isOpen={isOpen} title="No places found!" description="Places with the criteria not found!" setIsOpen={setIsOpen} />
+									}
 									<Pagination />
 								</div>
 							</div>
