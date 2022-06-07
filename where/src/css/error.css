@@ -1,8 +1,9 @@
-.haslayout {
+.haslayout_error {
   width: 100%;
   float: left;
+  height: 100vh;
+  background: linear-gradient(180deg,seagreen, transparent);
 }
-
 .error {
   width: 100%;
   float: left;
