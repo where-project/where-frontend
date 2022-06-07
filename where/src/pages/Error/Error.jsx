@@ -3,7 +3,7 @@ import "../../css/error.css";
 import "../../css/style.css";
 const Error = () => {
     return (
-        <main className="haslayout">
+        <main className="haslayout_error">
             <div className="container">
                 <div className="row">
                     <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12">
