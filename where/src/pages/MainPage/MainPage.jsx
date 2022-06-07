@@ -21,7 +21,7 @@ const MainPage = () => {
 		categoryService.getAll().then((result) => {
 			setCategories(result.data)
 		}, err => {
-			console.log(err.response.data.error_message);
+			console.log(err.response);
 		});
 	};
 	const getCities = () => {
@@ -29,7 +29,7 @@ const MainPage = () => {
 		cityService.getAll().then((result) => {
 			setCities(result.data)
 		}, err => {
-			console.log(err.response.data.error_message);
+			console.log(err.response);
 		});
 	};
 
