@@ -115,14 +115,14 @@ const MainPage = () => {
 										}
 										{selectedCategoryId !== 0 && selectedCityId === 0 &&
 											<div className='banner-button-style'>
-												<Link to={`/listing/search/${selectedCategoryId}`}>
+												<Link to={`/listing/search/category/${selectedCategoryId}`}>
 													<button className='banner-button'>Search Places</button>
 												</Link>
 											</div>
 										}
 										{selectedCategoryId === 0 && selectedCityId !== 0 &&
 											<div className='banner-button-style'>
-												<Link to={`/listing/search/${selectedCityId}`}>
+												<Link to={`/listing/search/city/${selectedCityId}`}>
 													<button className='banner-button'>Search Places</button>
 												</Link>
 											</div>
