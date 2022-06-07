@@ -8,13 +8,14 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import PrevNext from '../../../components/Pagination/PrevNext';
 import ProcessBar from '../../../components/ProcessBar/ProcessBar';
 import BusinessHourService from '../../../services/BusinessHourService'
+import PlaceService from '../../../services/PlaceService'
 let placeData = {
     createPlaceRequest: {
         "placeName": "",
         "description": "",
         "phoneNumber": "",
         "ownerId": "",
-        "createPlaceCategoryRequest": [
+        createPlaceCategoryRequests: [
             {
                 "categoryId": "",
             }
@@ -31,6 +32,14 @@ let placeData = {
     },
     createItemRequest: [
     ],
+    createBusinessHourRequest: [
+        {
+            day: "string",
+            status: "string",
+            startTime: "string",
+            closingTime: "string"
+        }
+    ]
 }
 const AddPlace = () => {
     const [pricingList, setPricetingList] = useState([]);
@@ -38,16 +47,25 @@ const AddPlace = () => {
     const [basicInformation, setBasicInformation] = useState();
     const [amenities, setAmenities] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
-    const [hello, setHello] = useState(false);
     const [counter, setCounter] = useState(0);
     const [position, setPosition] = useState([39.76, 30.52]);
     const [sendData, setSendData] = useState(false);
+
+    const addPlace = () => {
+        let placeService = new PlaceService();
+        placeService.add(placeData).then((result) => {
+            console.log(result);
+        }, err => {
+            console.log(placeData);
+            console.log(err.response.data.error_message);
+        });
+    }
     useEffect(() => {
         if (sendData) {
             placeData.createPlaceRequest.placeName = basicInformation.title;
             placeData.createPlaceRequest.description = basicInformation.description;
             placeData.createPlaceRequest.phoneNumber = basicInformation.phoneNumber;
-            placeData.createPlaceRequest.createPlaceCategoryRequest[0].categoryId = parseInt(basicInformation.categories);
+            placeData.createPlaceRequest.createPlaceCategoryRequests[0].categoryId = parseInt(basicInformation.categories);
             placeData.createPlaceRequest.ownerId = 1;
             placeData.createLocationRequest.cityId = parseInt(basicInformation.city);
             placeData.createLocationRequest.lat = position.lat;
@@ -63,7 +81,9 @@ const AddPlace = () => {
             pricingList.map((item) => {
                 placeData.createItemRequest.push({ title: item.title, description: item.description, price: item.price });
             })
+            placeData.createBusinessHourRequest = businessHour;
             console.log(placeData);
+            addPlace();
             setSendData(false);
         }
     }, [sendData])
@@ -78,15 +98,12 @@ const AddPlace = () => {
             return <Price pricingList={pricingList} setPricetingList={setPricetingList} counter={counter} setCounter={setCounter} />
         }
         else if (currentPage === 4) {
-            return <BusinessHour businessHour={businessHour} setBusinessHour={setBusinessHour} setHello={setHello} />
+            return <BusinessHour businessHour={businessHour} setBusinessHour={setBusinessHour} />
         }
     }
 
     return (
         <div div className="content" >
-            {
-                console.log(pricingList)
-            }
             <div className="formtheme formaddlisting">
                 <div className="addlistingsteps">
                     <ProcessBar currentPage={currentPage} />
