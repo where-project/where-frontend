@@ -24,12 +24,13 @@ L.Icon.Default.mergeOptions({
 	shadowUrl: require('leaflet/dist/images/marker-shadow.png').default
 });
 
-
 function Listing() {
 	const position = [39.76, 30.52]
 	const [categories, setCategories] = useState([]);
 	const [cities, setCities] = useState([]);
 	const [places, setPlaces] = useState([]);
+	const [filterText, setFilterText] = useState("");
+	const [filteredItems, setFilteredItems] = useState([]);
 	let { cityId, categoryId } = useParams();
 	const [isOpen, setIsOpen] = useState(false);
 	const getCategories = () => {
@@ -109,7 +110,16 @@ function Listing() {
 		}
 	}, [places]);
 
-
+	useEffect(() => {
+		if (places.length > 0) {
+			console.log(places);
+			setFilteredItems(places.filter(place =>
+				place.placeName?.toLowerCase().includes(filterText) ||
+				place.placeDescription?.toLowerCase().includes(filterText) ||
+				place.locationCityName?.toLowerCase().includes(filterText)));
+		}
+	}, [filterText]);
+	const itemsToDisplay = filterText ? filteredItems : places;
 	return (
 		<main className="haslayout listing">
 			<div id="content" className="content">
@@ -122,7 +132,7 @@ function Listing() {
 										attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 										url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
 									/>
-									{places.length > 0 && places.map((place, index) => {
+									{itemsToDisplay.length > 0 && itemsToDisplay.map((place, index) => {
 										return (
 											<Marker key={index} position={[place.locationLat, place.locationLng]}>
 												<Popup>
@@ -157,7 +167,8 @@ function Listing() {
 											<fieldset>
 												<div className="form-group inputwithicon">
 													<i className="icon-icons185" />
-													<input type="text" name="q" className="form-control" placeholder="What are you looking for ?" />
+													<input type="text" name="qsearch" className="form-control" placeholder="What are you looking for ?"
+														onChange={(e) => setFilterText(e.target.value.toLocaleLowerCase())} />
 												</div>
 												<div className="form-group inputwithicon">
 													<i className="icon-global"></i>
@@ -190,7 +201,7 @@ function Listing() {
 									</div>
 								</div>
 								<div className="themeposts placesposts gridview">
-									{places.length > 0 ? places.map((place, index) => {
+									{itemsToDisplay.length > 0 ? itemsToDisplay.map((place, index) => {
 										return (
 											<Link to={`/listing/${place.id}`}>
 												<div className="themepost placespost" onClick>
