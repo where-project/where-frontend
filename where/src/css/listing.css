@@ -16,6 +16,7 @@
 
 .listingarea {
   overflow: hidden;
+  width: 100%;
 }
 
 .listingarea .innersearch {
@@ -53,7 +54,7 @@
 }
 
 .listingarea .formsearchlisting fieldset:first-child {
-  width: auto;
+  width: 308%;
   float: none;
   clear: both;
   margin: 0 -10px;
