@@ -1,10 +1,15 @@
 import React from 'react'
 import { Modal, Button } from 'react-rainbow-components';
-
+import MainPage from '../../pages/MainPage/MainPage';
 const WhereModal = ({ isOpen, description, title, setIsOpen, ...props }) => {
 
     const handleOnClose = () => {
         setIsOpen(false)
+    }
+
+    const handleOnOkButton = () => {
+        setIsOpen(false);
+        window.location.href = "/mainpage";
     }
     return (
         <div className="rainbow-m-bottom_xx-large rainbow-p-bottom_xx-large">
@@ -14,7 +19,7 @@ const WhereModal = ({ isOpen, description, title, setIsOpen, ...props }) => {
                 title={title}
                 footer={
                     <div className="rainbow-flex rainbow-justify_end">
-                        <Button label="OK" variant="brand" onClick={handleOnClose} />
+                        <Button label="OK" variant="brand" onClick={handleOnOkButton} />
                     </div>
                 }
             >
