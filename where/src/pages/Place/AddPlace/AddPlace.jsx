@@ -68,7 +68,6 @@ const AddPlace = () => {
             placeData.createPlaceRequest.createPlaceCategoryRequests[0].categoryId = parseInt(basicInformation.categories);
             placeData.createPlaceRequest.ownerId = 1;
             placeData.createLocationRequest.cityId = parseInt(basicInformation.city);
-            console.log(position);
             placeData.createLocationRequest.lat = position[0];
             placeData.createLocationRequest.lng = position[1];
             placeData.createLocationRequest.address = basicInformation.address;
