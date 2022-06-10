@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import 'font-awesome/css/font-awesome.min.css';
 import { MapContainer, TileLayer, Marker, Popup, useMapEvent, useMapEvents } from 'react-leaflet';
 import "../../../css/location.css"
@@ -11,6 +11,7 @@ L.Icon.Default.mergeOptions({
     iconUrl: require('leaflet/dist/images/marker-icon.png').default,
     shadowUrl: require('leaflet/dist/images/marker-shadow.png').default
 });
+
 const Location = ({ position, setPosition, ...props }) => {
     const animateRef = useRef(true);
     const SetViewOnClick = ({ animateRef }) => {
@@ -20,45 +21,45 @@ const Location = ({ position, setPosition, ...props }) => {
             })
         })
     }
-    const LocationMarker = () => {
+
+    const Markers = () => {
+
         const map = useMapEvents({
-            click() {
-                map.locate()
-            },
-            locationfound(e) {
-                setPosition(e.latlng)
-                map.flyTo(e.latlng, map.getZoom())
+            click(e) {
+                setPosition([
+                    e.latlng.lat,
+                    e.latlng.lng
+                ]);
             },
         })
 
-        return position === null ? null : (
-            <Marker position={position}>
-                <Popup>You are here</Popup>
-            </Marker>
+        return (
+            position ?
+                <Marker
+                    key={position[0]}
+                    position={position}
+                    interactive={false}
+                />
+                : null
         )
     }
+
     return (
         <section>
             <fieldset className='listing'>
                 <div className="boxtitle">
                     <h3>Location</h3>
-                    {console.log(position)}
                 </div>
                 <div className="row">
                     <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                        <div id="listingmap" className="listingmap">
-                            <MapContainer center={position} zoom={13} scrollWheelZoom={false} style={{ width: '100%', height: '100%' }}>
+                        <div id="listingmap" className="listingmap" >
+                            <MapContainer center={position} zoom={14} scrollWheelZoom={false} style={{ width: '100%', height: '100%' }} >
                                 <TileLayer
                                     attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                                     url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                                 />
-                                <Marker position={position}>
-                                    <Popup>
-                                        A pretty CSS3 popup. <br /> Easily customizable.
-                                    </Popup>
-                                </Marker>
+                                <Markers />
                                 <SetViewOnClick animateRef={animateRef} />
-                                <LocationMarker />
                             </MapContainer>
                         </div>
                     </div>

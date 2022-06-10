@@ -74,7 +74,7 @@ const MainPage = () => {
 											<i className='icon-layers'></i>
 											<div className='banner-select'>
 												<select name="" id="banner-categorieschosen" className='banner-categorieschosen' onChange={handleCategory}>
-													<option>Ex: Food, Retail, hotel, cinema</option>
+													<option>Ex: Food, Retail, Hotel, Cinema</option>
 													{categories.map((category, index) => {
 														return (
 															<option className='deneme' key={index} value={category.id}>{category.categoryName}</option>
