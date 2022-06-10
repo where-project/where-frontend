@@ -55,6 +55,9 @@ function Listing() {
 		let placeService = new PlaceService();
 		placeService.getAll().then((result) => {
 			setPlaces(result.data)
+			if(places.length===0){
+				setIsOpen(true);
+			}
 		}, err => {
 			console.log(err.response.data.error_message);
 		});
@@ -64,6 +67,9 @@ function Listing() {
 		let placeService = new PlaceService();
 		placeService.getPlaceFilteredByCityId(cityId).then((result) => {
 			setPlaces(result.data)
+			if(places.length===0){
+				setIsOpen(true);
+			}
 		}, err => {
 			console.log(err.response.data.error_message);
 		});
@@ -82,6 +88,9 @@ function Listing() {
 		let placeService = new PlaceService();
 		placeService.filterByCityIdAndCategoryId(cityId, categoryId).then((result) => {
 			setPlaces(result.data)
+			if(places.length===0){
+				setIsOpen(true);
+			}
 		}, err => {
 			console.log(err.response.data.error_message);
 		});
@@ -103,12 +112,6 @@ function Listing() {
 			getPlaces();
 		}
 	}, []);
-
-	useEffect(() => {
-		if (places.length <= 0) {
-			setIsOpen(true);
-		}
-	}, [places]);
 
 	useEffect(() => {
 		if (places.length > 0) {
