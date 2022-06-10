@@ -11,8 +11,9 @@ function Reviews({ placeId, ...props }) {
 
     const [categories, setCategories] = useState([]);
     const [comments, setComments] = useState([]);
+    const [isCommentSubmit, setIsCommentSubmit] = useState(false);
     const user = {
-        id:1,
+        id: 1,
         firstName: "Yasemin Gerboğa",
         email: "yasemingerboga@gmail.com"
     }
@@ -36,8 +37,11 @@ function Reviews({ placeId, ...props }) {
 
     useEffect(() => {
         getCategories();
+    }, []);
+    useEffect(() => {
         getComments(placeId);
-    }, [comments]);
+    }, [isCommentSubmit])
+
 
     return (
         <div role="tabpanel" className="tab-pane" id="reviews">
@@ -78,7 +82,7 @@ function Reviews({ placeId, ...props }) {
                 })}
             </ul>
             <Pagination />
-            <SubmitReview placeId={placeId} user={user} categories={categories} />
+            <SubmitReview placeId={placeId} user={user} categories={categories} setIsCommentSubmit={setIsCommentSubmit} />
         </div>
     )
 }
