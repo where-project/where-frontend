@@ -23,7 +23,6 @@ const BasicInformation = ({ basicInformation, setBasicInformation, amenities, se
         let cityService = new CityService();
         cityService.getAll().then(res => {
             setCities(res.data);
-            console.log(res.data);
         })
             .catch(err => { console.log(err) });
     }
@@ -31,7 +30,6 @@ const BasicInformation = ({ basicInformation, setBasicInformation, amenities, se
         let categoryService = new CategoryService();
         categoryService.getAll().then(res => {
             setCategories(res.data);
-            console.log(res.data);
         })
             .catch(err => { console.log(err) });
     }
@@ -40,7 +38,6 @@ const BasicInformation = ({ basicInformation, setBasicInformation, amenities, se
         let amenityService = new AmenityService();
         amenityService.getAll().then(res => {
             setAmenitiesOptions(res.data);
-            console.log(res.data);
         })
             .catch(err => {
                 console.log(err)
@@ -48,7 +45,6 @@ const BasicInformation = ({ basicInformation, setBasicInformation, amenities, se
     }
 
     const onClickAmenities = (value, amenity) => {
-        console.log(amenity);
         if (amenities.includes(amenity)) {
             value.remove('done')
             setAmenities(amenities.filter(item => item !== amenity));
@@ -67,19 +63,14 @@ const BasicInformation = ({ basicInformation, setBasicInformation, amenities, se
         address: yup.string().required("Please provide a valid address."),
     });
 
-    const handleNotification = () => {
-        setNotification(true);
-    }
-
     return (
         <>
             <Formik
                 validationSchema={schema}
                 onSubmit={(values, { resetForm, setSubmitting }) => {
-                    console.log(values);
                     setBasicInformation(values);
                     setSubmitting(false);
-                    console.log(basicInformation);
+                    setNotification(true);
                 }}
                 initialValues={{
                     title: '',
@@ -222,7 +213,7 @@ const BasicInformation = ({ basicInformation, setBasicInformation, amenities, se
                                     <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                                         <div className="btnarea">
                                             <div className="form-group dashboardfield">
-                                                <button className='btnadd' type="submit" disabled={isSubmitting} onClick={handleNotification}>+</button>
+                                                <button className='btn right' type="submit" disabled={isSubmitting}>Save</button>
                                             </div>
                                         </div>
                                     </div>

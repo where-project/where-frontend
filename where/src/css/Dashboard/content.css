@@ -369,3 +369,7 @@ Pricing
 .btnadd:focus {
   color: #fff !important;
 }
+.btn.right{
+  float: right !important;
+  background-color: #2457cf !important;
+}
