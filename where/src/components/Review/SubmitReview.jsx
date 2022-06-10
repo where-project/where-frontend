@@ -1,19 +1,22 @@
-import React from 'react'
+import React, { useState } from 'react'
 import "../../css/reviews.css";
 import CommentService from '../../services/CommentService';
 
-function SubmitReview({ categories, user, placeId, ...props }) {
+function SubmitReview({ categories, user, placeId, setIsCommentSubmit, ...props }) {
+    const [comment, setComment] = useState("")
     let commentData = {
-        "commentText": document.getElementById("review").value,
+        "commentText": comment,
         "userId": user.id,
         "placeId": placeId
     }
-    const handleSetComment = () => {
-        commentData.commentText = document.getElementById("review").value;
+    const handleSetComment = (event) => {
+        setComment(event.target.value);
     }
     const submitReview = () => {
         let commentService = new CommentService();
         commentService.add(commentData).then((result) => {
+            setIsCommentSubmit(true);
+            setComment("");
         }, err => {
             console.log(err.response);
         });
@@ -42,7 +45,7 @@ function SubmitReview({ categories, user, placeId, ...props }) {
                         </div>
                         <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                             <div className="form-group">
-                                <textarea id="review" name="review" className="form-control" placeholder="Review" onChange={handleSetComment}></textarea>
+                                <textarea id="review" name="review" className="form-control" placeholder="Review" onChange={handleSetComment} value={comment}></textarea>
                             </div>
                         </div>
                         <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12">
