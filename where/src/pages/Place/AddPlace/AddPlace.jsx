@@ -9,6 +9,7 @@ import PrevNext from '../../../components/Pagination/PrevNext';
 import ProcessBar from '../../../components/ProcessBar/ProcessBar';
 import BusinessHourService from '../../../services/BusinessHourService'
 import PlaceService from '../../../services/PlaceService'
+import WhereModal from '../../../components/WhereModal/WhereModal';
 let placeData = {
     createPlaceRequest: {
         "placeName": "",
@@ -50,11 +51,12 @@ const AddPlace = () => {
     const [counter, setCounter] = useState(0);
     const [position, setPosition] = useState([39.76, 30.52]);
     const [sendData, setSendData] = useState(false);
-
+    const [isOpen, setIsOpen] = useState(false);
     const addPlace = () => {
         let placeService = new PlaceService();
         placeService.add(placeData).then((result) => {
             console.log(result);
+            setIsOpen(true);
         }, err => {
             console.log(placeData);
             console.log(err.response.data.error_message);
@@ -110,6 +112,7 @@ const AddPlace = () => {
                     {activeComponent()}
                     <PrevNext currentPage={currentPage} setCurrentPage={setCurrentPage} setSendData={setSendData} />
                     {console.log(businessHour)}
+                    {isOpen && <WhereModal isOpen={isOpen} setIsOpen={setIsOpen} description="Place added successfully." title="Successfully added." />}
                 </div>
             </div>
         </div >
