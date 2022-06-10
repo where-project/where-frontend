@@ -109,23 +109,25 @@ const Navbar = () => {
                       <ul className="sub-menu">
                         <Link to={`/listing`}>
                           <li>
-                            <a href="">All Listings</a>
+                            <Link to={"/listing"}>
+                              <a href="/listing">All Listings</a>
+                            </Link>
                           </li>
                         </Link>
                         <li>
-                          <a href="">Food</a>
+                          <a href="/listing/search/category/1">Food</a>
                         </li>
                         <li>
-                          <a href="">Entertainment</a>
+                          <a href="/listing/search/category/2">Entertainment</a>
                         </li>
                         <li>
-                          <a href="">Educational</a>
+                          <a href="/listing/search/category/3">Educational</a>
                         </li>
                         <li>
-                          <a href="">Nightlife</a>
+                          <a href="/listing/search/category/4">Nightlife</a>
                         </li>
                         <li>
-                          <a href="">Outdoors</a>
+                          <a href="/listing/search/category/5">Outdoors</a>
                         </li>
                       </ul>
                     </li>
