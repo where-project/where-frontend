@@ -12,6 +12,7 @@ function Reviews({ placeId, ...props }) {
     const [categories, setCategories] = useState([]);
     const [comments, setComments] = useState([]);
     const user = {
+        id:1,
         firstName: "Yasemin Gerboğa",
         email: "yasemingerboga@gmail.com"
     }
@@ -20,7 +21,7 @@ function Reviews({ placeId, ...props }) {
         categoryService.getAll().then((result) => {
             setCategories(result.data)
         }, err => {
-            console.log(err.response.data.error_message);
+            console.log(err.response);
         });
     };
 
@@ -29,14 +30,14 @@ function Reviews({ placeId, ...props }) {
         commentsService.getCommentsByPlaceId(placeId).then((result) => {
             setComments(result.data)
         }, err => {
-            console.log(err.response.data.error_message);
+            console.log(err.response);
         });
     };
 
     useEffect(() => {
         getCategories();
         getComments(placeId);
-    }, []);
+    }, [comments]);
 
     return (
         <div role="tabpanel" className="tab-pane" id="reviews">
