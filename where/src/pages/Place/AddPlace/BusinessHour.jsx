@@ -81,37 +81,37 @@ const hours = [
 ];
 let tmp = [{
     day: "Monday",
-    status: "string",
+    status: "Open",
     startTime: "08:00",
     closingTime: "23:00"
 }, {
     day: "Tuesday",
-    status: "string",
+    status: "Open",
     startTime: "08:00",
     closingTime: "23:00"
 }, {
     day: "Wednesday",
-    status: "string",
+    status: "Open",
     startTime: "08:00",
     closingTime: "23:00"
 }, {
     day: "Thursday",
-    status: "string",
+    status: "Open",
     startTime: "08:00",
     closingTime: "23:00"
 }, {
     day: "Friday",
-    status: "string",
+    status: "Open",
     startTime: "08:00",
     closingTime: "23:00"
 }, {
     day: "Saturday",
-    status: "string",
+    status: "Open",
     startTime: "08:00",
     closingTime: "23:00"
 }, {
     day: "Sunday",
-    status: "string",
+    status: "Open",
     startTime: "08:00",
     closingTime: "23:00"
 }]
@@ -169,7 +169,7 @@ const BusinessHour = ({ businessHour, setBusinessHour, ...props }) => {
                         <li>
                             <label>Monday</label>
                             <div className="select">
-                                <select onChange={(event) => handleChange(event.target.value, "Monday", "Opening")} placeholder="asdas">
+                                <select onChange={(event) => handleChange(event.target.value, "Monday", "Opening")}>
                                     <option>Please select time</option>
                                     {hours.map((hour, i) => {
                                         return (

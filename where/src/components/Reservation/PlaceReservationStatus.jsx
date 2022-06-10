@@ -24,13 +24,15 @@ const PlaceReservationStatus = ({ reservations, businessHours, ...props }) => {
                 const activeDays = day.toString().match(/.{1,3}/g);
                 const activeBusinessHourDay = activeBusinessHoursDay[0];
                 const activeDay = activeDays[0];
-                const startTime = Number(businessHour.startTime);
+                const times = businessHour.startTime.split(":");
+                const startHour = Number(times[0]);
+                const startMinute = Number(times[1]);
                 if (activeBusinessHourDay === activeDay) {
                     let event = {
                         id: counter,
                         title: 'Closed',
                         startDate: new Date(day.setHours(0, 0, 0, 0)),
-                        endDate: new Date(day.setHours(startTime, 0, 0, 0)),
+                        endDate: new Date(day.setHours(startHour, startMinute, 0, 0)),
                         backgroundColor: 'rgba(254,72,73,1)',
 
                     }
@@ -46,12 +48,14 @@ const PlaceReservationStatus = ({ reservations, businessHours, ...props }) => {
                 const activeDays = day.toString().match(/.{1,3}/g);
                 const activeBusinessHourDay = activeBusinessHoursDay[0];
                 const activeDay = activeDays[0];
-                const closingTime = Number(businessHour.closingTime);
+                const times = businessHour.closingTime.split(":");
+                const closingHour = Number(times[0]);
+                const closingMinute = Number(times[1]);
                 if (activeBusinessHourDay === activeDay) {
                     let event = {
                         id: counter,
                         title: 'Closed',
-                        startDate: new Date(day.setHours(closingTime, 0, 0, 0)),
+                        startDate: new Date(day.setHours(closingHour, closingMinute, 0, 0)),
                         endDate: new Date(day.setHours(24, 0, 0, 0)),
                         backgroundColor: 'rgba(254,72,73,1)',
 
