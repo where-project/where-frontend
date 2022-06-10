@@ -5,10 +5,13 @@ import * as yup from 'yup';
 import CategoryService from '../../../services/CategoryService';
 import CityService from '../../../services/CityService';
 import AmenityService from '../../../services/AmenityService';
+import WhereNotification from '../../../components/WhereNotification/WhereNotification';
+import { NOTIFICATION_STATES } from '../../../constants/NotificationStates';
 const BasicInformation = ({ basicInformation, setBasicInformation, amenities, setAmenities, ...props }) => {
     const [categories, setCategories] = useState([]);
     const [cities, setCities] = useState([]);
     const [amenitiesOptions, setAmenitiesOptions] = useState([]);
+    const [notification, setNotification] = useState(false);
 
     useEffect(() => {
         getCategories();
@@ -63,6 +66,10 @@ const BasicInformation = ({ basicInformation, setBasicInformation, amenities, se
         description: yup.string().required("Please provide a valid description."),
         address: yup.string().required("Please provide a valid address."),
     });
+
+    const handleNotification = () => {
+        setNotification(true);
+    }
 
     return (
         <>
@@ -215,10 +222,11 @@ const BasicInformation = ({ basicInformation, setBasicInformation, amenities, se
                                     <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                                         <div className="btnarea">
                                             <div className="form-group dashboardfield">
-                                                <button className='btnadd' type="submit" disabled={isSubmitting}>+</button>
+                                                <button className='btnadd' type="submit" disabled={isSubmitting} onClick={handleNotification}>+</button>
                                             </div>
                                         </div>
                                     </div>
+                                    {notification && <WhereNotification title="Added" notificationState={NOTIFICATION_STATES.INFO} description="Please go to next page." />}
                                 </div>
                             </fieldset>
                         </Form>

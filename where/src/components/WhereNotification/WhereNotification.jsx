@@ -6,10 +6,13 @@ const WhereNotification = ({ notificationState, title, description }) => {
   if (NOTIFICATION_STATES.INFO === notificationState) {
     return (
       <div className="rainbow-m-bottom_xx-large rainbow-p-bottom_xx-large">
-        <div className="rainbow-p-bottom_x-small">
+        <div className="rainbow-p-right_small rainbow-flex rainbow-justify_end">
           <Notification
             title={title}
             description={description}
+            style={{
+              position: "fixed", right: "50px", bottom: " 140px",
+            }}
             icon="info"
           />
         </div>
@@ -18,40 +21,52 @@ const WhereNotification = ({ notificationState, title, description }) => {
     )
   }
   else if (NOTIFICATION_STATES.SUCCESS === notificationState) {
-    <div className="rainbow-m-bottom_xx-large rainbow-p-bottom_xx-large">
-      <div className="rainbow-p-bottom_x-small">
-        <Notification
-          title={title}
-          description={description}
-          icon="success"
-        />
+    return (
+      <div className="rainbow-m-bottom_xx-large rainbow-p-bottom_xx-large">
+        <div className="rainbow-p-right_small rainbow-flex rainbow-justify_end">
+          <Notification
+            title={title}
+            description={description}
+            style={{
+              position: "fixed", right: "50px", bottom: " 140px",
+            }}
+            icon="success"
+          />
+        </div>
       </div>
-      {console.log(notificationState)}
-    </div>
-
+    )
   }
   else if (NOTIFICATION_STATES.WARNING === notificationState) {
-    <div className="rainbow-m-bottom_xx-large rainbow-p-bottom_xx-large">
-      <div className="rainbow-p-bottom_x-small">      <Notification
-        title={title}
-        description={description}
-        icon="warning"
-      />
+    return (
+      <div className="rainbow-m-bottom_xx-large rainbow-p-bottom_xx-large">
+        <div className="rainbow-p-right_small rainbow-flex rainbow-justify_end">
+          <Notification
+            title={title}
+            description={description}
+            style={{
+              position: "fixed", right: "50px", bottom: " 140px",
+            }}
+            icon="warning"
+          />
+        </div>
       </div>
-    </div>
-
+    )
   }
   else if (NOTIFICATION_STATES.ERROR === notificationState) {
-    <div className="rainbow-m-bottom_xx-large rainbow-p-bottom_xx-large">
-      <div className="rainbow-p-bottom_x-small">
-        <Notification
-          title={title}
-          description={description}
-          icon="error"
-        />
+    return (
+      <div className="rainbow-m-bottom_xx-large rainbow-p-bottom_xx-large">
+        <div className="rainbow-p-right_small rainbow-flex rainbow-justify_end">
+          <Notification
+            title={title}
+            description={description}
+            style={{
+              position: 'fixed', right: "50px", bottom: " 140px",
+            }}
+            icon="error"
+          />
+        </div>
       </div>
-    </div>
-
+    )
   }
 }
 
