@@ -35,7 +35,7 @@ const Register = (props) => {
   return (
     <div className="loginsingup">
       <button type="button" className="btnclose">x</button>
-      <img className="loginsingupimg" style={{ position: "50% 50%" }} src={leftImage} alt="Merhabaa" />
+      <img className="loginsingupimg" style={{ position: "50% 50%" }} src={leftImage} alt="LoginImg" />
       <div className="login-contentarea">
         <div className="themetabs">
           <ul className="tabnavloginregistered">
@@ -95,7 +95,7 @@ const Register = (props) => {
                   ) : null}
                 </div>
                 <div className="form-group inputwithicon">
-                  <i className="icon-icons208"></i>
+                  <i className="icon-profile-male"></i>
                   <input type="text" name="firstName" className="form-control" placeholder="First Name" onChange={handleChange} />
                   {touched.firstName && errors.firstName ? (
                     <Alert style={{ marginTop: "10px", borderRadius: "10px" }} key="danger" variant="danger">
@@ -104,7 +104,7 @@ const Register = (props) => {
                   ) : null}
                 </div>
                 <div className="form-group inputwithicon">
-                  <i className="icon-icons208"></i>
+                  <i className="icon-profile-male"></i>
                   <input type="text" name="lastName" className="form-control" placeholder="Last Name" onChange={handleChange} />
                   {touched.lastName && errors.lastName ? (
                     <Alert style={{ marginTop: "10px", borderRadius: "10px" }} key="danger" variant="danger">
