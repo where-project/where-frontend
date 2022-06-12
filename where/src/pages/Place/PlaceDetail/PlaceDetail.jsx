@@ -28,7 +28,7 @@ const PlaceDetail = () => {
             return <Pricing menuItems={place.menuItems} />
         }
         else if (currentPage === 3) {
-            return <PlaceLocation place={place}/>
+            return <PlaceLocation place={place} />
         }
         else if (currentPage === 4) {
             return <Reviews placeId={placeId} />
@@ -103,7 +103,7 @@ const PlaceDetail = () => {
                                                     const activeBusinessHourDay = activeBusinessHoursDay[0];
                                                     const activeDay = activeDays[0];
                                                     if (activeBusinessHourDay === activeDay) {
-                                                        return <span>Today <span> {businessHour.status} Now</span> {businessHour.startTime} - {businessHour.closingTime}</span>
+                                                        return <span> {activeDay}: {businessHour.startTime} - {businessHour.closingTime}</span>
                                                     }
                                                 })
                                             }
