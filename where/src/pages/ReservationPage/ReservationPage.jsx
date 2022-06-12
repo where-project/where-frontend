@@ -36,32 +36,38 @@ const ReservationPage = ({ place, ...args }) => {
   }
 
   const loadBlockchainData = async () => {
-    web3 = new Web3(window.ethereum);
-    const accounts = await web3.eth.getAccounts();
-    setAccount(accounts[0]);
-    const networkId = await web3.eth.net.getId(); //5777
-    const networkData = ReservationDetail.networks[networkId];
+    if (typeof window !== "undefined" && typeof window.ethereum !== "undefined") {
+      console.log("girdi");
+      web3 = new Web3(window.ethereum);
+      const accounts = await web3.eth.getAccounts();
+      setAccount(accounts[0]);
+      const networkId = await web3.eth.net.getId(); //5777
+      const networkData = ReservationDetail.networks[networkId];
 
-    if (networkData) {
-      const reservation = new web3.eth.Contract(
-        ReservationDetail.abi,
-        networkData.address
-      );
-      setReservation(reservation);
-      const reservationCount = await reservation.methods
-        .reservationCount()
-        .call();
-      //Load place's reservations
-      for (var i = 1; i <= reservationCount; i++) {
-        reservation.methods.reservations(i).call().then(res => {
-          let placeId = res[1];
-          if (placeId === place.id.toString()) {
-            setReservations([res]);
-          }
-        });
+      if (networkData) {
+        const reservation = new web3.eth.Contract(
+          ReservationDetail.abi,
+          networkData.address
+        );
+        setReservation(reservation);
+        const reservationCount = await reservation.methods
+          .reservationCount()
+          .call();
+        //Load place's reservations
+        for (var i = 1; i <= reservationCount; i++) {
+          reservation.methods.reservations(i).call().then(res => {
+            let placeId = res[1];
+            if (placeId === place.id.toString()) {
+              setReservations([res]);
+              console.log(res);
+            }
+          });
+        }
+      } else {
+        window.alert("Reservation contract not deployed to detected network.");
       }
     } else {
-      window.alert("Reservation contract not deployed to detected network.");
+      window.alert("Please install MetaMask!");
     }
   }
 
@@ -106,7 +112,7 @@ const ReservationPage = ({ place, ...args }) => {
             <form
               onSubmit={(event) => {
                 event.preventDefault();
-                createReservation(1, reservationDate, reservationTime);
+                createReservation(place.id, reservationDate, reservationTime);
               }}
             >
               <div className="form-group mr-sm-2">
