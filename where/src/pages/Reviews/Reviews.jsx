@@ -59,7 +59,7 @@ function Reviews({ placeId, ...props }) {
                                         </figure>
                                         <div className="authorinfo">
                                             <h3>{comment.firstName} {comment.lastName}</h3>
-                                            <em>Family Vacation</em>
+                                            <em></em>
                                             <span className="stars"><span></span></span>
                                         </div>
                                     </div>
