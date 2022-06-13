@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import ReservationDetail from "../../abis/ReservationDetail.json"
-import { Col, Container, Row } from "react-bootstrap";
+import { Alert, Col, Container, Row } from "react-bootstrap";
 import { DatePicker, TimePicker } from 'react-rainbow-components';
 import PlaceReservationStatus from "../../components/Reservation/PlaceReservationStatus";
 import "../../css/login_register.css";
@@ -95,7 +95,7 @@ const ReservationPage = ({ place, ...args }) => {
         });
     }
     else {
-      setError("Date is invalid");
+      setError("Date is invalid!");
     }
   }
 
@@ -146,7 +146,9 @@ const ReservationPage = ({ place, ...args }) => {
               </div>
               <button type='submit' className="login-btn btngreen">Book</button>
             </form>
-            <p>{error}</p>
+            {error !== "" && <Alert style={{ marginTop: "10px", border: "10px" }} key="danger" variant="danger">
+              {error}
+            </Alert>}
           </div>
         </Col>
         <Col>
