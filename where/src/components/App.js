@@ -26,7 +26,6 @@ const App = () => {
       setIsLogin(true);
       var decoded = jwt(localStorageService.getLocalStorage("accessToken"));
       setUser({ username: decoded.sub, role: decoded.roles[0] });
-      console.log(user);
     }
   }, [isLogin]);
 
