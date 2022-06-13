@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import ReservationDetail from "../../abis/ReservationDetail.json"
-import { Col, Container, Row } from "react-bootstrap";
+import { Alert, Col, Container, Row } from "react-bootstrap";
 import { DatePicker, TimePicker } from 'react-rainbow-components';
 import PlaceReservationStatus from "../../components/Reservation/PlaceReservationStatus";
 import "../../css/login_register.css";
@@ -31,13 +31,12 @@ const ReservationPage = ({ place, ...args }) => {
         setError(error.message);
       }
     } else {
-      console.log("Please install MetaMask!");
+      window.alert("Please install MetaMask!");
     }
   }
 
   const loadBlockchainData = async () => {
     if (typeof window !== "undefined" && typeof window.ethereum !== "undefined") {
-      console.log("girdi");
       web3 = new Web3(window.ethereum);
       const accounts = await web3.eth.getAccounts();
       setAccount(accounts[0]);
@@ -59,7 +58,6 @@ const ReservationPage = ({ place, ...args }) => {
             let placeId = res[1];
             if (placeId === place.id.toString()) {
               setReservations([res]);
-              console.log(res);
             }
           });
         }
@@ -78,7 +76,7 @@ const ReservationPage = ({ place, ...args }) => {
   const handleDate = (value) => {
     setDate(value);
     setReservationDate(value);
-
+    setError("");
   }
 
   const handleTime = (value) => {
@@ -97,7 +95,7 @@ const ReservationPage = ({ place, ...args }) => {
         });
     }
     else {
-      console.log("Date is invalid");
+      setError("Date is invalid!");
     }
   }
 
@@ -106,7 +104,6 @@ const ReservationPage = ({ place, ...args }) => {
       <Row>
         <Col>
           <button onClick={connectWalletHandler} className="login-btn btngreen">Connect</button>
-          <p>{error}</p>
           <div id="content">
             <h1>Booking</h1>
             <form
@@ -149,6 +146,9 @@ const ReservationPage = ({ place, ...args }) => {
               </div>
               <button type='submit' className="login-btn btngreen">Book</button>
             </form>
+            {error !== "" && <Alert style={{ marginTop: "10px", border: "10px" }} key="danger" variant="danger">
+              {error}
+            </Alert>}
           </div>
         </Col>
         <Col>
