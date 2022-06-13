@@ -331,3 +331,9 @@ button {
 .text-transform_none {
   text-transform: none !important;
 }
+.dCCEIu {
+  position: absolute !important;
+  z-index: 1000;
+  top: 50px;
+  right: 50px;
+}

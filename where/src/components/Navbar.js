@@ -5,20 +5,14 @@ import "../css/icon.css";
 import "../css/responsive.css";
 import "../css/transitions.css";
 import logo from "../images/logo/WHERE_.png";
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 import LocalStorageService from "../services/LocalStorageService";
+import NavbarAvatar from "./AvatarMenu/NavbarAvatar";
 
-const Navbar = () => {
+const Navbar = ({ user, ...props }) => {
+  let localStorageService = new LocalStorageService();
   const [navbar, setNavbar] = useState(false);
   const [scrollDir, setScrollDir] = useState();
-  const location = useLocation();
-  let localStorageService = new LocalStorageService();
-
-  // const checkLocation = () => {
-  //   if (location.pathname === "/listing") {
-  //     setNavbar(true);
-  //   }
-  // };
 
   useEffect(() => {
     const threshold = 0;
@@ -81,15 +75,25 @@ const Navbar = () => {
                       </li>
                     </Link>
                   )}
-
-                  <Link to={`/dashboard`}>
+                  {user.role === "ROLE_ADMIN" ? (
+                    <div>
+                      <Link to={`/dashboard`}>
+                        <li>
+                          <a className="btn btnOrange" href="#as">
+                            <i className="icon-plus"></i>
+                            <span>Add Listing</span>
+                          </a>
+                        </li>
+                      </Link>
+                      <li>
+                        <NavbarAvatar user={user}></NavbarAvatar>
+                      </li>
+                    </div>
+                  ) : (
                     <li>
-                      <a className="btn btnOrange" href="#as">
-                        <i className="icon-plus"></i>
-                        <span>Add Listing</span>
-                      </a>
+                      <NavbarAvatar user={user}></NavbarAvatar>
                     </li>
-                  </Link>
+                  )}
                 </ul>
               </nav>
               <nav className="nav">

@@ -34,7 +34,6 @@ const Register = (props) => {
   }
   return (
     <div className="loginsingup">
-      <button type="button" className="btnclose">x</button>
       <img className="loginsingupimg" style={{ position: "50% 50%" }} src={leftImage} alt="LoginImg" />
       <div className="login-contentarea">
         <div className="themetabs">
@@ -140,14 +139,13 @@ const Register = (props) => {
                   ) : null}
                 </div>
                 <div className="form-group">
-                {error !== '' && errorWhereAlert}
+                  {error !== '' && errorWhereAlert}
                 </div>
                 <button type='submit' className="login-btn btngreen">Register</button>
               </fieldset>
             </Form>
           )}
         </Formik>
-        
       </div>
     </div>
   )
