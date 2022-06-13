@@ -4,13 +4,24 @@ import "../../css/style.css"
 import "../../css/icon.css"
 import Header from './Header'
 import FavoritePlace from '../../pages/Favorite/FavoritePlace'
+import AddPlace from '../../pages/Place/AddPlace/AddPlace'
 
-const Dashboard = () => {
+const Dashboard = ({ user, ...props }) => {
+
     return (
-        <main class="dashboard">
-            <Header title={"My Favorite"} item={"The places you have added to your favorites are displayed."} />
-            <FavoritePlace />
-        </main>
+        <div>
+            {
+                user.role === 'ROLE_ADMIN' ?
+                    <main class="dashboard">
+                        <Header title={"Add Listing"} item={"You can add a place. Please do not forget to press the save buttons"} />
+                        <AddPlace />
+                    </main> :
+                    <main class="dashboard">
+                        <Header title={"My Favorite"} item={"The places you have added to your favorites are displayed."} />
+                        <FavoritePlace />
+                    </main>
+            }
+        </div>
     )
 }
 

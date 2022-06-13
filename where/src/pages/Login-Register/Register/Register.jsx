@@ -34,7 +34,6 @@ const Register = (props) => {
   }
   return (
     <div className="loginsingup">
-      <button type="button" className="btnclose">x</button>
       <img className="loginsingupimg" style={{ position: "50% 50%" }} src={leftImage} alt="Merhabaa" />
       <div className="login-contentarea">
         <div className="themetabs">

@@ -1,33 +1,30 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import "../../../css/login_register.css"
 import "../../../css/icon.css";
 import "../../../css/responsive.css";
 import leftImage from '../../../images/login.png'
 import LocalStorageService from '../../../services/LocalStorageService';
 import LoginService from '../../../services/LoginService';
-
 import { Alert, Form } from 'react-bootstrap'
 import { Formik } from 'formik';
 import * as yup from 'yup';
 import WhereAlert from '../../../components/WhereAlert/WhereAlert';
-import { Link } from 'react-router-dom';
+import CustomNotification from '../../../components/Notification/CustomNotification';
 
 const schema = yup.object().shape({
     username: yup.string().required("Please provide a valid title."),
     password: yup.string().required("Please provide a valid description."),
 });
-const Login = (props) => {
+const Login = ({ setIsLogin, ...props }) => {
     const [error, setError] = useState('');
+    const [success, setSuccess] = useState(false);
     let errorWhereAlert = '';
     if (error !== '') {
         errorWhereAlert = <WhereAlert variant="danger" message="Error" description={error} />
     }
     return (
         <div id="loginsingup" className="loginsingup">
-            <Link to="/mainpage">
-                <button type="button" className="btnclose">
-                    <a href='/mainpage' style={{ color: "white" }}>x</a></button>
-            </Link>
+            {success && <CustomNotification icon={"success"} title={"Successful login"} description={"You will be redirected in 3 seconds"}></CustomNotification>}
             <img className="loginsingupimg" style={{ position: "50% 50%" }} src={leftImage} alt="Merhabaa" />
             <div className="login-contentarea">
                 <div className="themetabs">
@@ -47,7 +44,12 @@ const Login = (props) => {
                             .then((result) => {
                                 localStorageService.setLocalStorage('accessToken', result.data.access_token);
                                 localStorageService.setLocalStorage('refreshToken', result.data.refresh_token);
-                                window.location.href = '/mainpage';
+                                setIsLogin(true);
+                                setSuccess(true);
+                                setError('');
+                                setTimeout(() => {
+                                    window.location.href = "/";
+                                }, 3000);
                             },
                                 err => {
                                     setError("Username or password is wrong");
