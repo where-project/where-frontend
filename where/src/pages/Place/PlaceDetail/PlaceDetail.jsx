@@ -12,8 +12,9 @@ import ReservationPage from '../../ReservationPage/ReservationPage'
 import { useParams } from 'react-router-dom'
 import PlaceService from '../../../services/PlaceService'
 import PlaceLocation from './Location/PlaceLocation'
+import UserService from '../../../services/UserService'
 
-const PlaceDetail = () => {
+const PlaceDetail = ({ user, ...props }) => {
     const [currentPage, setCurrentPage] = useState(1);
     let { placeId } = useParams();
     const [place, setPlace] = useState({});
@@ -34,7 +35,7 @@ const PlaceDetail = () => {
             return <Reviews placeId={placeId} />
         }
         else if (currentPage === 5) {
-            return <ReservationPage place={place} />
+            return <ReservationPage place={place} user={user} />
         }
     }
 
@@ -43,7 +44,7 @@ const PlaceDetail = () => {
         placeService.getById(placeId).then((result) => {
             setPlace(result.data)
         }, err => {
-            console.log(err.response.data.error_message);
+            console.log(err.response);
         });
     }, [])
 

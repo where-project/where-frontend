@@ -59,7 +59,7 @@ const AddPlace = () => {
             setIsOpen(true);
         }, err => {
             console.log(placeData);
-            console.log(err.response.data.error_message);
+            console.log(err.response);
         });
     }
     useEffect(() => {
