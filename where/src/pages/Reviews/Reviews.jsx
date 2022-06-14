@@ -8,14 +8,14 @@ import SubmitReview from '../../components/Review/SubmitReview';
 import Pagination from '../../components/Pagination/Pagination';
 import { Alert } from 'react-bootstrap';
 import UserService from '../../services/UserService';
-
+import ScoreService from "../../services/ScoreService"
 function Reviews({ placeId, user, ...props }) {
 
     const [categories, setCategories] = useState([]);
     const [comments, setComments] = useState([]);
     const [isCommentSubmit, setIsCommentSubmit] = useState(false);
     const [userDetails, setUserDetails] = useState({});
-    console.log(userDetails);
+    const [scores, setScores] = useState([]);
 
     const getCategories = () => {
         let categoryService = new CategoryService();
@@ -25,6 +25,7 @@ function Reviews({ placeId, user, ...props }) {
             console.log(err.response);
         });
     };
+    let scoreService = new ScoreService();
 
     const getComments = (placeId) => {
         let commentsService = new CommentService();
@@ -33,6 +34,13 @@ function Reviews({ placeId, user, ...props }) {
         }, err => {
             console.log(err.response);
         });
+
+        scoreService.getByPlaceId(placeId).then((result) => {
+            setScores(result.data)
+        }, err => {
+            console.log(err.response);
+        }
+        )
     };
     const getUserInfo = () => {
         let userService = new UserService();
@@ -48,6 +56,7 @@ function Reviews({ placeId, user, ...props }) {
     }, []);
     useEffect(() => {
         getComments(placeId);
+        console.log(scores);
     }, [isCommentSubmit])
 
     return (
@@ -98,3 +107,42 @@ function Reviews({ placeId, user, ...props }) {
 }
 
 export default Reviews;
+
+
+// {comments.map((comment) => {
+//     scores.map((score) => {
+//         if (score.userId === comment.userId) {
+//             return (
+//                 <li key={comment.id}>
+//                     <div className="comment">
+//                         <div className="commentauthorbox">
+//                             <figure><a href="">
+//                                 <img src="https://media-cdn.tripadvisor.com/media/photo-s/10/e5/73/92/photo1jpg.jpg" alt="image description" />
+//                             </a>
+//                             </figure>
+//                             <div className="authorinfo">
+//                                 <h3>{comment.firstName} {comment.lastName}</h3>
+//                                 <em></em>
+//                                 <Rating value={score.venueScore} readOnly label="2.45 of 5" />
+//                             </div>
+//                         </div>
+//                         <a className="helpful" href="">
+//                             <i className="icon-thumb-up2"></i>
+//                             <span>Helpful</span>
+//                             <span>1</span>
+//                         </a>
+//                         <div className="commentcontent">
+//                             <time dateTime={comment.createDate}>
+//                                 <i className="icon-alarmclock"></i>
+//                                 <span>{comment.createDate}</span>
+//                             </time>
+//                             <div className="description">
+//                                 <p>{comment.commentText}</p>
+//                             </div>
+//                         </div>
+//                     </div>
+//                 </li>
+//             )
+//         }
+//     })
+// })}

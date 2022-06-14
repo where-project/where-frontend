@@ -7,7 +7,6 @@ import BusinessHour from './BusinessHour'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import PrevNext from '../../../components/Pagination/PrevNext';
 import ProcessBar from '../../../components/ProcessBar/ProcessBar';
-import BusinessHourService from '../../../services/BusinessHourService'
 import PlaceService from '../../../services/PlaceService'
 import WhereModal from '../../../components/WhereModal/WhereModal';
 let placeData = {
