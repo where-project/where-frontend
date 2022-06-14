@@ -6,7 +6,7 @@ export default class ScoreService {
   }
 
   getById(id) {
-    return axiosInstance().get(`/scores/getById/{id}?id=${id}`);
+    return axiosInstance().get(`/scores/getById/${id}`);
   }
 
   add(score) {
@@ -14,9 +14,14 @@ export default class ScoreService {
   }
 
   update(id, score) {
-    return axiosInstance().put(`/scores/update/{id}?id=${id}`, score);
+    return axiosInstance().put(`/scores/update/${id}`, score);
   }
+
   deleteById(id) {
-    return axiosInstance().delete(`/scores/{id}?id=${id}`);
+    return axiosInstance().delete(`/scores/${id}`);
+  }
+
+  getByPlaceId(id) {
+    return axiosInstance().get(`/scores/getByPlaceId/${id}`);
   }
 }
