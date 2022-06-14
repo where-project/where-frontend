@@ -9,6 +9,7 @@ import Pagination from '../../components/Pagination/Pagination';
 import { Alert } from 'react-bootstrap';
 import UserService from '../../services/UserService';
 import ScoreService from "../../services/ScoreService"
+import { Rating } from 'react-rainbow-components';
 function Reviews({ placeId, user, ...props }) {
 
     const [categories, setCategories] = useState([]);
@@ -31,6 +32,7 @@ function Reviews({ placeId, user, ...props }) {
         let commentsService = new CommentService();
         commentsService.getCommentsByPlaceId(placeId).then((result) => {
             setComments(result.data)
+            setIsCommentSubmit(false);
         }, err => {
             console.log(err.response);
         });
@@ -65,41 +67,48 @@ function Reviews({ placeId, user, ...props }) {
                 <ul id="comments" className="comments">
                     {comments.map((comment) => {
                         return (
-                            <li key={comment.id}>
-                                <div className="comment">
-                                    <div className="commentauthorbox">
-                                        <figure><a href="">
-                                            <img src="https://media-cdn.tripadvisor.com/media/photo-s/10/e5/73/92/photo1jpg.jpg" alt="image description" />
-                                        </a>
-                                        </figure>
-                                        <div className="authorinfo">
-                                            <h3>{comment.firstName} {comment.lastName}</h3>
-                                            <em></em>
-                                            <span className="stars"><span></span></span>
-                                        </div>
-                                    </div>
-                                    <a className="helpful" href="">
-                                        <i className="icon-thumb-up2"></i>
-                                        <span>Helpful</span>
-                                        <span>1</span>
-                                    </a>
-                                    <div className="commentcontent">
-                                        <time dateTime={comment.createDate}>
-                                            <i className="icon-alarmclock"></i>
-                                            <span>{comment.createDate}</span>
-                                        </time>
-                                        <div className="description">
-                                            <p>{comment.commentText}</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-
+                            scores.map((score) => {
+                                if (score.id === comment.scoreId && score.placeId === comment.placeId) {
+                                    return (
+                                        <li key={comment.id}>
+                                            <div className="comment">
+                                                <div className="commentauthorbox">
+                                                    <figure><a href="">
+                                                        <img src="https://media-cdn.tripadvisor.com/media/photo-s/10/e5/73/92/photo1jpg.jpg" alt="image description" />
+                                                    </a>
+                                                    </figure>
+                                                    <div className="authorinfo">
+                                                        <h3>{comment.firstName} {comment.lastName}</h3>
+                                                        <em></em>
+                                                        <Rating value={score.venueScore} readOnly label={score.venueScore+" of 5"} />
+                                                    </div>
+                                                </div>
+                                                <a className="helpful" href="">
+                                                    <i className="icon-thumb-up2"></i>
+                                                    <span>Helpful</span>
+                                                    <span>1</span>
+                                                </a>
+                                                <div className="commentcontent">
+                                                    <time dateTime={comment.createDate}>
+                                                        <i className="icon-alarmclock"></i>
+                                                        <span>{comment.createDate}</span>
+                                                    </time>
+                                                    <div className="description">
+                                                        <p>{comment.commentText}</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    )
+                                }
+                            })
                         )
-                    })}
+                    }
+                    )}
                 </ul> : <Alert style={{ borderRadius: "10px" }} key="info" variant="info">
                     No comments yet. Be the first to comment!
-                </Alert>}
+                </Alert>
+            }
             <Pagination />
             <SubmitReview placeId={placeId} user={user} categories={categories} setIsCommentSubmit={setIsCommentSubmit} userDetails={userDetails} />
         </div>
@@ -109,40 +118,3 @@ function Reviews({ placeId, user, ...props }) {
 export default Reviews;
 
 
-// {comments.map((comment) => {
-//     scores.map((score) => {
-//         if (score.userId === comment.userId) {
-//             return (
-//                 <li key={comment.id}>
-//                     <div className="comment">
-//                         <div className="commentauthorbox">
-//                             <figure><a href="">
-//                                 <img src="https://media-cdn.tripadvisor.com/media/photo-s/10/e5/73/92/photo1jpg.jpg" alt="image description" />
-//                             </a>
-//                             </figure>
-//                             <div className="authorinfo">
-//                                 <h3>{comment.firstName} {comment.lastName}</h3>
-//                                 <em></em>
-//                                 <Rating value={score.venueScore} readOnly label="2.45 of 5" />
-//                             </div>
-//                         </div>
-//                         <a className="helpful" href="">
-//                             <i className="icon-thumb-up2"></i>
-//                             <span>Helpful</span>
-//                             <span>1</span>
-//                         </a>
-//                         <div className="commentcontent">
-//                             <time dateTime={comment.createDate}>
-//                                 <i className="icon-alarmclock"></i>
-//                                 <span>{comment.createDate}</span>
-//                             </time>
-//                             <div className="description">
-//                                 <p>{comment.commentText}</p>
-//                             </div>
-//                         </div>
-//                     </div>
-//                 </li>
-//             )
-//         }
-//     })
-// })}

@@ -22,6 +22,6 @@ export default class ScoreService {
   }
 
   getByPlaceId(id) {
-    return axiosInstance().get(`/scores/getById/${id}`);
+    return axiosInstance().get(`/scores/getByPlaceId/${id}`);
   }
 }
