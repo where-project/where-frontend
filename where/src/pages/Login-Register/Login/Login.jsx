@@ -23,7 +23,7 @@ const Login = ({ setIsLogin, ...props }) => {
         errorWhereAlert = <WhereAlert variant="danger" message="Error" description={error} />
     }
     return (
-        <div id="loginsingup" className="loginsingup">
+        <div className="loginsingup">
             {success && <CustomNotification icon={"success"} title={"Successful login"} description={"You will be redirected in 3 seconds"}></CustomNotification>}
             <img className="loginsingupimg" style={{ position: "50% 50%" }} src={leftImage} alt="Merhabaa" />
             <div className="login-contentarea">

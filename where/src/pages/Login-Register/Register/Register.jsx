@@ -10,6 +10,7 @@ import { Alert, Form } from 'react-bootstrap'
 import { Formik } from 'formik';
 import * as yup from 'yup';
 import WhereAlert from '../../../components/WhereAlert/WhereAlert';
+import CustomNotification from '../../../components/Notification/CustomNotification';
 
 const schema = yup.object().shape({
   username: yup.string().min(6, "must be at least 6 characters long").required("Please provide a valid title."),
@@ -23,17 +24,19 @@ const schema = yup.object().shape({
       [yup.ref("password")],
       "Both password need to be the same"
     )
-  })
+  }).required("This field is required"),
 });
 
 const Register = (props) => {
   const [error, setError] = useState('');
+  const [success, setSuccess] = useState(false);
   let errorWhereAlert = '';
   if (error !== '') {
     errorWhereAlert = <WhereAlert variant="danger" message="Error" description={error} />
   }
   return (
     <div className="loginsingup">
+      {success && <CustomNotification icon={"success"} title={"Successful register"} description={"You will be redirected in 3 seconds"}></CustomNotification>}
       <img className="loginsingupimg" style={{ position: "50% 50%" }} src={leftImage} alt="LoginImg" />
       <div className="login-contentarea">
         <div className="themetabs">
@@ -60,6 +63,11 @@ const Register = (props) => {
             let loginService = new LoginService();
             loginService.register(userInformation).then((result) => {
               console.log(result)
+              setSuccess(true);
+              setError('');
+              setTimeout(() => {
+                window.location.href = "/login";
+              }, 3000);
             })
               .catch(err => {
                 setError(err.response.data.error);
@@ -88,7 +96,7 @@ const Register = (props) => {
                   <i className="icon-profile-male"></i>
                   <input type="text" name="username" className="form-control text-transform_none" placeholder="Username" onChange={handleChange} />
                   {touched.username && errors.username ? (
-                    <Alert style={{ marginTop: "10px", borderRadius: "10px" }} key="danger" variant="danger">
+                    <Alert style={{ marginTop: "10px", borderRadius: "10px", marginBottom: 0 }} key="danger" variant="danger">
                       {errors.username}
                     </Alert>
                   ) : null}
@@ -97,7 +105,7 @@ const Register = (props) => {
                   <i className="icon-profile-male"></i>
                   <input type="text" name="firstName" className="form-control" placeholder="First Name" onChange={handleChange} />
                   {touched.firstName && errors.firstName ? (
-                    <Alert style={{ marginTop: "10px", borderRadius: "10px" }} key="danger" variant="danger">
+                    <Alert style={{ marginTop: "10px", borderRadius: "10px", marginBottom: 0 }} key="danger" variant="danger">
                       {errors.firstName}
                     </Alert>
                   ) : null}
@@ -106,7 +114,7 @@ const Register = (props) => {
                   <i className="icon-profile-male"></i>
                   <input type="text" name="lastName" className="form-control" placeholder="Last Name" onChange={handleChange} />
                   {touched.lastName && errors.lastName ? (
-                    <Alert style={{ marginTop: "10px", borderRadius: "10px" }} key="danger" variant="danger">
+                    <Alert style={{ marginTop: "10px", borderRadius: "10px", marginBottom: 0 }} key="danger" variant="danger">
                       {errors.lastName}
                     </Alert>
                   ) : null}
@@ -115,7 +123,7 @@ const Register = (props) => {
                   <i className="icon-icons208"></i>
                   <input type="email" name="email" className="form-control text-transform_none" placeholder="Email Address" onChange={handleChange} />
                   {touched.email && errors.email ? (
-                    <Alert style={{ marginTop: "10px", borderRadius: "10px" }} key="danger" variant="danger">
+                    <Alert style={{ marginTop: "10px", borderRadius: "10px", marginBottom: 0 }} key="danger" variant="danger">
                       {errors.email}
                     </Alert>
                   ) : null}
@@ -124,7 +132,7 @@ const Register = (props) => {
                   <i className="icon-lock-stripes"></i>
                   <input type="password" name="password" className="form-control" placeholder="Password" onChange={handleChange} />
                   {touched.password && errors.password ? (
-                    <Alert style={{ marginTop: "10px", borderRadius: "10px" }} key="danger" variant="danger">
+                    <Alert style={{ marginTop: "10px", borderRadius: "10px", marginBottom: 0 }} key="danger" variant="danger">
                       {errors.password}
                     </Alert>
                   ) : null}
@@ -133,7 +141,7 @@ const Register = (props) => {
                   <i className="icon-lock-stripes"></i>
                   <input type="password" name="changepassword" className="form-control" placeholder="Confirm Password" onChange={handleChange} />
                   {touched.changepassword && errors.changepassword ? (
-                    <Alert style={{ marginTop: "10px", borderRadius: "10px" }} key="danger" variant="danger">
+                    <Alert style={{ marginTop: "10px", borderRadius: "10px", marginBottom: 0 }} key="danger" variant="danger">
                       {errors.changepassword}
                     </Alert>
                   ) : null}
