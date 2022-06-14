@@ -13,7 +13,6 @@
   margin: 0;
   font-size: 2rem;
   background: none;
-
 }
 
 .nav-menu {
@@ -78,38 +77,4 @@ span {
 
 ul span {
   color: #f5f5f5;
-}
-
-.icon-speedometer2:before {
-  content: "\e051";
-}
-
-.icon-profile-male:before {
-  content: "\e040";
-}
-
-.icon-layers:before {
-  content: "\e031";
-}
-
-.icon-star4:before {
-  content: "\eda5";
-}
-
-.icon-heart3:before {
-  content: "\e04a";
-}
-
-.icon-pencil3:before {
-  content: "\e032";
-}
-.icon1{
-  width: 58px;
-  display: block;
-  font-size: 20px;
-  text-align: center;
-}
-
-.icon-lock6:before {
-  content: "\edad";
 }

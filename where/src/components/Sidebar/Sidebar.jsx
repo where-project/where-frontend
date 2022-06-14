@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { SidebarData } from './SidebarData';
 import "../../css/sidebar.css";
+import "../../css/icon.css";
 
 function Navbar() {
   const [sidebar, setSidebar] = useState(false);
