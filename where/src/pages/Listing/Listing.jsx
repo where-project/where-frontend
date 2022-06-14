@@ -13,7 +13,6 @@ import L from 'leaflet';
 import Pagination from "../../components/Pagination/Pagination";
 import { Link, useParams } from "react-router-dom";
 import WhereAlert from "../../components/WhereAlert/WhereAlert";
-import WhereNotification from "../../components/WhereNotification/WhereNotification";
 import { NOTIFICATION_STATES } from "../../constants/NotificationStates";
 import WhereModal from "../../components/WhereModal/WhereModal";
 delete L.Icon.Default.prototype._getIconUrl;
@@ -79,6 +78,9 @@ function Listing() {
 		let placeService = new PlaceService();
 		placeService.getPlaceFilteredByCategoryId(categoryId).then((result) => {
 			setPlaces(result.data)
+			if (places.length === 0) {
+				setIsOpen(true);
+			}
 		}, err => {
 			console.log(err.response);
 		});

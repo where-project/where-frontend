@@ -5,7 +5,7 @@ import * as yup from 'yup';
 import CategoryService from '../../../services/CategoryService';
 import CityService from '../../../services/CityService';
 import AmenityService from '../../../services/AmenityService';
-import WhereNotification from '../../../components/WhereNotification/WhereNotification';
+import CustomNotification from '../../../components/Notification/CustomNotification';
 import { NOTIFICATION_STATES } from '../../../constants/NotificationStates';
 const BasicInformation = ({ basicInformation, setBasicInformation, amenities, setAmenities, ...props }) => {
     const [categories, setCategories] = useState([]);
@@ -217,7 +217,7 @@ const BasicInformation = ({ basicInformation, setBasicInformation, amenities, se
                                             </div>
                                         </div>
                                     </div>
-                                    {notification && <WhereNotification title="Added" notificationState={NOTIFICATION_STATES.INFO} description="Please go to next page." />}
+                                    {notification && <CustomNotification title="Added" icon={NOTIFICATION_STATES.INFO} description="Please go to next page." />}
                                 </div>
                             </fieldset>
                         </Form>
