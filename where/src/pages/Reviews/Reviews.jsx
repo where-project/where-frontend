@@ -7,17 +7,16 @@ import CommentService from "../../services/CommentService";
 import SubmitReview from '../../components/Review/SubmitReview';
 import Pagination from '../../components/Pagination/Pagination';
 import { Alert } from 'react-bootstrap';
+import UserService from '../../services/UserService';
 
-function Reviews({ placeId, ...props }) {
+function Reviews({ placeId, user, ...props }) {
 
     const [categories, setCategories] = useState([]);
     const [comments, setComments] = useState([]);
     const [isCommentSubmit, setIsCommentSubmit] = useState(false);
-    const user = {
-        id: 1,
-        firstName: "Yasemin Gerboğa",
-        email: "yasemingerboga@gmail.com"
-    }
+    const [userDetails, setUserDetails] = useState({});
+    console.log(userDetails);
+
     const getCategories = () => {
         let categoryService = new CategoryService();
         categoryService.getAll().then((result) => {
@@ -35,14 +34,21 @@ function Reviews({ placeId, ...props }) {
             console.log(err.response);
         });
     };
-
+    const getUserInfo = () => {
+        let userService = new UserService();
+        userService.getUserByUsername(user.username).then((result) => {
+            setUserDetails(result.data)
+        }).catch(err => {
+            console.log(err.response);
+        })
+    }
     useEffect(() => {
         getCategories();
+        getUserInfo();
     }, []);
     useEffect(() => {
         getComments(placeId);
     }, [isCommentSubmit])
-
 
     return (
         <div role="tabpanel" className="tab-pane" id="reviews">
@@ -86,7 +92,7 @@ function Reviews({ placeId, ...props }) {
                     No comments yet. Be the first to comment!
                 </Alert>}
             <Pagination />
-            <SubmitReview placeId={placeId} user={user} categories={categories} setIsCommentSubmit={setIsCommentSubmit} />
+            <SubmitReview placeId={placeId} user={user} categories={categories} setIsCommentSubmit={setIsCommentSubmit} userDetails={userDetails} />
         </div>
     )
 }
