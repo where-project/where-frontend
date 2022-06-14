@@ -32,7 +32,7 @@ const PlaceDetail = ({ user, ...props }) => {
             return <PlaceLocation place={place} />
         }
         else if (currentPage === 4) {
-            return <Reviews placeId={placeId} />
+            return <Reviews placeId={placeId} user={user}/>
         }
         else if (currentPage === 5) {
             return <ReservationPage place={place} user={user} />

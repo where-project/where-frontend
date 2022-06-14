@@ -2,11 +2,11 @@ import React, { useState } from 'react'
 import "../../css/reviews.css";
 import CommentService from '../../services/CommentService';
 
-function SubmitReview({ categories, user, placeId, setIsCommentSubmit, ...props }) {
+function SubmitReview({ categories, user, placeId, setIsCommentSubmit, userDetails, ...props }) {
     const [comment, setComment] = useState("")
     let commentData = {
         "commentText": comment,
-        "userId": user.id,
+        "userId": userDetails.id,
         "placeId": placeId
     }
     const handleSetComment = (event) => {
@@ -21,6 +21,7 @@ function SubmitReview({ categories, user, placeId, setIsCommentSubmit, ...props 
             console.log(err.response);
         });
     }
+
     return (
         <div className="formreviewarea">
             <h3>Add Review</h3>
@@ -35,12 +36,12 @@ function SubmitReview({ categories, user, placeId, setIsCommentSubmit, ...props 
                         </div>
                         <div className="col-xs-12 col-sm-6 col-md-6 col-lg-6">
                             <div className="form-group">
-                                <input type="text" name="yourname" className="form-control" placeholder={user.firstName} disabled />
+                                <input type="text" name="yourname" className="form-control" placeholder={userDetails.firstName +" "+userDetails.lastName} disabled />
                             </div>
                         </div>
                         <div className="col-xs-12 col-sm-6 col-md-6 col-lg-6">
                             <div className="form-group">
-                                <input type="text" name="emailaddress" className="form-control email-text" placeholder={user.email} disabled />
+                                <input type="text" name="emailaddress" className="form-control email-text" placeholder={userDetails.email} disabled />
                             </div>
                         </div>
                         <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12">
