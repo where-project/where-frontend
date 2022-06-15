@@ -81,7 +81,7 @@ const Navbar = ({ user, ...props }) => {
                         <li>
                           <a className="btn btnOrange" href="#as">
                             <i className="icon-plus"></i>
-                            <span>Add Listing</span>
+                            <span>Add Venue</span>
                           </a>
                         </li>
                       </Link>
