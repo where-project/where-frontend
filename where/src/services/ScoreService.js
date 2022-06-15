@@ -24,4 +24,9 @@ export default class ScoreService {
   getByPlaceId(id) {
     return axiosInstance().get(`/scores/getByPlaceId/${id}`);
   }
+
+  getReviewInformation(id) {
+    return axiosInstance().get(`/scores/getAvgScore/${id}`);
+  }
+
 }

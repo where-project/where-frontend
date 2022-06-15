@@ -16,6 +16,8 @@ import WhereAlert from "../../components/WhereAlert/WhereAlert";
 import { NOTIFICATION_STATES } from "../../constants/NotificationStates";
 import WhereModal from "../../components/WhereModal/WhereModal";
 import { Button } from "react-rainbow-components";
+import ScoreService from "../../services/ScoreService";
+import { Rating } from "react-rainbow-components";
 delete L.Icon.Default.prototype._getIconUrl;
 
 L.Icon.Default.mergeOptions({
@@ -32,10 +34,12 @@ function Listing() {
 	let { cityId, categoryId } = useParams();
 	const [isOpen, setIsOpen] = useState(false);
 	const [isDeleted, setIsDeleted] = useState(false);
+	const [review, setReviews] = useState({});
 
 	const getPlaces = () => {
 		let placeService = new PlaceService();
 		placeService.getAll().then((result) => {
+			console.log(result.data);
 			setPlaces(result.data)
 			if (places.length === 0) {
 				setIsOpen(true);
@@ -131,12 +135,12 @@ function Listing() {
 									/>
 									{itemsToDisplay.length > 0 && itemsToDisplay.map((place, index) => {
 										return (
-											<Marker key={index} position={[place.locationLat, place.locationLng]}>
+											<Marker key={index} position={[place.placeDto.locationLat, place.placeDto.locationLng]}>
 												<Popup>
 													<div className="popup-content">
-														<h3>{place.placeName}</h3>
-														<p>{place.description}</p>
-														<a href={`/listing/${place.id}`}>
+														<h3>{place.placeDto.placeName}</h3>
+														<p>{place.placeDto.description}</p>
+														<a href={`/listing/${place.placeDto.id}`}>
 															<button className="btn btn-primary">View</button>
 														</a>
 													</div>
@@ -175,26 +179,26 @@ function Listing() {
 									{itemsToDisplay.length > 0 ? itemsToDisplay.map((place, index) => {
 										return (
 											<div className="themepost placespost">
-												<Link to={`/listing/${place.id}`}>
+												<Link to={`/listing/${place.placeDto.id}`}>
 													<figure className="featuredimg">
 														<img src="https://media-cdn.tripadvisor.com/media/photo-s/10/e5/73/92/photo1jpg.jpg" alt="image description" className="detail" />
 													</figure>
 												</Link>
 												<div className="postcontent">
-													<Link to={`/listing/${place.id}`}>
+													<Link to={`/listing/${place.placeDto.id}`}>
 														<div>
-															<h3 >{place.placeName}</h3>
+															<h3 >{place.placeDto.placeName}</h3>
 															<div className="description">
-																<p>{place.phoneNumber}</p>
+																<p>{place.placeDto.phoneNumber}</p>
 															</div>
 
 															<div className="reviewcategory">
 																<div className="review">
-																	<span className="stars"><span></span></span>
-																	<em>(3 Review)</em>
+																	<Rating value={place.scoreResponseRequest.averageOfScores} readOnly />
+																	<em>({place.scoreResponseRequest.numberOfReview} Review)</em>
 																</div>
 																<div className="category">
-																	{(place.placeCategories).map(category => {
+																	{(place.placeDto.placeCategories).map(category => {
 																		return (
 																			<div>
 																				<i className="icon-nightlife"></i>
@@ -209,17 +213,17 @@ function Listing() {
 													<div className="themepostfoot">
 														<a className="location" href="">
 															<i className="icon-icons74"></i>
-															<em>{place.locationCityName}</em>
+															<em>{place.placeDto.locationCityName}</em>
 														</a>
 														<div class="deleteplace">
-															<Button label="Delete Place" variant="destructive" onClick={() => deletePlace(place.id)} />
+															<Button label="Delete Place" variant="destructive" onClick={() => deletePlace(place.placeDto.id)} />
 														</div>
 													</div>
 												</div>
 											</div>
 										);
 									}) :
-										<WhereModal isOpen={isOpen} title="No places found!" description="Places with the criteria not found!" setIsOpen={setIsOpen} isRedirect/>
+										<WhereModal isOpen={isOpen} title="No places found!" description="Places with the criteria not found!" setIsOpen={setIsOpen} isRedirect />
 									}
 									{isDeleted && <WhereModal isOpen={isDeleted} title="Place Deleted!" description="Place deleted successfully." setIsOpen={setIsDeleted} />}
 									<Pagination />
