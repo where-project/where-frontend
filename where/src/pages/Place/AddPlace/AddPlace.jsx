@@ -111,7 +111,7 @@ const AddPlace = () => {
                     {activeComponent()}
                     <PrevNext currentPage={currentPage} setCurrentPage={setCurrentPage} setSendData={setSendData} />
                     {console.log(businessHour)}
-                    {isOpen && <WhereModal isOpen={isOpen} setIsOpen={setIsOpen} description="Place added successfully." title="Successfully added." />}
+                    {isOpen && <WhereModal isOpen={isOpen} setIsOpen={setIsOpen} description="Place added successfully." title="Successfully added." isRedirect />}
                 </div>
             </div>
         </div >
