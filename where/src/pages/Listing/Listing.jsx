@@ -15,6 +15,8 @@ import { Link, useParams } from "react-router-dom";
 import WhereAlert from "../../components/WhereAlert/WhereAlert";
 import { NOTIFICATION_STATES } from "../../constants/NotificationStates";
 import WhereModal from "../../components/WhereModal/WhereModal";
+import ScoreService from "../../services/ScoreService";
+import { Rating } from "react-rainbow-components";
 delete L.Icon.Default.prototype._getIconUrl;
 
 L.Icon.Default.mergeOptions({
@@ -32,6 +34,7 @@ function Listing() {
 	const [filteredItems, setFilteredItems] = useState([]);
 	let { cityId, categoryId } = useParams();
 	const [isOpen, setIsOpen] = useState(false);
+	const [review, setReviews] = useState({});
 	const getCategories = () => {
 		let categoryService = new CategoryService();
 		categoryService.getAll().then((result) => {
@@ -53,6 +56,7 @@ function Listing() {
 	const getPlaces = () => {
 		let placeService = new PlaceService();
 		placeService.getAll().then((result) => {
+			console.log(result.data);
 			setPlaces(result.data)
 			if (places.length === 0) {
 				setIsOpen(true);
@@ -139,12 +143,12 @@ function Listing() {
 									/>
 									{itemsToDisplay.length > 0 && itemsToDisplay.map((place, index) => {
 										return (
-											<Marker key={index} position={[place.locationLat, place.locationLng]}>
+											<Marker key={index} position={[place.placeDto.locationLat, place.placeDto.locationLng]}>
 												<Popup>
 													<div className="popup-content">
-														<h3>{place.placeName}</h3>
-														<p>{place.description}</p>
-														<a href={`/listing/${place.id}`}>
+														<h3>{place.placeDto.placeName}</h3>
+														<p>{place.placeDto.description}</p>
+														<a href={`/listing/${place.placeDto.id}`}>
 															<button className="btn btn-primary">View</button>
 														</a>
 													</div>
@@ -208,23 +212,23 @@ function Listing() {
 								<div className="themeposts placesposts gridview">
 									{itemsToDisplay.length > 0 ? itemsToDisplay.map((place, index) => {
 										return (
-											<Link to={`/listing/${place.id}`}>
+											<Link to={`/listing/${place.placeDto.id}`}>
 												<div className="themepost placespost" onClick>
 													<figure className="featuredimg">
 														<img src="https://media-cdn.tripadvisor.com/media/photo-s/10/e5/73/92/photo1jpg.jpg" alt="image description" className="detail" />
 													</figure>
 													<div className="postcontent">
-														<h3><a href="">{place.placeName}</a></h3>
+														<h3><a href="">{place.placeDto.placeName}</a></h3>
 														<div className="description">
-															<p>{place.phoneNumber}</p>
+															<p>{place.placeDto.phoneNumber}</p>
 														</div>
 														<div className="reviewcategory">
 															<div className="review">
-																<span className="stars"><span></span></span>
-																<em>(3 Review)</em>
+																<Rating value={place.scoreResponseRequest.averageOfScores} readOnly />
+																<em>({place.scoreResponseRequest.numberOfReview} Review)</em>
 															</div>
 															<a href="" className="category">
-																{(place.placeCategories).map(category => {
+																{(place.placeDto.placeCategories).map(category => {
 																	return (
 																		<div>
 																			<i className="icon-nightlife"></i>
@@ -237,7 +241,7 @@ function Listing() {
 														<div className="themepostfoot">
 															<a className="location" href="">
 																<i className="icon-icons74"></i>
-																<em>{place.locationCityName}</em>
+																<em>{place.placeDto.locationCityName}</em>
 															</a>
 														</div>
 													</div>

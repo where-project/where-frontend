@@ -12,12 +12,15 @@ import ReservationPage from '../../ReservationPage/ReservationPage'
 import { useParams } from 'react-router-dom'
 import PlaceService from '../../../services/PlaceService'
 import PlaceLocation from './Location/PlaceLocation'
-import UserService from '../../../services/UserService'
+import { Rating } from 'react-rainbow-components'
+import ScoreService from '../../../services/ScoreService'
 
 const PlaceDetail = ({ user, ...props }) => {
     const [currentPage, setCurrentPage] = useState(1);
     let { placeId } = useParams();
     const [place, setPlace] = useState({});
+    const [avgScore, setAvgScore] = useState(0);
+    const [numberOfReview, setNumberOfReview] = useState(0);
     const changeActive = (id) => {
         setCurrentPage(id);
     }
@@ -32,7 +35,7 @@ const PlaceDetail = ({ user, ...props }) => {
             return <PlaceLocation place={place} />
         }
         else if (currentPage === 4) {
-            return <Reviews placeId={placeId} user={user}/>
+            return <Reviews placeId={placeId} user={user} />
         }
         else if (currentPage === 5) {
             return <ReservationPage place={place} user={user} />
@@ -41,13 +44,25 @@ const PlaceDetail = ({ user, ...props }) => {
 
     useEffect(() => {
         let placeService = new PlaceService();
+
         placeService.getById(placeId).then((result) => {
             setPlace(result.data)
         }, err => {
             console.log(err.response);
         });
-    }, [])
 
+    }, [placeId])
+
+    useEffect(() => {
+        let scoreService = new ScoreService();
+        scoreService.getReviewInformation(placeId).then((result) => {
+            setAvgScore(result.data.averageOfScores)
+            setNumberOfReview(result.data.numberOfReview)
+            console.log(result.data);
+        }).catch(err => {
+            console.log(err.response);
+        })
+    }, [placeId])
     return (
         <main className="main haslayout">
             <div className="themepost placespost detail detailvone">
@@ -68,9 +83,12 @@ const PlaceDetail = ({ user, ...props }) => {
                                     ><i className="icon-checkmark postverified themetooltip" data-toggle="tooltip" data-placement="top" title="" data-original-title="Verified"></i>
                                     </OverlayTrigger> </h1>
                                 <div className="reviewcategory">
+                                    <div className="rainbow-m-around_small">
+                                        <Rating value={avgScore} readOnly label={avgScore.toFixed(2) + " of 5"} />
+                                    </div>
                                     <div className="review">
-                                        <span className="stars"><span></span></span>
-                                        <em>(6 Review)</em>
+                                        <em></em>
+                                        <em>( {numberOfReview} Review)</em>
                                     </div>
                                     <ul className="postinfotags">
                                         <li><a href="#3"><i className="icon-heart2"></i><span>23</span></a></li>
