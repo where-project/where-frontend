@@ -20,7 +20,6 @@ const Price = ({ pricingList, setPricetingList, counter, setCounter, ...props })
                     values.id = counter;
                     setPricetingList([...pricingList, values]);
                     setSubmitting(false);
-                    console.log(pricingList);
                     resetForm();
                 }}
                 initialValues={{
@@ -72,7 +71,7 @@ const Price = ({ pricingList, setPricetingList, counter, setCounter, ...props })
                                         <div className="col-xs-12 col-sm-6 col-md-6 col-lg-3">
                                             <div className="form-group dashboardfield">
                                                 <label htmlFor='price'>Price</label>
-                                                <input type="number" name="price" className="form-control" placeholder="Price" onChange={handleChange} step="0.01" values={values.price} />
+                                                <input type="number" name="price" className="form-control" placeholder="Price" onChange={handleChange} step={0.1} value={values.price} />
                                                 {touched.price && errors.price ? (
                                                     <Alert style={{ marginTop: "10px", borderRadius: "10px" }} key="danger" variant="danger">
                                                         {errors.price}
