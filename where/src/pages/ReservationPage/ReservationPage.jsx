@@ -21,7 +21,7 @@ const ReservationPage = ({ place, user, ...args }) => {
   let web3;
   let reservationModel = {
     "email": userDetails.email,
-    "reservationDate": reservationDate.toString(),
+    "reservationDate": reservationDate.toLocaleDateString(),
     "reservationTime": reservationTime,
     "placeName": place.placeName,
   }
