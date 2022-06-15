@@ -1,7 +1,7 @@
 import React from 'react'
 import { Modal, Button } from 'react-rainbow-components';
 import MainPage from '../../pages/MainPage/MainPage';
-const WhereModal = ({ isOpen, description, title, setIsOpen, ...props }) => {
+const WhereModal = ({ isOpen, description, title, setIsOpen, isRedirect, ...props }) => {
 
     const handleOnClose = () => {
         setIsOpen(false)
@@ -9,7 +9,9 @@ const WhereModal = ({ isOpen, description, title, setIsOpen, ...props }) => {
 
     const handleOnOkButton = () => {
         setIsOpen(false);
-        window.location.href = "/mainpage";
+        if (isRedirect) {
+            window.location.href = "/mainpage";
+        }
     }
     return (
         <div className="rainbow-m-bottom_xx-large rainbow-p-bottom_xx-large">
