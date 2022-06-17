@@ -34,12 +34,10 @@ function Listing() {
 	let { cityId, categoryId } = useParams();
 	const [isOpen, setIsOpen] = useState(false);
 	const [isDeleted, setIsDeleted] = useState(false);
-	const [review, setReviews] = useState({});
 
 	const getPlaces = () => {
 		let placeService = new PlaceService();
 		placeService.getAll().then((result) => {
-			console.log(result.data);
 			setPlaces(result.data)
 			if (places.length === 0) {
 				setIsOpen(true);
@@ -201,7 +199,7 @@ function Listing() {
 																	{(place.placeDto.placeCategories).map(category => {
 																		return (
 																			<div>
-																				<i className="icon-nightlife"></i>
+																				<i className={`icon-${category.categoryCategoryName.toLowerCase()}`}></i>
 																				<span>{category.categoryCategoryName}</span>
 																			</div>
 																		);
