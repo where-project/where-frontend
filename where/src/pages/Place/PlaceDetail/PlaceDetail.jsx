@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import "../../../css/style.css"
 import "../../../css/icon.css"
 import "../../../css/Place/placeDetail.css"
-import image from "../../../images/1.jpg"
+import image from "../../../images/detail.png"
 import Pricing from '../../../pages/Pricing/Pricing'
 import Reviews from '../../../pages/Reviews/Reviews'
 import Overview from '../../../components/Overview'
