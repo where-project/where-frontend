@@ -3,6 +3,9 @@
   "version": "0.1.0",
   "description": "Where",
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^6.1.1",
+    "@fortawesome/free-solid-svg-icons": "^6.1.1",
+    "@fortawesome/react-fontawesome": "^0.1.18",
     "@react-google-maps/api": "^2.10.2",
     "axios": "^0.26.0",
     "babel-polyfill": "6.26.0",

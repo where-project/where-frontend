@@ -26,7 +26,7 @@ L.Icon.Default.mergeOptions({
 	shadowUrl: require('leaflet/dist/images/marker-shadow.png').default
 });
 
-function Listing() {
+function Listing({user,...params}) {
 	const position = [39.76, 30.52]
 	const [places, setPlaces] = useState([]);
 	const [filterText, setFilterText] = useState("");
@@ -215,9 +215,10 @@ function Listing() {
 															<i className="icon-icons74"></i>
 															<em>{place.placeDto.locationCityName}</em>
 														</a>
-														<div class="deleteplace">
+														{user.role === "ROLE_ADMIN" && <div class="deleteplace">
 															<Button label="Delete Place" variant="destructive" onClick={() => deletePlace(place.placeDto.id)} />
-														</div>
+														</div>}
+
 													</div>
 												</div>
 											</div>
