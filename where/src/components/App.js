@@ -35,19 +35,25 @@ const App = () => {
       <Routes>
         <Route path="/" element={<MainPage />} />
         <Route path="/mainpage" element={<MainPage />} />
-        <Route path="/listing" element={<Listing />} />
+        <Route path="/listing" element={<Listing user={user} />} />
         <Route path="/listing/:placeId" element={<PlaceDetail user={user} />} />
-        <Route path="/login" element={<LoginRegister setIsLogin={setIsLogin} />} />
+        <Route
+          path="/login"
+          element={<LoginRegister setIsLogin={setIsLogin} />}
+        />
         <Route path="/dashboard" element={<Dashboard user={user} />} />
         <Route path="/contact" element={<Contact />} />
         <Route
           path="/listing/search/category/:categoryId"
-          element={<Listing />}
+          element={<Listing user={user} />}
         />
-        <Route path="/listing/search/city/:cityId" element={<Listing />} />
+        <Route
+          path="/listing/search/city/:cityId"
+          element={<Listing user={user} />}
+        />
         <Route
           path="/listing/search/:cityId/:categoryId"
-          element={<Listing />}
+          element={<Listing user={user} />}
         />
         <Route path="*" element={<Error />} />
       </Routes>
