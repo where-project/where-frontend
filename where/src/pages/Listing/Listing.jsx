@@ -102,9 +102,9 @@ function Listing() {
 		if (places.length > 0) {
 			console.log(places);
 			setFilteredItems(places.filter(place =>
-				place.placeName?.toLowerCase().includes(filterText) ||
-				place.placeDescription?.toLowerCase().includes(filterText) ||
-				place.locationCityName?.toLowerCase().includes(filterText)));
+				place.placeDto.placeName?.toLowerCase().includes(filterText.toLowerCase()) ||
+				place.placeDto.placeDescription?.toLowerCase().includes(filterText.toLowerCase()) ||
+				place.placeDto.locationCityName?.toLowerCase().includes(filterText.toLowerCase())));
 		}
 	}, [filterText]);
 	const itemsToDisplay = filterText ? filteredItems : places;
@@ -147,11 +147,6 @@ function Listing() {
 										)
 									})
 									}
-									<Marker position={position}>
-										<Popup>
-											A pretty CSS3 popup. <br /> Easily customizable.
-										</Popup>
-									</Marker>
 								</MapContainer>
 							</div>
 						</div>
