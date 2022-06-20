@@ -30,8 +30,12 @@ contract ReservationDetail {
         string memory _date,
         string memory _time
     ) public {
-        //Requira a name
+        //Require a place id
         require(_placeId > 0);
+        //Require a date
+        require(bytes(_date).length > 0);
+        //Require a time
+        require(bytes(_time).length > 0);
         //Increment product count
         reservationCount++;
         //create the product
