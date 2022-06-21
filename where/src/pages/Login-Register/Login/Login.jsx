@@ -12,8 +12,8 @@ import WhereAlert from '../../../components/WhereAlert/WhereAlert';
 import CustomNotification from '../../../components/Notification/CustomNotification';
 
 const schema = yup.object().shape({
-    username: yup.string().required("Please provide a valid title."),
-    password: yup.string().required("Please provide a valid description."),
+    username: yup.string().required("Please provide a valid username."),
+    password: yup.string().required("Please provide a valid password."),
 });
 const Login = ({ setIsLogin, ...props }) => {
     const [error, setError] = useState('');

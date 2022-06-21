@@ -13,9 +13,9 @@ import WhereAlert from '../../../components/WhereAlert/WhereAlert';
 import CustomNotification from '../../../components/Notification/CustomNotification';
 
 const schema = yup.object().shape({
-  username: yup.string().min(6, "must be at least 6 characters long").required("Please provide a valid title."),
-  firstName: yup.string().min(3, "must be at least 3 characters long").required("Please provide a valid description."),
-  lastName: yup.string().min(2, "must be at least 2 characters long").required("Please provide a valid description."),
+  username: yup.string().min(6, "must be at least 6 characters long").required("This field is required"),
+  firstName: yup.string().min(3, "must be at least 3 characters long").required("This field is required"),
+  lastName: yup.string().min(2, "must be at least 2 characters long").required("This field is required"),
   email: yup.string().email("Please provide a valid email.").required("This field is required"),
   password: yup.string().min(8, "must be at least 8 characters long").required("This field is required"),
   changepassword: yup.string().when("password", {

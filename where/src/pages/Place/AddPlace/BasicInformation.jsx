@@ -101,7 +101,7 @@ const BasicInformation = ({ basicInformation, setBasicInformation, amenities, se
                                 <div className="row">
                                     <div className="col-xs-12 col-sm-6 col-md-6 col-lg-6">
                                         <div className="form-group dashboardfield">
-                                            <label>Listing Title</label>
+                                            <label>Venue Title</label>
                                             <input type="text" name="title" className="form-control" placeholder="Esogu Restaurant" onChange={handleChange} value={values.title} />
                                             {touched.title && errors.title ? (
                                                 <Alert style={{ marginTop: "10px", borderRadius: "10px" }} key="danger" variant="danger">
@@ -125,6 +125,9 @@ const BasicInformation = ({ basicInformation, setBasicInformation, amenities, se
                                         <div className="form-group dashboardfield">
                                             <label>Categories</label>
                                             <select type="text" name="categories" className="form-control" placeholder="Select Category" onChange={handleChange} defaultValue="1" >
+                                                <option key={1} value={1}>
+                                                    Select Category
+                                                </option>
                                                 {categories.map((category) => {
                                                     return (
                                                         <option key={category.id} value={category.id}>
@@ -144,6 +147,9 @@ const BasicInformation = ({ basicInformation, setBasicInformation, amenities, se
                                         <div className="form-group dashboardfield">
                                             <label>City</label>
                                             <select type="text" name="city" className="form-control" placeholder="Turkey" onChange={handleChange} value={values.city} >
+                                                <option key={1} value={1}>
+                                                    Select City
+                                                </option>
                                                 {cities.map((city) => {
                                                     return (
                                                         <option key={city.id} value={city.id}>

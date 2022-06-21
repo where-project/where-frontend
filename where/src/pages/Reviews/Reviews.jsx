@@ -80,7 +80,7 @@ function Reviews({ placeId, user, ...props }) {
                                                     <div className="authorinfo">
                                                         <h3>{comment.firstName} {comment.lastName}</h3>
                                                         <em></em>
-                                                        <Rating value={score.venueScore} readOnly label={score.venueScore+" of 5"} />
+                                                        <Rating value={score.venueScore} readOnly label={score.venueScore + " of 5"} />
                                                     </div>
                                                 </div>
                                                 <a className="helpful" href="">
@@ -94,7 +94,7 @@ function Reviews({ placeId, user, ...props }) {
                                                         <span>{comment.createDate}</span>
                                                     </time>
                                                     <div className="description">
-                                                        <p>{comment.commentText}</p>
+                                                        <p style={{ textTransform: 'capitalize' }}>{comment.commentText}</p>
                                                     </div>
                                                 </div>
                                             </div>

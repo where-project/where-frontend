@@ -8,7 +8,7 @@ const Pricing = ({ menuItems, ...params }) => {
                     return <li>
                         <div className="pricebox" key={index}>
                             <h3>{item.title}</h3>
-                            <p>{item.description}</p>
+                            <p style={{ textTransform: 'capitalize' }}>{item.description}</p>
                             <span className="price">${item.price}</span>
                         </div>
                     </li>
