@@ -3,8 +3,6 @@ import "../../css/listing.css";
 import "../../css/icon.css";
 import "../../css/style.css"
 import "../../css/responsive.css"
-import CategoryService from '../../services/CategoryService';
-import CityService from "../../services/CityService";
 import PlaceService from "../../services/PlaceService";
 import 'font-awesome/css/font-awesome.min.css';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
@@ -12,12 +10,20 @@ import 'leaflet/dist/leaflet.css';
 import L from 'leaflet';
 import Pagination from "../../components/Pagination/Pagination";
 import { Link, useParams } from "react-router-dom";
-import WhereAlert from "../../components/WhereAlert/WhereAlert";
-import { NOTIFICATION_STATES } from "../../constants/NotificationStates";
 import WhereModal from "../../components/WhereModal/WhereModal";
 import { Button } from "react-rainbow-components";
-import ScoreService from "../../services/ScoreService";
 import { Rating } from "react-rainbow-components";
+import i1 from '../../images/i1.jpg';
+import i2 from '../../images/i2.jpg';
+import i3 from '../../images/i3.jpg';
+import i4 from '../../images/i4.jpg';
+import i5 from '../../images/i5.jpg';
+import i6 from '../../images/i6.jpg';
+import i7 from '../../images/i7.jpg';
+import i8 from '../../images/i8.jpg';
+import i9 from '../../images/i9.jpg';
+import i10 from '../../images/i10.jpg';
+
 delete L.Icon.Default.prototype._getIconUrl;
 
 L.Icon.Default.mergeOptions({
@@ -26,7 +32,7 @@ L.Icon.Default.mergeOptions({
 	shadowUrl: require('leaflet/dist/images/marker-shadow.png').default
 });
 
-function Listing({user,...params}) {
+function Listing({ user, ...params }) {
 	const position = [39.76, 30.52]
 	const [places, setPlaces] = useState([]);
 	const [filterText, setFilterText] = useState("");
@@ -34,7 +40,8 @@ function Listing({user,...params}) {
 	let { cityId, categoryId } = useParams();
 	const [isOpen, setIsOpen] = useState(false);
 	const [isDeleted, setIsDeleted] = useState(false);
-
+	const src = [i1, i2, i3, i4, i5, i6, i7, i8, i9, i10]
+	let placePhotoCounter = 1;
 	const getPlaces = () => {
 		let placeService = new PlaceService();
 		placeService.getAll().then((result) => {
@@ -174,7 +181,7 @@ function Listing({user,...params}) {
 											<div className="themepost placespost">
 												<Link to={`/listing/${place.placeDto.id}`}>
 													<figure className="featuredimg">
-														<img src="https://media-cdn.tripadvisor.com/media/photo-s/10/e5/73/92/photo1jpg.jpg" alt="image description" className="detail" />
+														<img src={src[index]} alt="image description" className="detail" style={{ height: "300px", width: "500px" }} />
 													</figure>
 												</Link>
 												<div className="postcontent">
