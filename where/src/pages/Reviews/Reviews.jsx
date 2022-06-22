@@ -10,6 +10,8 @@ import { Alert } from 'react-bootstrap';
 import UserService from '../../services/UserService';
 import ScoreService from "../../services/ScoreService"
 import { Rating } from 'react-rainbow-components';
+import userImage from "../../images/icons/avatar.png"
+
 function Reviews({ placeId, user, ...props }) {
 
     const [categories, setCategories] = useState([]);
@@ -74,7 +76,7 @@ function Reviews({ placeId, user, ...props }) {
                                             <div className="comment">
                                                 <div className="commentauthorbox">
                                                     <figure><a href="">
-                                                        <img src="https://media-cdn.tripadvisor.com/media/photo-s/10/e5/73/92/photo1jpg.jpg" alt="image description" />
+                                                        <img src={userImage} alt="image description" />
                                                     </a>
                                                     </figure>
                                                     <div className="authorinfo">
