@@ -64,7 +64,7 @@ const MainPage = () => {
 					<div>
 						<div className='col-xs-12 col-sm-12 col-md-12 col-lg-12'>
 							<div className='banner-content'>
-								<h1>Find Local Services</h1>
+								<h1>Find The Best Places</h1>
 								<div className='description'>
 									<p>Find the best places in the city for food, activities and relaxation</p>
 								</div>
