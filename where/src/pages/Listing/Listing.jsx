@@ -26,7 +26,7 @@ L.Icon.Default.mergeOptions({
 	shadowUrl: require('leaflet/dist/images/marker-shadow.png').default
 });
 
-function Listing({user,...params}) {
+function Listing({ user, ...params }) {
 	const position = [39.76, 30.52]
 	const [places, setPlaces] = useState([]);
 	const [filterText, setFilterText] = useState("");
@@ -137,7 +137,7 @@ function Listing({user,...params}) {
 												<Popup>
 													<div className="popup-content">
 														<h3>{place.placeDto.placeName}</h3>
-														<p>{place.placeDto.description}</p>
+														<p style={{ textTransform: 'capitalize' }}>{place.placeDto.description}</p>
 														<a href={`/listing/${place.placeDto.id}`}>
 															<button className="btn btn-primary">View</button>
 														</a>
