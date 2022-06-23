@@ -10,7 +10,7 @@ const Contact = () => {
     const [emailTo, setEmailTo] = useState("");
 
     let reservationModel = {
-        "email": "akkepenek38@gmail.com",
+        "email": "noreply.where26@gmail.com",
         "body": body,
         "subject": subject,
         "name": name,
