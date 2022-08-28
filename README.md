@@ -1,4 +1,4 @@
-# Where: Blockchain Destekli Rezervasyon Sistemi Backend 👩‍💻
+# Where: Blockchain Destekli Rezervasyon Sistemi Frontend 👩‍💻
 ### 1 - [INTRODUCTION](https://github.com/where-project#1-introduction)
 ### 2 - [DESIGN](https://github.com/where-project#2-design)
 ### 3 - [THE WORKS OF TEAM MEMBERS](https://github.com/where-project#3-the-works-of-team-members)
